@@ -33,6 +33,12 @@ namespace Core
         {
             GameObject gameObject = GameObjectPool.Take(LoadPrefab(prefabId), position, rotation);
 
+            /*
+             * 说明：
+             * 在Assets\Resources\Entities中确实能够找见一个名为Movement的prefab，猜测如下：
+             * 因为要通过网络同步物体的各个状态，包括移动，这里把移动单独拎出来了
+             * 
+             */
             if (!gameObject.CompareTag("Move State"))
             {
                 Entity createdEntity = gameObject.GetComponent<Entity>();

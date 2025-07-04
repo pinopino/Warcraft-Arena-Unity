@@ -63,7 +63,7 @@ MonoBehaviour:
   serializeProjectAsText: 0
   photonAppId: 9e4af054-d4df-41ea-917f-0a0abc198b17
   photonUsePunch: 1
-  photonCloudRegionIndex: 5
+  photonCloudRegionIndex: 4
   instantiateMode: 2
   globalEntityBehaviourQueryOption: 3
   globalEntityPriorityCalculatorQueryOption: 3

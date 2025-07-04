@@ -229,6 +229,8 @@ namespace Core
 
                 InitializeAttributes();
 
+                // 说明：如果这个实体对象不是本地创建的（其它联网的玩家创建的），
+                // 那么就向bolt注册监听，以便随时接收网络来的新的属性值；
                 if (!unit.IsOwner)
                 {
                     unit.AddCallback(nameof(IUnitState.DeathState), OnDeathStateChanged);

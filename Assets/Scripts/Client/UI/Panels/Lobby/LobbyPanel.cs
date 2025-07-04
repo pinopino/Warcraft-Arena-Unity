@@ -295,6 +295,7 @@ namespace Client
 
             UpdateInputState(false);
 
+            Debug.Log("1.LobbyPanel.Start"); // 删除
             photonReference.StartSinglePlayer(new ServerRoomToken(serverNameInput.text, playerNameInput.text, selectedMapSlot.MapDefinition.MapName), OnServerStartSuccess, OnServerStartFail);
 
             void OnServerStartFail()

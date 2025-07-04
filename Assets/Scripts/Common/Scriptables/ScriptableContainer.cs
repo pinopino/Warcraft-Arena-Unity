@@ -14,7 +14,7 @@ namespace Common
 
         public void Register()
         {
-            for(int i = 0; i < scriptableReferences.Count; i++)
+            for (int i = 0; i < scriptableReferences.Count; i++)
                 scriptableReferences[i].Register();
         }
 

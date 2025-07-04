@@ -112,6 +112,27 @@ namespace Core
         {
             base.HandleControlGained();
 
+            /*
+             * 说明：
+             * 目前的理解是这样一个场景：
+             * 
+             * 比如在一个作为client的unity客户端播放器中，他能看到两个player，一个是自己，
+             * 而另一个则是作为server的那端的unity客户端播放器中创建的角色，然后通过网线
+             * 传输过来的。
+             * 
+             * 这里很关键的是要意识到，在client这端的unity内存中，是有两个player实体的；
+             * （server那端同理也一样）
+             * 
+             * 此时，server那端点击，比如说“移交控制”按钮，内部执行代码不出意外就是：
+             * player.AssignControl(otherConnection);
+             * 
+             * 于是，client这端的内存中那个代表server那端角色的那个player就会触发这里的
+             * ControlGained事件；
+             * 
+             * 于是我们在这个事件的handler中才会写下诸如IsOwner（肯定是false，owner是server那端）
+             * ，又或者是IsController（肯定是true，因为server才点击了移交控制按钮）之类的判断
+             * 
+             */
             if (!IsOwner && IsController)
             {
                 BoltEntity localClientMoveState = BoltNetwork.Instantiate(BoltPrefabs.Movement);

@@ -35,6 +35,7 @@ namespace Core
 
             public void SetScopeOf(WorldEntity target, bool inScope)
             {
+                // 说明：如果player是其它玩家
                 if (player.BoltEntity.Controller != null)
                 {
                     if (inScope)
@@ -43,6 +44,7 @@ namespace Core
                     target.BoltEntity.SetScope(player.BoltEntity.Controller, inScope);
                 }
 
+                // 说明：如果player是房间机主
                 if (player.IsLocalServerPlayer)
                     EventHandler.ExecuteEvent(player.World, GameEvents.ServerVisibilityChanged, target, inScope);
             }

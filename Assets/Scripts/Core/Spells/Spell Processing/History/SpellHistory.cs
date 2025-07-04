@@ -8,7 +8,7 @@ namespace Core
     {
         private readonly Dictionary<int, SpellCooldown> spellCooldownsById = new Dictionary<int, SpellCooldown>();
         private readonly Dictionary<int, List<SpellChargeCooldown>> spellChargesById = new Dictionary<int, List<SpellChargeCooldown>>();
-        private readonly List<SpellCooldown> spellCooldowns = new List< SpellCooldown>();
+        private readonly List<SpellCooldown> spellCooldowns = new List<SpellCooldown>();
         private readonly Unit caster;
         private readonly IUnitState casterState;
 
@@ -74,7 +74,7 @@ namespace Core
         public bool HasCooldown(int spellInfoId, out SpellCooldown cooldown)
         {
             return spellCooldownsById.TryGetValue(spellInfoId, out cooldown) && cooldown.CooldownLeft > 0;
-        } 
+        }
 
         public bool HasCharge(SpellInfo spellInfo, out SpellChargeCooldown chargeCooldown, out int availableCharges)
         {
@@ -96,12 +96,13 @@ namespace Core
         public void Handle(SpellCooldownEvent cooldownEvent)
         {
             int expectedCooldownFrames = (int)(cooldownEvent.CooldownTime / BoltNetwork.FrameDeltaTime / 1000.0f);
+            // 说明：从这里其实就能看出来类似ServerFrame这样的属性字段就是一个点，不是一个frame段
             int framesPassed = BoltNetwork.ServerFrame - cooldownEvent.ServerFrame;
 
             if (framesPassed > expectedCooldownFrames || expectedCooldownFrames < 1)
                 return;
 
-            float cooldownProgressLeft = 1.0f - (float) framesPassed / expectedCooldownFrames;
+            float cooldownProgressLeft = 1.0f - (float)framesPassed / expectedCooldownFrames;
             int cooldownTimeLeft = Mathf.RoundToInt(cooldownEvent.CooldownTime * cooldownProgressLeft);
 
             AddCooldown(cooldownEvent.SpellId, cooldownEvent.CooldownTime, cooldownTimeLeft);
@@ -150,9 +151,18 @@ namespace Core
             if (spellInfo.IsPassive)
                 return;
 
+            Debug.Log("spellInfo.IsPassive = false"); // 删除
             int cooldownLeft = spellInfo.CooldownTime;
             if (cooldownLeft <= 0)
+            {
+                Debug.Log("cooldownLeft <= 0"); // 删除
                 return;
+            }
+            else
+            {
+                Debug.Log("cooldownLeft > 0"); // 删除
+            }
+
 
             if (spellInfo.IsUsingCharges)
             {
@@ -166,7 +176,14 @@ namespace Core
                 SpellCooldown spellCooldown = AddCooldown(spellInfo.Id, cooldownLeft, cooldownLeft);
 
                 if (caster is Player player && player.BoltEntity.Controller != null)
+                {
+                    Debug.Log("player.BoltEntity.Controller != null"); // 删除
                     EventHandler.ExecuteEvent(GameEvents.ServerSpellCooldown, player, spellCooldown);
+                }
+                else
+                {
+                    Debug.Log("player.BoltEntity.Controller = null"); // 删除
+                }
             }
         }
 
@@ -210,7 +227,7 @@ namespace Core
             if (expectedGlobalFrames > 0)
             {
                 int globalServerFrame = casterState.GlobalCooldown.ServerFrame;
-                float cooldownLeftRatio = 1 - Mathf.Clamp01((float) (BoltNetwork.ServerFrame - globalServerFrame) / expectedGlobalFrames);
+                float cooldownLeftRatio = 1 - Mathf.Clamp01((float)(BoltNetwork.ServerFrame - globalServerFrame) / expectedGlobalFrames);
 
                 GlobalCooldownLeft = Mathf.RoundToInt(cooldownLeftRatio * GlobalCooldown);
             }

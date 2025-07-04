@@ -9,6 +9,8 @@ namespace Server
     {
         internal GameSpellListener(WorldServer world) : base(world)
         {
+            // 说明：目前分析下来GameEvents中这些Server打头的就是说这些事件都需要发生在服务端，
+            // 不相信客户端的计算，然后结果再下发到客户端中去
             EventHandler.RegisterEvent<SpellDamageInfo>(GameEvents.ServerDamageDone, OnSpellDamageDone);
             EventHandler.RegisterEvent<SpellHealInfo>(GameEvents.ServerHealingDone, OnSpellHealingDone);
             EventHandler.RegisterEvent<Unit, SpellInfo, SpellProcessingToken>(GameEvents.ServerSpellLaunch, OnServerSpellLaunch);
@@ -33,6 +35,8 @@ namespace Server
         {
             if (damageInfo.Caster is Player player && World.IsControlledByHuman(player))
             {
+                // 说明：通过iscontroller区分下是服务器房主还是其它玩家，
+                // 而如果是其它玩家的话则这个事件需要下发到对应客户端去
                 SpellDamageDoneEvent spellDamageEvent = player.IsController
                     ? SpellDamageDoneEvent.Create(GlobalTargets.OnlyServer, ReliabilityModes.ReliableOrdered)
                     : SpellDamageDoneEvent.Create(player.BoltEntity.Controller, ReliabilityModes.ReliableOrdered);
@@ -43,6 +47,7 @@ namespace Server
                 spellDamageEvent.Send();
             }
 
+            // 说明：用这个事件应该是想对应其它生物施放技能
             UnitSpellDamageEvent unitSpellDemageEvent = UnitSpellDamageEvent.Create(damageInfo.Target.BoltEntity, EntityTargets.Everyone);
             unitSpellDemageEvent.CasterId = damageInfo.Caster.BoltEntity.NetworkId;
             unitSpellDemageEvent.Damage = (int)damageInfo.Damage;
@@ -79,7 +84,7 @@ namespace Server
                 : SpellCastRequestAnswerEvent.Create(caster.BoltEntity.Controller, ReliabilityModes.ReliableOrdered);
 
             spellCastAnswer.SpellId = spellInfo.Id;
-            spellCastAnswer.Result = (int) SpellCastResult.Success;
+            spellCastAnswer.Result = (int)SpellCastResult.Success;
             spellCastAnswer.ProcessingEntries = processingToken;
             spellCastAnswer.Send();
         }
@@ -100,7 +105,7 @@ namespace Server
             UnitSpellHitEvent unitSpellHitEvent = UnitSpellHitEvent.Create(target.BoltEntity, EntityTargets.Everyone);
             unitSpellHitEvent.CasterId = caster.BoltEntity.NetworkId;
             unitSpellHitEvent.SpellId = spellInfo.Id;
-            unitSpellHitEvent.MissType = (int) missType;
+            unitSpellHitEvent.MissType = (int)missType;
             unitSpellHitEvent.Send();
         }
 

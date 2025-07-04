@@ -15,6 +15,8 @@ namespace Core
 
         internal TEntity Create<TEntity>(PrefabId prefabId, Entity.CreateToken createToken = null) where TEntity : Unit
         {
+            // 说明：这里之所以能直接getcomponent拿到unit是因为Assets\Resources\Entities
+            // 这下面的三个prefab编辑器中就设置好了每个都绑定了一个bolt entity组件
             TEntity entity = BoltNetwork.Instantiate(prefabId, createToken).GetComponent<TEntity>();
             entity.ModifyDeathState(DeathState.Alive);
             entity.Attributes.SetHealth(entity.MaxHealth);

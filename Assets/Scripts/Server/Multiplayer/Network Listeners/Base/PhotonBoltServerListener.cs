@@ -49,17 +49,23 @@ namespace Server
             if (map == "Launcher") {
                 return;
             }
-            
+
+            Debug.Log("5.boltServerListener.SceneLoadLocalDone");
+
             base.SceneLoadLocalDone(map, token);
 
             if (BoltNetwork.IsConnected)
             {
                 World.MapManager.InitializeLoadedMap(1);
+                Debug.Log("6.World.MapManager.InitializeLoadedMap"); // 删除
 
                 EventHandler.ExecuteEvent(photon, GameEvents.ServerMapLoaded, (ServerRoomToken)token);
             }
         }
 
+        // 说明：可以理解为目前这里是server，这个conn是客户端连接上来的时候为其创建的；
+        // 当这个远程的客户端成功加载了场景的时候server能够收到这个事件，通过这里的
+        // SceneLoadRemoteDone回调；
         public override void SceneLoadRemoteDone(BoltConnection connection)
         {
             base.SceneLoadRemoteDone(connection);
@@ -144,6 +150,7 @@ namespace Server
 
         private void ProcessServerLaunchState(ServerLaunchState state)
         {
+            Debug.Log("7.最终步，World.ServerLaunched，剩下就是创建player和creature了"); // 删除
             LaunchState |= state;
 
             if (LaunchState == ServerLaunchState.Complete)

@@ -6,6 +6,16 @@ using UnityEngine;
 
 namespace Client
 {
+    /*
+     * 说明：
+     * bolt中有两种类型的事件：globalEvent和entityEvent，二者的区别见下面的参考链接；
+     * 
+     * 在我们的版本实现中，因为本身就没有网络，所以仅仅是为了跟原版方便对照而保留了
+     * PhotonBoltBaseListener，这里图方便也就让UnitRenderer也一并继承自它好了。
+     * 
+     * link：https://doc.photonengine.com/bolt/current/gameplay/events
+     * 
+     */
     public sealed partial class UnitRenderer : EntityEventListener<IUnitState>
     {
         [SerializeField, UsedImplicitly] private RenderingReference rendering;

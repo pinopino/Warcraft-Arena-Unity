@@ -9,7 +9,7 @@ namespace Core
             private const int IgnoredFramesAfterControlGained = 10;
 
             private Unit unit;
-            private BoltEntity moveEntity;
+            private BoltEntity moveEntity; // 说明：我实在是觉得这里两个字段是为坐骑或者那种可乘骑的载具准备的
             private IMoveState moveState;
 
             private int currentMovementIndex;
@@ -68,7 +68,7 @@ namespace Core
             {
                 return (MovementFlags & flag) != 0;
             }
-            
+
             public void ModifyConfusedMovement(bool isConfused)
             {
                 if (isConfused)
@@ -117,6 +117,11 @@ namespace Core
                 this.moveEntity = moveEntity;
 
                 moveState = moveEntity.GetState<IMoveState>();
+                // 说明：（doc103）
+                // state.SetTransforms(state.CubeTransform, transform);
+                // Here we tell Bolt to use the transform of the current game object 
+                // where the CubeBehaviour script is attached to and replicate it over the network.
+                // 有点像在给bolt侧的entity的tf属性绑定本地tf属性的味道，绑定！
                 moveState.SetTransforms(moveState.LocalTransform, moveEntity.transform);
 
                 if (unit.IsOwner)
@@ -143,6 +148,13 @@ namespace Core
                 moveState = null;
             }
 
+            /*
+             * 说明：（doc103）
+             * We're going to add some very simple movement code to our CubeBehaviour, 
+             * we could use just the normal Unity void Update(){...} way of doing things, 
+             * but Bolt provides another method we can use called SimulateOwner.
+             * 
+             */
             internal void SimulateOwner()
             {
                 if (unit.Motion.HasMovementControl && moveEntity != null)
@@ -155,6 +167,7 @@ namespace Core
                     }
                 }
 
+                // 说明：只要实在移动中，可见性就会发生变化，以此来刷新可见性相关的其它逻辑
                 if (unit.Motion.IsMoving)
                     unit.IsVisibilityChanged = true;
             }

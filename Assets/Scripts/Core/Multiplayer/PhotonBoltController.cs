@@ -152,7 +152,9 @@ namespace Core
             if (map == "Launcher") {
                 return;
             }
-            
+
+            Debug.Log("2.boltController.SceneLoadLocalDone"); // 删除
+
             base.SceneLoadLocalDone(map);
 
             if (BoltNetwork.IsConnected)
@@ -232,7 +234,7 @@ namespace Core
                 this.world = world;
 
                 boltSharedListener.Initialize(world);
-
+                Debug.Log("4.boltServerListener.Init && boltClientListener.Init"); // 删除
                 if (world.HasServerLogic)
                     boltServerListener.Initialize(world);
                 if (world.HasClientLogic)

@@ -60,7 +60,11 @@ namespace Server
             serverRoomToken = sessionToken;
 
             if (HasClientLogic)
+            {
+                Debug.Log("确实含有ClientLogic");
+                
                 CreatePlayer();
+            }
 
             EventHandler.ExecuteEvent(this, GameEvents.ServerLaunched);
         }
@@ -136,7 +140,9 @@ namespace Server
             }
             else
             {
-                var connectionToken = (ClientConnectionToken) boltConnection.ConnectToken;
+                // 说明：当conn不为空时，意味着需要为这个远程的conn创建一个player对象；
+                // 在客户端中看见的就是一个新的玩家加载进来了。
+                var connectionToken = (ClientConnectionToken)boltConnection.ConnectToken;
                 playerName = connectionToken.Name;
                 unityId = connectionToken.UnityId;
                 classType = connectionToken.PrefferedClass;
@@ -159,6 +165,14 @@ namespace Server
             };
 
             Player newPlayer = UnitManager.Create<Player>(BoltPrefabs.Player, playerCreateToken);
+            /*
+             * 说明：
+             * 当conn不为空时，虽然local的这台unity client创建了该player entity，但是，
+             * 应当清楚远程的conn才是这个entity的controller；因此，这里通过调用assignControl
+             * 转移了控制权；当然，后续通过doc能知道，entity默认都是没给ctrl的，所以其实这里
+             * conn为空的时候也是在赋值控制权
+             * 
+             */
             newPlayer.AssignControl(boltConnection);
             newPlayer.UpdateVisibility(true);
 

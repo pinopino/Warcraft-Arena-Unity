@@ -6,6 +6,7 @@ using Core;
 
 namespace Client
 {
+    // 说明：似乎是用于渲染的，也就是服务于unitrender那条逻辑的
     public partial class AuraControllerClient : UnitBehaviour
     {
         private bool[] changedSlots = new bool[30];
