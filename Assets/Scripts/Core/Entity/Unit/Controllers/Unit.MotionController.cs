@@ -167,7 +167,6 @@ namespace Core
                     }
                 }
 
-                // 说明：只要实在移动中，可见性就会发生变化，以此来刷新可见性相关的其它逻辑
                 if (unit.Motion.IsMoving)
                     unit.IsVisibilityChanged = true;
             }

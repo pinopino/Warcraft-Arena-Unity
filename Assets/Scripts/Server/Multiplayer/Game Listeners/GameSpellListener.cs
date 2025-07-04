@@ -9,8 +9,20 @@ namespace Server
     {
         internal GameSpellListener(WorldServer world) : base(world)
         {
-            // 说明：目前分析下来GameEvents中这些Server打头的就是说这些事件都需要发生在服务端，
-            // 不相信客户端的计算，然后结果再下发到客户端中去
+            /*
+             * 说明：
+             * 目前分析下来GameEvents中这些Server打头的就是说这些事件都需要发生在服务端，
+             * 不相信客户端的计算，然后结果再下发到客户端中去；
+             * 
+             * 以这里的GameEvents.ServerDamageDone为例；这里是RegisterEvent注册事件监听，
+             * 实际ExecuteEvent是发生在Unit.SpellController的DamageBySpell方法中；当该方法
+             * 执行完毕的时候会算出来一个SpellDamageInfo，然后触发该事件；
+             * 
+             * 随后，此处的OnSpellDamageDone方法就会被调用，并且收到上面的SpellDamageInfo对象；
+             * 在该回调中我们再通过bolt的机制向网络发布对应的SpellDamageDoneEvent事件；如此
+             * 来通知对应的客户端；
+             * 
+             */
             EventHandler.RegisterEvent<SpellDamageInfo>(GameEvents.ServerDamageDone, OnSpellDamageDone);
             EventHandler.RegisterEvent<SpellHealInfo>(GameEvents.ServerHealingDone, OnSpellHealingDone);
             EventHandler.RegisterEvent<Unit, SpellInfo, SpellProcessingToken>(GameEvents.ServerSpellLaunch, OnServerSpellLaunch);
