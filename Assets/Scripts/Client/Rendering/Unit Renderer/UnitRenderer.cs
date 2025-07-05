@@ -1,7 +1,6 @@
 ﻿using Bolt;
 using Common;
 using Core;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -18,9 +17,9 @@ namespace Client
      */
     public sealed partial class UnitRenderer : EntityEventListener<IUnitState>
     {
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private TagContainer dummyTagContainer;
-        [SerializeField, UsedImplicitly] private UnitSoundController soundController;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private TagContainer dummyTagContainer;
+        [SerializeField] private UnitSoundController soundController;
 
         private Vector3 targetSmoothVelocity;
 

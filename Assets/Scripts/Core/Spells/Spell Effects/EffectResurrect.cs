@@ -1,13 +1,12 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Resurrect", menuName = "Game Data/Spells/Effects/Resurrect", order = 3)]
+    [CreateAssetMenu(fileName = "Effect Resurrect", menuName = "Game Data/Spells/Effects/Resurrect", order = 3)]
     public class EffectResurrect : SpellEffectInfo
     {
-        [SerializeField, UsedImplicitly, Header("Resurrect")] private int healthPercent = 20;
+        [SerializeField, Header("Resurrect")] private int healthPercent = 20;
 
         public int HealthPercent => healthPercent;
 

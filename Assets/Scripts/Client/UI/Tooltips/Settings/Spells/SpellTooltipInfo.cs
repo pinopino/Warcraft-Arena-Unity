@@ -1,20 +1,19 @@
-﻿using System.Collections.Generic;
-using Client.Localization;
+﻿using Client.Localization;
 using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Spell Tooltip Info", menuName = "Game Data/Tooltips/Spell Tooltip Info", order = 1)]
+    [CreateAssetMenu(fileName = "Spell Tooltip Info", menuName = "Game Data/Tooltips/Spell Tooltip Info", order = 1)]
     public sealed class SpellTooltipInfo : ScriptableUniqueInfo<SpellTooltipInfo>
     {
-        [SerializeField, UsedImplicitly] private SpellTooltipInfoContainer container;
-        [SerializeField, UsedImplicitly] private SpellInfo spellInfo;
-        [SerializeField, UsedImplicitly] private LocalizedString spellNameString;
-        [SerializeField, UsedImplicitly] private LocalizedString spellDescriptionString;
-        [SerializeField, UsedImplicitly] private List<SpellTooltipArgumentSettings> argumentSettings;
+        [SerializeField] private SpellTooltipInfoContainer container;
+        [SerializeField] private SpellInfo spellInfo;
+        [SerializeField] private LocalizedString spellNameString;
+        [SerializeField] private LocalizedString spellDescriptionString;
+        [SerializeField] private List<SpellTooltipArgumentSettings> argumentSettings;
 
         protected override ScriptableUniqueInfoContainer<SpellTooltipInfo> Container => container;
         protected override SpellTooltipInfo Data => this;
@@ -27,7 +26,6 @@ namespace Client
         public IReadOnlyList<SpellTooltipArgumentSettings> ArgumentSettings => argumentSettings;
 
 #if UNITY_EDITOR
-        [UsedImplicitly]
         private void OnValidate()
         {
             if (argumentSettings.Count > MaxArguments)

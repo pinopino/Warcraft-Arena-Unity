@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -11,8 +10,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<InterfaceCanvasType, RectTransform>
         {
-            [SerializeField, UsedImplicitly] private InterfaceCanvasType canvasType;
-            [SerializeField, UsedImplicitly] private RectTransform rectTransform;
+            [SerializeField] private InterfaceCanvasType canvasType;
+            [SerializeField] private RectTransform rectTransform;
 
             public InterfaceCanvasType Key => canvasType;
             public RectTransform Value => rectTransform;

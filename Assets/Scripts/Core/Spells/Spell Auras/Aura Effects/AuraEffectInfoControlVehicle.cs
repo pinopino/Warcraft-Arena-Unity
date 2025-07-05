@@ -1,9 +1,8 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Control Vehicle", menuName = "Game Data/Spells/Auras/Effects/Control Vehicle", order = 4)]
+    [CreateAssetMenu(fileName = "Aura Effect Control Vehicle", menuName = "Game Data/Spells/Auras/Effects/Control Vehicle", order = 4)]
     public class AuraEffectInfoControlVehicle : AuraEffectInfo
     {
         public override float Value => 1.0f;

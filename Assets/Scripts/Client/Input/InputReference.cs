@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using Core;
+﻿using Core;
 using Core.Conditions;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
@@ -9,13 +8,13 @@ namespace Client
     [CreateAssetMenu(fileName = "Input Reference", menuName = "Game Data/Scriptable/Input", order = 1)]
     public class InputReference : ScriptableReferenceClient
     {
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private TargetingSpellReference spellTargeting;
-        [SerializeField, UsedImplicitly] private UnitControllerInputMouseKeyboard unitMouseKeyboardInput;
-        [SerializeField, UsedImplicitly] private ActionBarSettingsContainer actionBarSettingsContainer;
-        [SerializeField, UsedImplicitly] private List<HotkeyInputItem> hotkeys;
-        [SerializeField, UsedImplicitly] private List<InputActionGlobal> globalActions;
-        [SerializeField, UsedImplicitly] private List<Condition> inputDisabledWhen;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private TargetingSpellReference spellTargeting;
+        [SerializeField] private UnitControllerInputMouseKeyboard unitMouseKeyboardInput;
+        [SerializeField] private ActionBarSettingsContainer actionBarSettingsContainer;
+        [SerializeField] private List<HotkeyInputItem> hotkeys;
+        [SerializeField] private List<InputActionGlobal> globalActions;
+        [SerializeField] private List<Condition> inputDisabledWhen;
 
         public bool IsPlayerInputAllowed { get; private set; }
 
@@ -137,7 +136,7 @@ namespace Client
         }
 
 #if UNITY_EDITOR
-        [ContextMenu("Validate"), UsedImplicitly]
+        [ContextMenu("Validate")]
         private void Validate()
         {
             for (int i = 0; i < hotkeys.Count; i++)
@@ -147,13 +146,13 @@ namespace Client
                     if (hotkeys[i].HasSameInput(hotkeys[j]))
                         Debug.LogWarning($"{hotkeys[i].name} has the same input as {hotkeys[j].name}, this combination should be properly prioritized!");
 
-                    if(hotkeys[i] == hotkeys[j])
+                    if (hotkeys[i] == hotkeys[j])
                         Debug.LogError($"{hotkeys[i].name} assigned multiple times!");
                 }
             }
         }
 
-        [ContextMenu("Collect"), UsedImplicitly]
+        [ContextMenu("Collect")]
         private void CollectHotkeys()
         {
             hotkeys.Clear();

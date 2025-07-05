@@ -1,5 +1,4 @@
 ﻿using Core;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -7,47 +6,47 @@ namespace Client
     [RequireComponent(typeof(Camera))]
     public class WarcraftCamera : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private InputReference input;
 
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float targetHeight = 1.7f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float deadTargetHeight = 0.5f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float distance = 5.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float offsetFromWall = 0.1f;
 
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float maxDistance = 20;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float minDistance = 0.6f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float speedDistance = 5;
 
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float xSpeed = 200.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float ySpeed = 200.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private int yMinLimit = -40;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private int yMaxLimit = 80;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private int zoomRate = 40;
 
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float targetHeightDampening = 3.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float rotationDampening = 3.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float zoomDampening = 5.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float targetSmoothTime = 0.05f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private LayerMask collisionLayers = -1;
-        [SerializeField, UsedImplicitly, HideInInspector]
+        [SerializeField, HideInInspector]
         private Camera targetCamera;
 
         private Unit target;
@@ -75,13 +74,11 @@ namespace Client
             }
         }
 
-        [UsedImplicitly]
         private void OnValidate()
         {
             targetCamera = GetComponent<Camera>();
         }
 
-        [UsedImplicitly]
         private void Start()
         {
             Vector3 angles = transform.eulerAngles;
@@ -93,7 +90,6 @@ namespace Client
             correctedDistance = distance;
         }
 
-        [UsedImplicitly]
         private void LateUpdate()
         {
             if (!target)

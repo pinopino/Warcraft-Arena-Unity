@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
-using Common;
 
 namespace Core
 {

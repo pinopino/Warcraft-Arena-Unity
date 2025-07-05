@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core.AuraEffects;
 using Core.Conditions;
+using System.Collections.Generic;
 using UnityEngine;
 
-using SpellModifierContainer = System.Collections.Generic.Dictionary<(Core.SpellModifierType, Core.SpellModifierApplicationType), System.Collections.Generic.List<Core.SpellModifier>>;
-using SchoolImmunityContainer = System.Collections.Generic.Dictionary<Core.SpellSchoolMask, System.Collections.Generic.List<Core.SpellInfo>>;
 using MechanicsImmunityContainer = System.Collections.Generic.Dictionary<Core.SpellMechanics, System.Collections.Generic.List<Core.SpellInfo>>;
+using SchoolImmunityContainer = System.Collections.Generic.Dictionary<Core.SpellSchoolMask, System.Collections.Generic.List<Core.SpellInfo>>;
+using SpellModifierContainer = System.Collections.Generic.Dictionary<(Core.SpellModifierType, Core.SpellModifierApplicationType), System.Collections.Generic.List<Core.SpellModifier>>;
 
 namespace Core
 {

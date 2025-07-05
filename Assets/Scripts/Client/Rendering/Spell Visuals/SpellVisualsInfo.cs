@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client.Spells
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Spell Visual Info", menuName = "Game Data/Visuals/Spell Visual Info", order = 2)]
+    [CreateAssetMenu(fileName = "Spell Visual Info", menuName = "Game Data/Visuals/Spell Visual Info", order = 2)]
     public class SpellVisualsInfo : ScriptableUniqueInfo<SpellVisualsInfo>
     {
-        [SerializeField, UsedImplicitly] private SpellVisualsInfoContainer container;
-        [SerializeField, UsedImplicitly] private SpellInfo spellInfo;
-        [SerializeField, UsedImplicitly] private Sprite spellIcon;
-        [SerializeField, UsedImplicitly] private List<EffectSpellSettings> visualEffects = new List<EffectSpellSettings>();
+        [SerializeField] private SpellVisualsInfoContainer container;
+        [SerializeField] private SpellInfo spellInfo;
+        [SerializeField] private Sprite spellIcon;
+        [SerializeField] private List<EffectSpellSettings> visualEffects = new List<EffectSpellSettings>();
 
         private readonly Dictionary<EffectSpellSettings.UsageType, EffectSpellSettings> visualsByUsage = new Dictionary<EffectSpellSettings.UsageType, EffectSpellSettings>();
 

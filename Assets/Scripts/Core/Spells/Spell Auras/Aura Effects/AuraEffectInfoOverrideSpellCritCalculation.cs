@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using Core.Conditions;
-using JetBrains.Annotations;
+﻿using Core.Conditions;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Override Spell Crit Calculation", menuName = "Game Data/Spells/Auras/Effects/Override Spell Crit Calculation", order = 3)]
+    [CreateAssetMenu(fileName = "Aura Effect Override Spell Crit Calculation", menuName = "Game Data/Spells/Auras/Effects/Override Spell Crit Calculation", order = 3)]
     public class AuraEffectInfoOverrideSpellCritCalculation : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly, Range(0.0f, 5f)]
+        [SerializeField, Range(0.0f, 5f)]
         private float multiplier;
-        [SerializeField, UsedImplicitly, Range(-100.0f, 100f)]
+        [SerializeField, Range(-100.0f, 100f)]
         private float modifier;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private List<Condition> validTargetConditions;
 
         public override float Value => multiplier;

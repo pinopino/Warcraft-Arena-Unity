@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
@@ -10,7 +9,7 @@ namespace Client
 
     public abstract class TooltipItem : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private TooltipSlot slot;
+        [SerializeField] private TooltipSlot slot;
 
         public TooltipSlot Slot => slot;
     }

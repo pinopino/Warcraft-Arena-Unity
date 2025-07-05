@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Common
@@ -9,7 +8,7 @@ namespace Common
     {
         private static GameObjectPool Instance;
 
-        [SerializeField, UsedImplicitly] private string containerTag;
+        [SerializeField] private string containerTag;
 
         private readonly Dictionary<int, Stack<GameObject>> pooledGameObjectsByProtoId = new Dictionary<int, Stack<GameObject>>();
         private readonly Dictionary<GameObject, int> takenObjectProtoIds = new Dictionary<GameObject, int>();
@@ -25,8 +24,8 @@ namespace Common
         protected override void OnUnregister()
         {
             foreach (var pooledObjects in pooledGameObjectsByProtoId)
-            foreach (var pooledObject in pooledObjects.Value)
-                Destroy(pooledObject);
+                foreach (var pooledObject in pooledObjects.Value)
+                    Destroy(pooledObject);
 
             pooledGameObjectsByProtoId.Clear();
             takenObjectProtoIds.Clear();
@@ -78,7 +77,7 @@ namespace Common
 
             return newObject;
         }
-        
+
         private GameObject TakeIfAvailable(int protoId, Vector3 position, Quaternion rotation, Transform parent)
         {
             if (pooledGameObjectsByProtoId.TryGetValue(protoId, out Stack<GameObject> pooledObjects))
@@ -116,7 +115,7 @@ namespace Common
                 Instance.ProcessPooling(Instantiate(prototype, Vector3.zero, Quaternion.identity), protoId);
         }
 
-        public static void PreInstantiate<T>(T prototypeBehaviour, int preinstantiatedCount) where T: Behaviour
+        public static void PreInstantiate<T>(T prototypeBehaviour, int preinstantiatedCount) where T : Behaviour
         {
             PreInstantiate(prototypeBehaviour.gameObject, preinstantiatedCount);
         }
@@ -126,14 +125,14 @@ namespace Common
             return Instance != null ? Instance.TakeOrCreate(prototype, position, rotation, parent) : Instantiate(prototype, position, rotation, parent);
         }
 
-        public static T Take<T>(T prototype, Vector3 position, Quaternion rotation, Transform parent = null) where T: Behaviour
+        public static T Take<T>(T prototype, Vector3 position, Quaternion rotation, Transform parent = null) where T : Behaviour
         {
             return Instance != null ? Instance.TakeOrCreate(prototype, position, rotation, parent) : Instantiate(prototype, position, rotation, parent);
         }
 
         public static T Take<T>(T prototype) where T : Behaviour
         {
-            return Instance != null 
+            return Instance != null
                 ? Instance.TakeOrCreate(prototype, prototype.transform.localPosition, prototype.transform.rotation, null)
                 : Instantiate(prototype, prototype.transform.localPosition, prototype.transform.rotation, null);
         }
@@ -145,7 +144,7 @@ namespace Common
                 Destroy(takenObject);
         }
 
-        public static void Return<T>(T takenObject, bool destroyed) where T: Behaviour
+        public static void Return<T>(T takenObject, bool destroyed) where T : Behaviour
         {
             Return(takenObject.gameObject, destroyed);
         }

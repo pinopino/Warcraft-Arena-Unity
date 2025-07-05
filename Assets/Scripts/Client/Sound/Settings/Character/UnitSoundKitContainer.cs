@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Unit Sound Kit Container", menuName = "Game Data/Containers/Unit Sound Kit", order = 1)]
+    [CreateAssetMenu(fileName = "Unit Sound Kit Container", menuName = "Game Data/Containers/Unit Sound Kit", order = 1)]
     public class UnitSoundKitContainer : ScriptableUniqueInfoContainer<UnitSoundKit>
     {
-        [SerializeField, UsedImplicitly] private List<UnitSoundKit> soundKits;
+        [SerializeField] private List<UnitSoundKit> soundKits;
 
         private readonly Dictionary<int, UnitSoundKit> soundKitsById = new Dictionary<int, UnitSoundKit>();
 
@@ -20,7 +19,7 @@ namespace Client
         {
             base.Register();
 
-            foreach(var soundKit in soundKits)
+            foreach (var soundKit in soundKits)
                 soundKitsById.Add(soundKit.Id, soundKit);
         }
 

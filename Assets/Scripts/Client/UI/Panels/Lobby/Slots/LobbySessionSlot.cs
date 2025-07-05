@@ -1,7 +1,6 @@
-﻿using System;
-using Bolt.Utils;
+﻿using Bolt.Utils;
 using Core;
-using JetBrains.Annotations;
+using System;
 using TMPro;
 using UdpKit;
 using UnityEngine;
@@ -11,10 +10,10 @@ namespace Client
 {
     public class LobbySessionSlot : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private Button slotButton;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI mapNameLabel;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI serverNameLabel;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI versionNameLabel;
+        [SerializeField] private Button slotButton;
+        [SerializeField] private TextMeshProUGUI mapNameLabel;
+        [SerializeField] private TextMeshProUGUI serverNameLabel;
+        [SerializeField] private TextMeshProUGUI versionNameLabel;
 
         public event Action<LobbySessionSlot> EventLobbySessionSlotSelected;
 

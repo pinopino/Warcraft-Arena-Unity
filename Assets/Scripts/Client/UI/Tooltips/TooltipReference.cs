@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using Core;
-using JetBrains.Annotations;
 
 namespace Client
 {
     [CreateAssetMenu(fileName = "Tooltip Reference", menuName = "Game Data/Scriptable/Tooltips", order = 10)]
     public class TooltipReference : ScriptableReferenceClient
     {
-        [SerializeField, UsedImplicitly] TooltipSettingsBySizeDictionary tooltipSizeSettings;
-        [SerializeField, UsedImplicitly] TooltipSettingsByAlignmentDictionary tooltipAlignmentSettings;
+        [SerializeField] TooltipSettingsBySizeDictionary tooltipSizeSettings;
+        [SerializeField] TooltipSettingsByAlignmentDictionary tooltipAlignmentSettings;
 
         private TooltipContainer container;
         private TooltipSlot currentTooltip;

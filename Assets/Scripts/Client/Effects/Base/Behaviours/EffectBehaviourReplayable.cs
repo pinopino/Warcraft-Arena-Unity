@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
 {
     public class EffectBehaviourReplayable : EffectBehaviour
     {
-        [SerializeField, UsedImplicitly] private List<ParticleSystem> replayableSystems;
+        [SerializeField] private List<ParticleSystem> replayableSystems;
 
         protected override void OnPlay()
         {

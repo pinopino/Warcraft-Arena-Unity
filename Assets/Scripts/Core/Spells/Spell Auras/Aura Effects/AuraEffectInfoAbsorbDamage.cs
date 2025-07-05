@@ -1,17 +1,16 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Absorb Damage", menuName = "Game Data/Spells/Auras/Effects/Absorb Damage", order = 5)]
+    [CreateAssetMenu(fileName = "Aura Effect Absorb Damage", menuName = "Game Data/Spells/Auras/Effects/Absorb Damage", order = 5)]
     public class AuraEffectInfoAbsorbDamage : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly] private int baseValue;
-        [SerializeField, UsedImplicitly] private uint additionalValue;
-        [SerializeField, UsedImplicitly] private SpellAbsorbCalculationType calculationType;
-        [SerializeField, UsedImplicitly, EnumFlag] private SpellSchoolMask schoolMask;
+        [SerializeField] private int baseValue;
+        [SerializeField] private uint additionalValue;
+        [SerializeField] private SpellAbsorbCalculationType calculationType;
+        [SerializeField, EnumFlag] private SpellSchoolMask schoolMask;
 
         public override float Value => baseValue;
         public override AuraEffectType AuraEffectType => AuraEffectType.AbsorbDamage;

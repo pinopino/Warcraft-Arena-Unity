@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Hot Streak Aura Script", menuName = "Game Data/Spells/Auras/Aura Scripts/Hot Streak", order = 1)]
+    [CreateAssetMenu(fileName = "Hot Streak Aura Script", menuName = "Game Data/Spells/Auras/Aura Scripts/Hot Streak", order = 1)]
     internal class HotStreakAura : AuraScriptable, IAuraScriptSpellDamageHandler
     {
-        [SerializeField, UsedImplicitly] List<SpellInfo> critCheckedSpells;
-        [SerializeField, UsedImplicitly] SpellInfo heatingUpSpell;
-        [SerializeField, UsedImplicitly] SpellInfo hotStreakSpell;
+        [SerializeField] List<SpellInfo> critCheckedSpells;
+        [SerializeField] SpellInfo heatingUpSpell;
+        [SerializeField] SpellInfo hotStreakSpell;
 
         public void OnSpellDamageDone(SpellDamageInfo damageInfo)
         {

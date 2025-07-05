@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using Core;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Core;
-using JetBrains.Annotations;
 
 namespace Client
 {
     public class BuffDisplayFrame : MonoBehaviour, IVisibleAuraHandler
     {
-        [SerializeField, UsedImplicitly] private BuffSlot buffSlotPrototype;
-        [SerializeField, UsedImplicitly] private GridLayoutGroup grid;
-        [SerializeField, UsedImplicitly] private CanvasGroup canvasGroup;
-        [SerializeField, UsedImplicitly] private int buffRows;
-        [SerializeField, UsedImplicitly] private int buffColls;
+        [SerializeField] private BuffSlot buffSlotPrototype;
+        [SerializeField] private GridLayoutGroup grid;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private int buffRows;
+        [SerializeField] private int buffColls;
 
         private readonly List<IVisibleAura> visibleAuras = new List<IVisibleAura>();
         private BuffSlot[] buffSlots;
@@ -21,7 +20,6 @@ namespace Client
         private int maxBuffs;
         private Unit unit;
 
-        [UsedImplicitly]
         private void Awake()
         {
             buffSlots = new BuffSlot[buffRows * buffColls];

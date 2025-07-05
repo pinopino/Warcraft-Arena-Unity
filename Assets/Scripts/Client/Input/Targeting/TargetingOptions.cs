@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -8,11 +7,11 @@ namespace Client
     [Serializable]
     public class TargetingOptions
     {
-        [SerializeField, UsedImplicitly, EnumFlag] private TargetingDeathState deathState;
-        [SerializeField, UsedImplicitly, EnumFlag] private TargetingEntityType entityTypes;
-        [SerializeField, UsedImplicitly] private TargetingDistance distance;
-        [SerializeField, UsedImplicitly] private TargetingMode mode;
-        [SerializeField, UsedImplicitly] private float maxReferringAngle = 180.0f;
+        [SerializeField, EnumFlag] private TargetingDeathState deathState;
+        [SerializeField, EnumFlag] private TargetingEntityType entityTypes;
+        [SerializeField] private TargetingDistance distance;
+        [SerializeField] private TargetingMode mode;
+        [SerializeField] private float maxReferringAngle = 180.0f;
 
         public TargetingDeathState DeathState => deathState;
         public TargetingEntityType EntityTypes => entityTypes;

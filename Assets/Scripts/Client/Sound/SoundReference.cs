@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
-using Common;
+﻿using Common;
 using Core;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
@@ -9,12 +8,12 @@ namespace Client
     [CreateAssetMenu(fileName = "Sound Reference", menuName = "Game Data/Scriptable/Sound", order = 4)]
     public class SoundReference : ScriptableReferenceClient
     {
-        [SerializeField, UsedImplicitly] private string soundContainerTag;
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private UnitSoundKitContainer unitSoundKits;
-        [SerializeField, UsedImplicitly] private SpellSoundInfoContainer spellSounds;
-        [SerializeField, UsedImplicitly] private SoundGroupSettingsContainer soundGroups;
-        [SerializeField, UsedImplicitly] private UnitSoundEmoteTypeDictionary unitSoundsByEmoteType;
+        [SerializeField] private string soundContainerTag;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private UnitSoundKitContainer unitSoundKits;
+        [SerializeField] private SpellSoundInfoContainer spellSounds;
+        [SerializeField] private SoundGroupSettingsContainer soundGroups;
+        [SerializeField] private UnitSoundEmoteTypeDictionary unitSoundsByEmoteType;
 
         public Transform Container { get; private set; }
         public IReadOnlyDictionary<EmoteType, UnitSounds> UnitSoundByEmoteType => unitSoundsByEmoteType.ValuesByKey;
@@ -72,7 +71,7 @@ namespace Client
                 if (spellInfo.ExplicitTargetType == SpellExplicitTargetType.Destination)
                     spellSoundSettings.PlayAtPoint(processingToken.Destination, SpellSoundEntry.UsageType.Destination);
                 else
-                    spellSoundSettings.PlayAtPoint(spellInfo.HasAttribute(SpellCustomAttributes.LaunchSourceIsExplicit) 
+                    spellSoundSettings.PlayAtPoint(spellInfo.HasAttribute(SpellCustomAttributes.LaunchSourceIsExplicit)
                         ? processingToken.Source
                         : caster.Position, SpellSoundEntry.UsageType.Cast);
             }

@@ -1,5 +1,4 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
@@ -21,9 +20,9 @@ namespace Core
             public static int Interactable { get; internal set; }
         }
 
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private PhysicMaterial groundedUnitMaterial;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private PhysicMaterial slidingUnitMaterial;
 
         public PhysicMaterial GroundedMaterial => groundedUnitMaterial;

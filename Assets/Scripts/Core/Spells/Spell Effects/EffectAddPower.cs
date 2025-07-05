@@ -1,14 +1,13 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Add Power", menuName = "Game Data/Spells/Effects/Add Power", order = 4)]
+    [CreateAssetMenu(fileName = "Effect Add Power", menuName = "Game Data/Spells/Effects/Add Power", order = 4)]
     public class EffectAddPower : SpellEffectInfo
     {
         [Header("Add Power")]
-        [SerializeField, UsedImplicitly] private SpellPowerType powerType;
-        [SerializeField, UsedImplicitly] private int powerAmount;
+        [SerializeField] private SpellPowerType powerType;
+        [SerializeField] private int powerAmount;
 
         public override float Value => powerAmount;
         public override SpellEffectType EffectType => SpellEffectType.AddPower;

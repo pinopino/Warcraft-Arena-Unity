@@ -1,7 +1,6 @@
-﻿using System.Diagnostics;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Diagnostics;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
@@ -16,17 +15,16 @@ namespace Game
             FixedTimeDelta
         }
 
-        [SerializeField, UsedImplicitly] private UpdatePolicy updatePolicy;
-        [SerializeField, UsedImplicitly] private long updateTimeMilliseconds = 20;
-        [SerializeField, UsedImplicitly] private ScriptableContainer scriptableCoreContainer;
-        [SerializeField, UsedImplicitly] private ScriptableContainer scriptableClientContainer;
+        [SerializeField] private UpdatePolicy updatePolicy;
+        [SerializeField] private long updateTimeMilliseconds = 20;
+        [SerializeField] private ScriptableContainer scriptableCoreContainer;
+        [SerializeField] private ScriptableContainer scriptableClientContainer;
 
         private readonly Stopwatch gameTimer = new Stopwatch();
         private long lastWorldUpdateTime;
         private long lastGameUpdateTime;
         private World world;
 
-        [UsedImplicitly]
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -37,7 +35,6 @@ namespace Game
             gameTimer.Start();
         }
 
-        [UsedImplicitly]
         private void Update()
         {
             long elapsedTime = gameTimer.ElapsedMilliseconds;
@@ -50,18 +47,18 @@ namespace Game
             if (world == null)
                 lastWorldUpdateTime = elapsedTime;
             else switch (updatePolicy)
-            {
-                case UpdatePolicy.EveryUpdateCall:
-                    lastWorldUpdateTime = elapsedTime;
-                    world.DoUpdate(worldTimeDiff);
-                    break;
-                case UpdatePolicy.FixedTimeDelta:
-                    if (worldTimeDiff >= updateTimeMilliseconds)
+                {
+                    case UpdatePolicy.EveryUpdateCall:
+                        lastWorldUpdateTime = elapsedTime;
+                        world.DoUpdate(worldTimeDiff);
+                        break;
+                    case UpdatePolicy.FixedTimeDelta:
+                        if (worldTimeDiff >= updateTimeMilliseconds)
+                            goto case UpdatePolicy.EveryUpdateCall;
+                        break;
+                    default:
                         goto case UpdatePolicy.EveryUpdateCall;
-                    break;
-                default:
-                    goto case UpdatePolicy.EveryUpdateCall;
-            }
+                }
 
             scriptableCoreContainer.DoUpdate(gameTimeDiff);
 
@@ -69,7 +66,6 @@ namespace Game
                 scriptableClientContainer.DoUpdate(gameTimeFloatDiff);
         }
 
-        [UsedImplicitly]
         private void OnApplicationQuit()
         {
             DestroyWorld();

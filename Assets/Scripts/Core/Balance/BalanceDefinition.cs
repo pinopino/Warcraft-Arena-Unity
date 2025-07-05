@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
@@ -7,25 +6,25 @@ namespace Core
     [CreateAssetMenu(fileName = "Balance Definition", menuName = "Game Data/Balance/Balance Definition", order = 1)]
     public class BalanceDefinition : ScriptableObject
     {
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private FactionDefinition defaultFaction;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private UnitMovementDefinition unitMovementDefinition;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private SpellInfoContainer spellContainer;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private AuraInfoContainer auraContainer;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private ClassInfoContainer classContainer;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private UnitInfoAIContainer unitAIContainer;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private CreatureInfoContainer creatureContainer;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private VehicleInfoContainer vehicleContainer;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private List<MapDefinition> mapEntries;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private List<FactionDefinition> factionEntries;
 
         internal IReadOnlyDictionary<int, CreatureInfo> CreatureInfoById => creatureContainer.CreatureInfoById;

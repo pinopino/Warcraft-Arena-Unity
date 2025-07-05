@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
-using Common;
 
 using EventHandler = Common.EventHandler;
 
@@ -11,9 +10,9 @@ namespace Client
 {
     public class ComboFrame : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private Canvas canvas;
-        [SerializeField, UsedImplicitly] private CanvasGroup canvasGroup;
-        [SerializeField, UsedImplicitly] private List<ComboPointSlot> comboPointSlots;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private List<ComboPointSlot> comboPointSlots;
 
         private readonly Action<EntityAttributes> onAttributeChangedAction;
 

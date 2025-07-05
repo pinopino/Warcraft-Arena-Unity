@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
@@ -7,11 +6,11 @@ namespace Core
     [CreateAssetMenu(fileName = "Unit Movement Definition", menuName = "Game Data/Physics/Unit Movement Definition", order = 4)]
     public class UnitMovementDefinition : ScriptableObject
     {
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float walkSpeed = 3.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float runSpeed = 7.0f;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float runBackSpeed = 4.5f;
 
         public float BaseSpeedByType(UnitMoveType moveType)

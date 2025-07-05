@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
-using Common;
 
 namespace Client
 {
     [CreateAssetMenu(fileName = "Spell Overlay Reference", menuName = "Game Data/Scriptable/Spell Overlay", order = 10)]
     public class SpellOverlayReference : ScriptableReferenceClient, IScreenHandler<BattleScreen>, IVisibleAuraHandler
     {
-        [SerializeField, UsedImplicitly] private InterfaceReference reference;
-        [SerializeField, UsedImplicitly] private SpellOverlaySettingsContainer spellOverlaySettingsContainer;
+        [SerializeField] private InterfaceReference reference;
+        [SerializeField] private SpellOverlaySettingsContainer spellOverlaySettingsContainer;
 
         private readonly Dictionary<int, SpellOverlaySettings> overlaySettingsByAuraId = new Dictionary<int, SpellOverlaySettings>();
         private readonly Dictionary<int, List<IVisibleAura>> activeAurasById = new Dictionary<int, List<IVisibleAura>>();

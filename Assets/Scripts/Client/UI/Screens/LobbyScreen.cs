@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using Client.UI;
 
 namespace Client
 {
     public class LobbyScreen : UIWindowController<LobbyScreen>
     {
-        [SerializeField, UsedImplicitly] private LobbyPanel lobbyPanel;
+        [SerializeField] private LobbyPanel lobbyPanel;
 
         public new void Initialize(ScreenController controller)
         {

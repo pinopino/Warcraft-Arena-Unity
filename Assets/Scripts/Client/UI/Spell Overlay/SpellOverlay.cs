@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -17,17 +16,17 @@ namespace Client
         [Serializable]
         private class OverlayPerCharge
         {
-            [SerializeField, UsedImplicitly] private int minCharges;
-            [SerializeField, UsedImplicitly] private CanvasGroup partialCanvasGroup;
+            [SerializeField] private int minCharges;
+            [SerializeField] private CanvasGroup partialCanvasGroup;
 
             public int MinCharges => minCharges;
             public CanvasGroup PartialCanvasGroup => partialCanvasGroup;
         }
 
-        [SerializeField, UsedImplicitly] private RectTransform rectTransform;
-        [SerializeField, UsedImplicitly] private Animator overlayAnimator;
-        [SerializeField, UsedImplicitly] private CanvasGroup canvasGroup;
-        [SerializeField, UsedImplicitly] private List<OverlayPerCharge> perChargeSettings;
+        [SerializeField] private RectTransform rectTransform;
+        [SerializeField] private Animator overlayAnimator;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private List<OverlayPerCharge> perChargeSettings;
 
         private const string ActiveStateParamName = "IsPlaying";
 

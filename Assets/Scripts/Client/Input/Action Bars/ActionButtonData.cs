@@ -1,6 +1,5 @@
-﻿using System;
-using Core;
-using JetBrains.Annotations;
+﻿using Core;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -8,8 +7,8 @@ namespace Client
     [Serializable]
     public class ActionButtonData
     {
-        [SerializeField, UsedImplicitly] private int actionId;
-        [SerializeField, UsedImplicitly] private ButtonContentType actionType;
+        [SerializeField] private int actionId;
+        [SerializeField] private ButtonContentType actionType;
 
         public int ActionId => actionId;
         public ButtonContentType ActionType => actionType;

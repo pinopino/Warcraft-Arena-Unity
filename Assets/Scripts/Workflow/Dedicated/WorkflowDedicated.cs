@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Common;
+using Core;
+using Server;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Common;
-using Core;
-using JetBrains.Annotations;
-using Server;
 using UnityEngine;
-
 using EventHandler = Common.EventHandler;
 
 namespace Game.Workflow.Dedicated
@@ -14,9 +12,9 @@ namespace Game.Workflow.Dedicated
     [CreateAssetMenu(fileName = "Workflow Dedicated Reference", menuName = "Game Data/Scriptable/Workflow Dedicated", order = 1)]
     internal sealed class WorkflowDedicated : ScriptableReference
     {
-        [SerializeField, UsedImplicitly] private PhotonBoltReference photon;
-        [SerializeField, UsedImplicitly] private DedicatedServerSettings settings;
-        [SerializeField, UsedImplicitly] private int maxRestartAttempts = 3;
+        [SerializeField] private PhotonBoltReference photon;
+        [SerializeField] private DedicatedServerSettings settings;
+        [SerializeField] private int maxRestartAttempts = 3;
 
         private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
         private GameManager gameManager;

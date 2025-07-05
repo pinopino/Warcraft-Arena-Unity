@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
-using UnityEngine;
+using System;
 using TMPro;
-using Common;
+using UnityEngine;
 using UnityEngine.UI;
 
 using EventHandler = Common.EventHandler;
@@ -12,16 +11,16 @@ namespace Client
 {
     public class UnitFrame : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private CanvasGroup canvasGroup;
-        [SerializeField, UsedImplicitly] private Image classIcon;
-        [SerializeField, UsedImplicitly] private AttributeBar health;
-        [SerializeField, UsedImplicitly] private AttributeBar mainResource;
-        [SerializeField, UsedImplicitly] private ComboFrame comboFrame;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI unitName;
-        [SerializeField, UsedImplicitly] private SoundEntry setSound;
-        [SerializeField, UsedImplicitly] private SoundEntry lostSound;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private Image classIcon;
+        [SerializeField] private AttributeBar health;
+        [SerializeField] private AttributeBar mainResource;
+        [SerializeField] private ComboFrame comboFrame;
+        [SerializeField] private TextMeshProUGUI unitName;
+        [SerializeField] private SoundEntry setSound;
+        [SerializeField] private SoundEntry lostSound;
 
         private readonly Action<EntityAttributes> onAttributeChangedAction;
         private readonly Action onUnitTargetChanged;

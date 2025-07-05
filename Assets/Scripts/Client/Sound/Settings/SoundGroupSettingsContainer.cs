@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Sound Group Settings Container", menuName = "Game Data/Containers/Sound Group Settings", order = 1)]
+    [CreateAssetMenu(fileName = "Sound Group Settings Container", menuName = "Game Data/Containers/Sound Group Settings", order = 1)]
     public class SoundGroupSettingsContainer : ScriptableUniqueInfoContainer<SoundGroupSettings>
     {
-        [SerializeField, UsedImplicitly] private SoundReference sound;
-        [SerializeField, UsedImplicitly] private List<SoundGroupSettings> groups;
+        [SerializeField] private SoundReference sound;
+        [SerializeField] private List<SoundGroupSettings> groups;
 
         private readonly Dictionary<SoundGroupSettings, AudioSource> sourcesBySettings = new Dictionary<SoundGroupSettings, AudioSource>();
 

@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -11,8 +10,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<TooltipAlignment, TooltipAlignmentSettings>
         {
-            [SerializeField, UsedImplicitly] private TooltipAlignment tooltipAlignment;
-            [SerializeField, UsedImplicitly] private TooltipAlignmentSettings tooltipSettings;
+            [SerializeField] private TooltipAlignment tooltipAlignment;
+            [SerializeField] private TooltipAlignmentSettings tooltipSettings;
 
             public TooltipAlignment Key => tooltipAlignment;
             public TooltipAlignmentSettings Value => tooltipSettings;

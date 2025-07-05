@@ -1,24 +1,22 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Animations;
 
 namespace Client
 {
     public class AnimatorSetBoolBehaviour : StateMachineBehaviour
     {
-        [SerializeField, UsedImplicitly] private string parameterName;
-        [SerializeField, UsedImplicitly] private bool valueOnEnter;
-        [SerializeField, UsedImplicitly] private bool valueOnExit;
-        [SerializeField, UsedImplicitly] private bool valueOnMachineEnter;
-        [SerializeField, UsedImplicitly] private bool valueOnMachineExit;
-        [SerializeField, UsedImplicitly] private bool setOnEnter = true;
-        [SerializeField, UsedImplicitly] private bool setOnExit = true;
-        [SerializeField, UsedImplicitly] private bool setOnMachineEnter;
-        [SerializeField, UsedImplicitly] private bool setOnMachineExit;
+        [SerializeField] private string parameterName;
+        [SerializeField] private bool valueOnEnter;
+        [SerializeField] private bool valueOnExit;
+        [SerializeField] private bool valueOnMachineEnter;
+        [SerializeField] private bool valueOnMachineExit;
+        [SerializeField] private bool setOnEnter = true;
+        [SerializeField] private bool setOnExit = true;
+        [SerializeField] private bool setOnMachineEnter;
+        [SerializeField] private bool setOnMachineExit;
 
         private int parameterHash;
 
-        [UsedImplicitly]
         private void OnEnable()
         {
             parameterHash = Animator.StringToHash(parameterName);

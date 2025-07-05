@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Common
@@ -10,7 +9,7 @@ namespace Common
     [CreateAssetMenu(fileName = "Scriptable Container", menuName = "Game Data/Scriptable/Container", order = 1)]
     public class ScriptableContainer : ScriptableObject
     {
-        [SerializeField, UsedImplicitly] private List<ScriptableReference> scriptableReferences;
+        [SerializeField] private List<ScriptableReference> scriptableReferences;
 
         public void Register()
         {

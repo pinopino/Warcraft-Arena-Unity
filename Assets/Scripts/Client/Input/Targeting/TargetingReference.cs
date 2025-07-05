@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Collections.Generic;
-using Core;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -12,10 +11,10 @@ namespace Client
     [CreateAssetMenu(fileName = "Targeting Reference", menuName = "Game Data/Scriptable/Targeting", order = 11)]
     public partial class TargetingReference : ScriptableReferenceClient
     {
-        [SerializeField, UsedImplicitly] private InputReference input;
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private CameraReference cameraReference;
-        [SerializeField, UsedImplicitly] private TargetingSettings targetingSettings;
+        [SerializeField] private InputReference input;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private CameraReference cameraReference;
+        [SerializeField] private TargetingSettings targetingSettings;
 
         private readonly List<Unit> previousTargets = new List<Unit>();
 
@@ -100,11 +99,11 @@ namespace Client
                     }
                     break;
                 case TargetingMode.Self:
-                    if(Player.Target != Player)
+                    if (Player.Target != Player)
                         input.SelectTarget(Player);
                     break;
                 case TargetingMode.Clear:
-                    if(Player.Target != null)
+                    if (Player.Target != null)
                         input.SelectTarget(null);
                     break;
                 default:

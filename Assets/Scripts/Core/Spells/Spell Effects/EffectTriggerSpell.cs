@@ -1,16 +1,15 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Trigger Spell", menuName = "Game Data/Spells/Effects/Trigger Spell", order = 4)]
+    [CreateAssetMenu(fileName = "Effect Trigger Spell", menuName = "Game Data/Spells/Effects/Trigger Spell", order = 4)]
     public class EffectTriggerSpell : SpellEffectInfo
     {
         [Header("Trigger Spell")]
-        [SerializeField, UsedImplicitly] 
+        [SerializeField]
         private SpellInfo triggerSpell;
-        [SerializeField, UsedImplicitly, EnumFlag] 
+        [SerializeField, EnumFlag]
         private SpellCastFlags extraCastFlags;
 
         public SpellInfo TriggerSpell => triggerSpell;

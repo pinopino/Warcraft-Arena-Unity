@@ -1,13 +1,12 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core.Scenario
 {
     public class SpawnCreature : ScenarioAction
     {
-        [SerializeField, UsedImplicitly] private CreatureInfo creatureInfo;
-        [SerializeField, UsedImplicitly] private CustomSpawnSettings customSpawnSettings;
+        [SerializeField] private CreatureInfo creatureInfo;
+        [SerializeField] private CustomSpawnSettings customSpawnSettings;
 
         internal override void Initialize(Map map)
         {

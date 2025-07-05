@@ -1,16 +1,15 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class EffectBehaviourAnimated : EffectBehaviour
     {
-        [SerializeField, UsedImplicitly] private Animator animator;
-        [SerializeField, UsedImplicitly] private string playState;
-        [SerializeField, UsedImplicitly] private string fadeState;
-        [SerializeField, UsedImplicitly] private bool hasPlayState;
-        [SerializeField, UsedImplicitly] private bool hasFadeState;
-        [SerializeField, UsedImplicitly] private bool replayPlayState;
+        [SerializeField] private Animator animator;
+        [SerializeField] private string playState;
+        [SerializeField] private string fadeState;
+        [SerializeField] private bool hasPlayState;
+        [SerializeField] private bool hasFadeState;
+        [SerializeField] private bool replayPlayState;
 
         private int playHash = -1;
         private int fadeHash = -1;

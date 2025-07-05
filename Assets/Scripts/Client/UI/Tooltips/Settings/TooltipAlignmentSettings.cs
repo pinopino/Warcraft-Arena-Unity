@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -7,10 +6,10 @@ namespace Client
     [Serializable]
     public class TooltipAlignmentSettings
     {
-        [SerializeField, UsedImplicitly] private Vector2 pivot;
-        [SerializeField, UsedImplicitly] private Vector2 anghoredPosition;
-        [SerializeField, UsedImplicitly] private TextAnchor alignment;
-        [SerializeField, UsedImplicitly] private uint[] worldCornerIndexes;
+        [SerializeField] private Vector2 pivot;
+        [SerializeField] private Vector2 anghoredPosition;
+        [SerializeField] private TextAnchor alignment;
+        [SerializeField] private uint[] worldCornerIndexes;
 
         public void Modify(TooltipSlot slot, Vector3[] corners)
         {

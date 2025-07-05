@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core.AuraEffects;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;

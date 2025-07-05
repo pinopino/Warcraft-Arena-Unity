@@ -1,16 +1,14 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class DraggingItem : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private ButtonContent draggingContent;
-        [SerializeField, UsedImplicitly] private RectTransform rectTransform;
+        [SerializeField] private ButtonContent draggingContent;
+        [SerializeField] private RectTransform rectTransform;
 
         public RectTransform RectTransform => rectTransform;
 
-        [UsedImplicitly]
         private void Awake()
         {
             draggingContent.ContentImage.sprite = null;

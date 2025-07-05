@@ -1,24 +1,24 @@
 ﻿using System;
-using JetBrains.Annotations;
+
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Nameplate Settings", menuName = "Game Data/Interface/Nameplate Settings", order = 2)]
+    [CreateAssetMenu(fileName = "Nameplate Settings", menuName = "Game Data/Interface/Nameplate Settings", order = 2)]
     public class NameplateSettings : ScriptableObject
     {
         [Serializable]
         public class HostilitySettings
         {
-            [SerializeField, UsedImplicitly] private bool showName;
-            [SerializeField, UsedImplicitly] private bool showCast;
-            [SerializeField, UsedImplicitly] private bool showHealth;
-            [SerializeField, UsedImplicitly] private Color healthColor;
-            [SerializeField, UsedImplicitly] private Color nameWithoutPlateColor;
-            [SerializeField, UsedImplicitly] private Color nameWithPlateColor;
-            [SerializeField, UsedImplicitly] private float selectedGeneralAlpha;
-            [SerializeField, UsedImplicitly] private float deselectedGeneralAlpha;
-            [SerializeField, UsedImplicitly] private bool applyScaling;
+            [SerializeField] private bool showName;
+            [SerializeField] private bool showCast;
+            [SerializeField] private bool showHealth;
+            [SerializeField] private Color healthColor;
+            [SerializeField] private Color nameWithoutPlateColor;
+            [SerializeField] private Color nameWithPlateColor;
+            [SerializeField] private float selectedGeneralAlpha;
+            [SerializeField] private float deselectedGeneralAlpha;
+            [SerializeField] private bool applyScaling;
 
             public bool ShowName => showName;
             public bool ShowCast => showCast;
@@ -31,16 +31,16 @@ namespace Client
             public bool ApplyScaling => applyScaling;
         }
 
-        [SerializeField, UsedImplicitly] private HostilitySettings self;
-        [SerializeField, UsedImplicitly] private HostilitySettings friendly;
-        [SerializeField, UsedImplicitly] private HostilitySettings neutral;
-        [SerializeField, UsedImplicitly] private HostilitySettings enemy;
-        [SerializeField, UsedImplicitly] private AnimationCurve scaleOverDistance;
-        [SerializeField, UsedImplicitly] private float maxDistance;
-        [SerializeField, UsedImplicitly] private float detailedDistance;
-        [SerializeField, UsedImplicitly] private float distanceThreshold;
-        [SerializeField, UsedImplicitly] private float healthAlphaTrasitionSpeed;
-        [SerializeField, UsedImplicitly, HideInInspector] private float maxDistanceSqr;
+        [SerializeField] private HostilitySettings self;
+        [SerializeField] private HostilitySettings friendly;
+        [SerializeField] private HostilitySettings neutral;
+        [SerializeField] private HostilitySettings enemy;
+        [SerializeField] private AnimationCurve scaleOverDistance;
+        [SerializeField] private float maxDistance;
+        [SerializeField] private float detailedDistance;
+        [SerializeField] private float distanceThreshold;
+        [SerializeField] private float healthAlphaTrasitionSpeed;
+        [SerializeField, HideInInspector] private float maxDistanceSqr;
 
         public HostilitySettings Self => self;
         public HostilitySettings Friendly => friendly;
@@ -53,7 +53,6 @@ namespace Client
         public float MaxDistanceSqr => maxDistanceSqr;
         public float HealthAlphaTrasitionSpeed => healthAlphaTrasitionSpeed;
 
-        [UsedImplicitly]
         private void OnValidate()
         {
             maxDistanceSqr = maxDistance;

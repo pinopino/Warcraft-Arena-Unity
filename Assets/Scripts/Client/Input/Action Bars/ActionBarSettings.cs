@@ -1,19 +1,18 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Action Bar Settings", menuName = "Player Data/Input/Action Bar", order = 1)]
+    [CreateAssetMenu(fileName = "Action Bar Settings", menuName = "Player Data/Input/Action Bar", order = 1)]
     public class ActionBarSettings : ScriptableUniqueInfo<ActionBarSettings>
     {
-        [SerializeField, UsedImplicitly] private ActionBarSettingsContainer container;
-        [SerializeField, UsedImplicitly] private bool saveChanges;
-        [SerializeField, UsedImplicitly] private int actionBarSlot;
-        [SerializeField, UsedImplicitly] private ClassType classType;
-        [SerializeField, UsedImplicitly] private List<SpellInfo> defaultPresets = new List<SpellInfo>();
+        [SerializeField] private ActionBarSettingsContainer container;
+        [SerializeField] private bool saveChanges;
+        [SerializeField] private int actionBarSlot;
+        [SerializeField] private ClassType classType;
+        [SerializeField] private List<SpellInfo> defaultPresets = new List<SpellInfo>();
 
         private readonly ActionBarData activePreset = new ActionBarData();
         private string PlayerPrefsString => $"{nameof(ActionBarSettings)}#{Id}";
@@ -41,7 +40,7 @@ namespace Client
             for (int i = 0; i < InputUtils.ActionBarSlotCount; i++)
                 if (i >= activePreset.Buttons.Count)
                     activePreset.Buttons.Add(new ActionButtonData());
-            
+
             if (!loadedFromPrefs)
                 for (int i = 0; i < InputUtils.ActionBarSlotCount && i < defaultPresets.Count; i++)
                     if (defaultPresets[i] != null)

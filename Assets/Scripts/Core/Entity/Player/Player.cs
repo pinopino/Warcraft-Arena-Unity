@@ -1,5 +1,4 @@
 ﻿using Bolt;
-using JetBrains.Annotations;
 using UdpKit;
 using UnityEngine;
 
@@ -53,7 +52,7 @@ namespace Core
             }
         }
 
-        [SerializeField, UsedImplicitly, Header(nameof(Player)), Space(10)]
+        [SerializeField, Header(nameof(Player)), Space(10)]
         private PlayerAI playerAI;
 
         private CreateToken createToken;
@@ -81,7 +80,7 @@ namespace Core
                     playerState.PlayerName = value;
                     createToken.PlayerName = value;
                 }
-            } 
+            }
         }
 
         public IControllerInputProvider InputProvider { set => CharacterController.InputProvider = value; }
@@ -177,7 +176,7 @@ namespace Core
 
         public void Handle(PlayerSpeedRateChangedEvent speedChangeEvent)
         {
-            Attributes.UpdateSpeedRate((UnitMoveType) speedChangeEvent.MoveType, speedChangeEvent.SpeedRate);
+            Attributes.UpdateSpeedRate((UnitMoveType)speedChangeEvent.MoveType, speedChangeEvent.SpeedRate);
         }
 
         public void Handle(PlayerRootChangedEvent rootChangeEvent)

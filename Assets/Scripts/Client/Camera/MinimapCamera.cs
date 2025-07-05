@@ -1,5 +1,4 @@
 ﻿using Core;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -9,7 +8,6 @@ namespace Client
     {
         public Unit Target { get; set; }
 
-        [UsedImplicitly]
         private void LateUpdate()
         {
             if (Target == null)

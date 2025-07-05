@@ -1,16 +1,13 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-[UsedImplicitly]
 public class ScrollRectVelocityModifier : MonoBehaviour
 {
-    [SerializeField, UsedImplicitly] private ScrollRect targetScrollRect;
-    [SerializeField, UsedImplicitly] private Vector2 velocity;
-    [SerializeField, UsedImplicitly] private bool repeatWithDelay;
-    [SerializeField, UsedImplicitly] private float repeatVelocityDelay = 0.1f;
+    [SerializeField] private ScrollRect targetScrollRect;
+    [SerializeField] private Vector2 velocity;
+    [SerializeField] private bool repeatWithDelay;
+    [SerializeField] private float repeatVelocityDelay = 0.1f;
 
-    [UsedImplicitly]
     public void Forward()
     {
         ModifyVelocityForward();
@@ -22,7 +19,6 @@ public class ScrollRectVelocityModifier : MonoBehaviour
         }
     }
 
-    [UsedImplicitly]
     public void Backward()
     {
         ModifyVelocityBackward();

@@ -1,13 +1,12 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class EffectBehaviourFaceCamera : EffectBehaviour
     {
-        [SerializeField, UsedImplicitly] private CameraReference cameraReference;
-        [SerializeField, UsedImplicitly] private Transform transformToRotate;
-        [SerializeField, UsedImplicitly] private Vector3 rotationOffset;
+        [SerializeField] private CameraReference cameraReference;
+        [SerializeField] private Transform transformToRotate;
+        [SerializeField] private Vector3 rotationOffset;
 
         protected override void OnUpdate(IEffectEntity effectEntity, ref bool keepAlive)
         {

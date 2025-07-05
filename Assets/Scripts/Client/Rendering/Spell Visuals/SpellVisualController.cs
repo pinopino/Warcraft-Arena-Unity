@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Client.Spells;
+using System;
 using System.Collections.Generic;
-using Client.Spells;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -11,7 +10,7 @@ namespace Client
         [Serializable]
         private partial class SpellVisualController
         {
-            [SerializeField, UsedImplicitly] private EffectTagType defaultTargetTag;
+            [SerializeField] private EffectTagType defaultTargetTag;
 
             private static EffectTagType DefaultTargetTag { get; set; }
             private readonly List<SpellVisualProjectile> activeProjectiles = new List<SpellVisualProjectile>();

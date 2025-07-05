@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
 {
     public class EffectBehaviourParticles : EffectBehaviour
     {
-        [SerializeField, UsedImplicitly] private List<ParticleSystem> trackedParticleSystems;
+        [SerializeField] private List<ParticleSystem> trackedParticleSystems;
 
         protected override void OnPlay()
         {
@@ -30,7 +29,7 @@ namespace Client
             if (effectEntity.IsPlaying(PlayId) && effectEntity.KeepAliveWithNoParticles)
                 keepAlive = true;
             else foreach (ParticleSystem system in trackedParticleSystems)
-                keepAlive |= system.IsAlive(false);
+                    keepAlive |= system.IsAlive(false);
         }
     }
 }

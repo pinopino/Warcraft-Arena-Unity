@@ -1,12 +1,10 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly]
     public class PhotonBoltSharedListener : PhotonBoltBaseListener
     {
-        [SerializeField, UsedImplicitly] PhotonBoltReference photon;
+        [SerializeField] PhotonBoltReference photon;
 
         public override void SceneLoadLocalDone(string map)
         {

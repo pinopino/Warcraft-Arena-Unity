@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
     public sealed class UnitModel : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private TagContainer tagContainer;
-        [SerializeField, UsedImplicitly] private SkinnedMeshRenderer meshRenderer;
-        [SerializeField, UsedImplicitly] private Animator animator;
-        [SerializeField, UsedImplicitly] private float strafeSpeed = 1.0f;
-        [SerializeField, UsedImplicitly] private List<Collider> hitBoxes;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private TagContainer tagContainer;
+        [SerializeField] private SkinnedMeshRenderer meshRenderer;
+        [SerializeField] private Animator animator;
+        [SerializeField] private float strafeSpeed = 1.0f;
+        [SerializeField] private List<Collider> hitBoxes;
 
         public IReadOnlyList<Collider> HitBoxes => hitBoxes;
         public TagContainer TagContainer => tagContainer;
@@ -30,10 +29,8 @@ namespace Client
         private bool unitHasTransparency;
         private bool transparentMaterialsUsed;
 
-        [UsedImplicitly]
         private void Awake() => originalMaterials = meshRenderer.sharedMaterials;
 
-        [UsedImplicitly]
         private void OnDestroy() => DestroyTransparentMaterials();
 
         public void Initialize(UnitModelInitializer initializer)

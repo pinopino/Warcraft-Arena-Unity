@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Add Combo Points", menuName = "Game Data/Spells/Effects/Add Combo Points", order = 1)]
+    [CreateAssetMenu(fileName = "Effect Add Combo Points", menuName = "Game Data/Spells/Effects/Add Combo Points", order = 1)]
     public class EffectAddComboPoints : SpellEffectInfo
     {
-        [SerializeField, UsedImplicitly, Header("Add Combo Points")]
+        [SerializeField, Header("Add Combo Points")]
         private int comboPoints;
 
         public int ComboPoints => comboPoints;

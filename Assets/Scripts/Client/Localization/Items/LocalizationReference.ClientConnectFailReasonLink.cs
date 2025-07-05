@@ -1,7 +1,6 @@
-﻿using System;
-using Client.Localization;
+﻿using Client.Localization;
 using Core;
-using JetBrains.Annotations;
+using System;
 
 namespace Client
 {
@@ -10,8 +9,8 @@ namespace Client
         [Serializable]
         private class ClientConnectFailReasonLink
         {
-            [UsedImplicitly] public ClientConnectFailReason FailReason;
-            [UsedImplicitly] public LocalizedString LocalizedString;
+            public ClientConnectFailReason FailReason;
+            public LocalizedString LocalizedString;
         }
     }
 }

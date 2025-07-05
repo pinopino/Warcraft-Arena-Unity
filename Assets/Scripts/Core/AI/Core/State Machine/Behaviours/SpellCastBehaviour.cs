@@ -1,15 +1,13 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly]
     public class SpellCastBehaviour : UnitStateMachineBehaviour
     {
-        [SerializeField, UsedImplicitly] private SpellInfo spellInfo;
-        [SerializeField, UsedImplicitly] private int castIntervalMin;
-        [SerializeField, UsedImplicitly] private int castIntervalMax;
+        [SerializeField] private SpellInfo spellInfo;
+        [SerializeField] private int castIntervalMin;
+        [SerializeField] private int castIntervalMax;
 
         private TimeTracker castTimeTracker = new TimeTracker();
 

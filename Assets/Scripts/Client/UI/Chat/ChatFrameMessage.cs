@@ -1,14 +1,13 @@
 ﻿using Client.Localization;
 using Core;
-using JetBrains.Annotations;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class ChatFrameMessage : MonoBehaviour
 {
-    [SerializeField, UsedImplicitly] private TMP_Text messageLabel;
-    [SerializeField, UsedImplicitly] private RectTransform rectTransform;
-    [SerializeField, UsedImplicitly] private LocalizedString chatGeneralString;
+    [SerializeField] private TMP_Text messageLabel;
+    [SerializeField] private RectTransform rectTransform;
+    [SerializeField] private LocalizedString chatGeneralString;
 
     public RectTransform RectTransform => rectTransform;
 

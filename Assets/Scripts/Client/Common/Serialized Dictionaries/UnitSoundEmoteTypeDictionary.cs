@@ -1,7 +1,6 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -12,8 +11,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<EmoteType, UnitSounds>
         {
-            [SerializeField, UsedImplicitly] private EmoteType emoteType;
-            [SerializeField, UsedImplicitly] private UnitSounds soundType;
+            [SerializeField] private EmoteType emoteType;
+            [SerializeField] private UnitSounds soundType;
 
             public EmoteType Key => emoteType;
             public UnitSounds Value => soundType;

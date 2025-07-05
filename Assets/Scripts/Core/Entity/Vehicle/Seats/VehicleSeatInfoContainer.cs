@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Vehicle Seat Info Container", menuName = "Game Data/Containers/Vehicle Seat Info", order = 1)]
+    [CreateAssetMenu(fileName = "Vehicle Seat Info Container", menuName = "Game Data/Containers/Vehicle Seat Info", order = 1)]
     internal class VehicleSeatInfoContainer : ScriptableUniqueInfoContainer<VehicleSeatInfo>
     {
-        [SerializeField, UsedImplicitly] private List<VehicleSeatInfo> vehicleSeatInfos;
+        [SerializeField] private List<VehicleSeatInfo> vehicleSeatInfos;
 
         protected override List<VehicleSeatInfo> Items => vehicleSeatInfos;
 

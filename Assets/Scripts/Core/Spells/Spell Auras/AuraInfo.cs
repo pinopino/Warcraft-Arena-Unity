@@ -1,36 +1,35 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
-using Common;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Info", menuName = "Game Data/Spells/Auras/Aura Info", order = 1)]
+    [CreateAssetMenu(fileName = "Aura Info", menuName = "Game Data/Spells/Auras/Aura Info", order = 1)]
     public sealed class AuraInfo : ScriptableUniqueInfo<AuraInfo>
     {
-        [SerializeField, UsedImplicitly] private AuraInfoContainer container;
+        [SerializeField] private AuraInfoContainer container;
 
         [Header("Aura Info")]
-        [SerializeField, UsedImplicitly] private int duration;
-        [SerializeField, UsedImplicitly] private int maxDuration;
-        [SerializeField, UsedImplicitly] private int maxStack;
-        [SerializeField, UsedImplicitly] private AuraStateType stateType;
-        [SerializeField, UsedImplicitly, EnumFlag] private AuraTargetingMode targetingMode;
-        [SerializeField, UsedImplicitly, EnumFlag] private AuraInterruptFlags interruptFlags;
-        [SerializeField, UsedImplicitly, EnumFlag] private AuraAttributes attributes;
-        [SerializeField, UsedImplicitly] private List<AuraEffectInfo> auraEffects;
-        [SerializeField, UsedImplicitly] private List<AuraScriptable> auraScriptables;
+        [SerializeField] private int duration;
+        [SerializeField] private int maxDuration;
+        [SerializeField] private int maxStack;
+        [SerializeField] private AuraStateType stateType;
+        [SerializeField, EnumFlag] private AuraTargetingMode targetingMode;
+        [SerializeField, EnumFlag] private AuraInterruptFlags interruptFlags;
+        [SerializeField, EnumFlag] private AuraAttributes attributes;
+        [SerializeField] private List<AuraEffectInfo> auraEffects;
+        [SerializeField] private List<AuraScriptable> auraScriptables;
 
         [Header("Charges")]
-        [SerializeField, UsedImplicitly] private bool usesCharges;
-        [SerializeField, UsedImplicitly] private int maxCharges;
-        [SerializeField, UsedImplicitly] private int baseCharges;
+        [SerializeField] private bool usesCharges;
+        [SerializeField] private int maxCharges;
+        [SerializeField] private int baseCharges;
 
         [Header("Damage Interrupt Info")]
-        [SerializeField, UsedImplicitly] private int damageInterruptValue;
-        [SerializeField, UsedImplicitly] private int damageInterruptDelay;
-        [SerializeField, UsedImplicitly] private AuraInterruptValueCalculationType interruptValueType;
+        [SerializeField] private int damageInterruptValue;
+        [SerializeField] private int damageInterruptDelay;
+        [SerializeField] private AuraInterruptValueCalculationType interruptValueType;
 
         protected override ScriptableUniqueInfoContainer<AuraInfo> Container => container;
         protected override AuraInfo Data => this;

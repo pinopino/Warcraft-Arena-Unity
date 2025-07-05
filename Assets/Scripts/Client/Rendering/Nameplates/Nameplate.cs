@@ -1,27 +1,25 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
 using TMPro;
 using UnityEngine;
-
 using EventHandler = Common.EventHandler;
 
 namespace Client
 {
     public class Nameplate : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private CanvasGroup combinedCanvasGroup;
-        [SerializeField, UsedImplicitly] private CanvasGroup generalCanvasGroup;
-        [SerializeField, UsedImplicitly] private HealthFrame healthFrame;
-        [SerializeField, UsedImplicitly] private GameObject contentFrame;
-        [SerializeField, UsedImplicitly] private CastFrame castFrame;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI unitName;
-        [SerializeField, UsedImplicitly] private CameraReference cameraReference;
-        [SerializeField, UsedImplicitly] private RenderingReference renderReference;
-        [SerializeField, UsedImplicitly] private InterfaceReference interfaceReference;
-        [SerializeField, UsedImplicitly] private NameplateSettings nameplateSettings;
-        [SerializeField, UsedImplicitly] private GameOptionBool showDeselectedHealthOption;
+        [SerializeField] private CanvasGroup combinedCanvasGroup;
+        [SerializeField] private CanvasGroup generalCanvasGroup;
+        [SerializeField] private HealthFrame healthFrame;
+        [SerializeField] private GameObject contentFrame;
+        [SerializeField] private CastFrame castFrame;
+        [SerializeField] private TextMeshProUGUI unitName;
+        [SerializeField] private CameraReference cameraReference;
+        [SerializeField] private RenderingReference renderReference;
+        [SerializeField] private InterfaceReference interfaceReference;
+        [SerializeField] private NameplateSettings nameplateSettings;
+        [SerializeField] private GameOptionBool showDeselectedHealthOption;
 
         private readonly Action onFactionChangedAction;
 
@@ -35,7 +33,6 @@ namespace Client
             onFactionChangedAction = OnFactionChanged;
         }
 
-        [UsedImplicitly]
         private void OnDestroy()
         {
             GameObjectPool.Return(this, true);

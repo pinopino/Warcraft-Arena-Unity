@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
@@ -12,10 +11,10 @@ namespace Client
         [Serializable]
         private partial class SelectionCircleController
         {
-            [SerializeField, UsedImplicitly] private Projector selectionCirclePrototype;
-            [SerializeField, UsedImplicitly] private RenderingReference rendering;
-            [SerializeField, UsedImplicitly] private SelectionCircleSettings playerCircleSettings;
-            [SerializeField, UsedImplicitly] private SelectionCircleSettings targetCircleSettings;
+            [SerializeField] private Projector selectionCirclePrototype;
+            [SerializeField] private RenderingReference rendering;
+            [SerializeField] private SelectionCircleSettings playerCircleSettings;
+            [SerializeField] private SelectionCircleSettings targetCircleSettings;
 
             private SelectionCircle playerCircle;
             private SelectionCircle targetCircle;

@@ -1,11 +1,10 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client.Localization
 {
     public abstract class LocalizedBehaviour : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private LocalizedString localizedString;
+        [SerializeField] private LocalizedString localizedString;
 
         private object[] args;
 
@@ -21,15 +20,13 @@ namespace Client.Localization
 
                 return localizedString.Value;
             }
-        } 
+        }
 
-        [UsedImplicitly]
         private void Awake()
         {
             LocalizationReference.AddBehaviour(this);
         }
 
-        [UsedImplicitly]
         private void OnDestroy()
         {
             LocalizationReference.RemoveBehaviour(this);

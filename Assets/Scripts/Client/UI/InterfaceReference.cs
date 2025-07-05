@@ -1,6 +1,5 @@
 ﻿using Client.UI;
 using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -8,9 +7,9 @@ namespace Client
     [CreateAssetMenu(fileName = "Interface Reference", menuName = "Game Data/Scriptable/Interface", order = 10)]
     public class InterfaceReference : ScriptableReference
     {
-        [SerializeField, UsedImplicitly] private string containerTag;
-        [SerializeField, UsedImplicitly] private LobbyScreen lobbyScreenPrototype;
-        [SerializeField, UsedImplicitly] private BattleScreen battleScreenPrototype;
+        [SerializeField] private string containerTag;
+        [SerializeField] private LobbyScreen lobbyScreenPrototype;
+        [SerializeField] private BattleScreen battleScreenPrototype;
 
         private readonly ScreenController screenController = new ScreenController();
 

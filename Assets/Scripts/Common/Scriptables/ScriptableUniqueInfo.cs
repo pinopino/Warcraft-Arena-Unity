@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Common
 {
     public abstract class ScriptableUniqueInfo<TUnique> : ScriptableObject, IScriptablePostProcess where TUnique : ScriptableUniqueInfo<TUnique>
     {
-        [SerializeField, UsedImplicitly, HideInInspector] private int id;
+        [SerializeField, HideInInspector] private int id;
 
         protected int Id => id;
         protected abstract TUnique Data { get; }

@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Client.Localization;
 using Common;
-using System.Collections.Generic;
-using Client.Localization;
 using Core;
-using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
@@ -11,15 +10,15 @@ namespace Client
     [CreateAssetMenu(fileName = "Localization Reference", menuName = "Game Data/Scriptable/Localization", order = 2)]
     public partial class LocalizationReference : Localization.LocalizationReference
     {
-        [SerializeField, UsedImplicitly] private LocalizedString missingStringPlaceholder;
-        [SerializeField, UsedImplicitly] private LocalizedString emptyStringPlaceholder;
-        [SerializeField, UsedImplicitly] private SpellTooltipInfoContainer spellTooltipSettings;
-        [SerializeField, UsedImplicitly] private List<HotKeyModifierLink> hotkeyModifiers;
-        [SerializeField, UsedImplicitly] private List<KeyCodeLink> keyCodes;
-        [SerializeField, UsedImplicitly] private List<SpellCastResultLink> spellCastResults;
-        [SerializeField, UsedImplicitly] private List<SpellMissTypeLink> spellMissTypes;
-        [SerializeField, UsedImplicitly] private List<ClientConnectFailReasonLink> clientConnectFailReasons;
-        [SerializeField, UsedImplicitly] private List<PowerTypeCostLink> powerTypeCosts;
+        [SerializeField] private LocalizedString missingStringPlaceholder;
+        [SerializeField] private LocalizedString emptyStringPlaceholder;
+        [SerializeField] private SpellTooltipInfoContainer spellTooltipSettings;
+        [SerializeField] private List<HotKeyModifierLink> hotkeyModifiers;
+        [SerializeField] private List<KeyCodeLink> keyCodes;
+        [SerializeField] private List<SpellCastResultLink> spellCastResults;
+        [SerializeField] private List<SpellMissTypeLink> spellMissTypes;
+        [SerializeField] private List<ClientConnectFailReasonLink> clientConnectFailReasons;
+        [SerializeField] private List<PowerTypeCostLink> powerTypeCosts;
 
         private static readonly Dictionary<KeyCode, string> StringsByKeyCode = new Dictionary<KeyCode, string>();
         private static readonly Dictionary<HotkeyModifier, string> StringsByHotkeyModifier = new Dictionary<HotkeyModifier, string>();

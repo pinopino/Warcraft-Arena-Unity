@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -11,8 +10,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<TooltipSize, TooltipSizeSettings>
         {
-            [SerializeField, UsedImplicitly] private TooltipSize tooltipSize;
-            [SerializeField, UsedImplicitly] private TooltipSizeSettings tooltipSettings;
+            [SerializeField] private TooltipSize tooltipSize;
+            [SerializeField] private TooltipSizeSettings tooltipSettings;
 
             public TooltipSize Key => tooltipSize;
             public TooltipSizeSettings Value => tooltipSettings;

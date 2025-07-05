@@ -1,20 +1,19 @@
 ﻿using Common;
 using Core;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client.Spells
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Visual Info", menuName = "Game Data/Visuals/Aura Visual Info", order = 3)]
+    [CreateAssetMenu(fileName = "Aura Visual Info", menuName = "Game Data/Visuals/Aura Visual Info", order = 3)]
     public class AuraVisualsInfo : ScriptableUniqueInfo<AuraVisualsInfo>, IEffectPositionerSettings
     {
-        [SerializeField, UsedImplicitly] private AuraVisualsInfoContainer container;
-        [SerializeField, UsedImplicitly] private AuraInfo auraInfo;
-        [SerializeField, UsedImplicitly] private Sprite auraIcon;
-        [SerializeField, UsedImplicitly] private EffectTagType tagType;
-        [SerializeField, UsedImplicitly] private EffectSettings effectSettings;
-        [SerializeField, UsedImplicitly] private bool keepOriginalRotation = true;
-        [SerializeField, UsedImplicitly] private bool preventAnimation;
+        [SerializeField] private AuraVisualsInfoContainer container;
+        [SerializeField] private AuraInfo auraInfo;
+        [SerializeField] private Sprite auraIcon;
+        [SerializeField] private EffectTagType tagType;
+        [SerializeField] private EffectSettings effectSettings;
+        [SerializeField] private bool keepOriginalRotation = true;
+        [SerializeField] private bool preventAnimation;
 
         protected override AuraVisualsInfo Data => this;
         protected override ScriptableUniqueInfoContainer<AuraVisualsInfo> Container => container;

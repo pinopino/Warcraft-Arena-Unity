@@ -1,16 +1,15 @@
 ﻿using Client.Localization;
 using Common;
 using Core;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
 {
     public class ActionErrorItem : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private LocalizedTextMeshProUGUI errorLabel;
-        [SerializeField, UsedImplicitly] private ActionErrorDisplaySettings displaySettings;
-        [SerializeField, UsedImplicitly] private RectTransform rectTransform;
+        [SerializeField] private LocalizedTextMeshProUGUI errorLabel;
+        [SerializeField] private ActionErrorDisplaySettings displaySettings;
+        [SerializeField] private RectTransform rectTransform;
 
         private float currentLifeTime;
         private float targetLifeTime;
@@ -18,7 +17,6 @@ namespace Client
         public SpellCastResult CastResult { get; private set; }
         public RectTransform RectTransform => rectTransform;
 
-        [UsedImplicitly]
         private void OnDestroy()
         {
             GameObjectPool.Return(this, true);

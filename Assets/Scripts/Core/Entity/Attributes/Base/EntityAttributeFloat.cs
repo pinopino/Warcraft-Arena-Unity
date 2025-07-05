@@ -1,7 +1,5 @@
-﻿using UnityEngine;
-using Common;
-
-using EventHandler = Common.EventHandler;
+﻿using Common;
+using UnityEngine;
 
 namespace Core
 {

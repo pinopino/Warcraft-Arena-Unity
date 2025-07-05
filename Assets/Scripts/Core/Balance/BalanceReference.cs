@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
@@ -8,7 +7,7 @@ namespace Core
     [CreateAssetMenu(fileName = "Balance Reference", menuName = "Game Data/Scriptable/Balance", order = 2)]
     public class BalanceReference : ScriptableReference
     {
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private BalanceDefinition definition;
 
         private readonly List<MapDefinition> maps = new List<MapDefinition>();
@@ -37,7 +36,7 @@ namespace Core
 
             maps.AddRange(definition.MapEntries);
 
-            for(int i = 0; i < definition.SpellInfos.Count; i++)
+            for (int i = 0; i < definition.SpellInfos.Count; i++)
                 spellInfosById.Add(definition.SpellInfos[i].Id, definition.SpellInfos[i]);
 
             for (int i = 0; i < definition.AuraInfos.Count; i++)

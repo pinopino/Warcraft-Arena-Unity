@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using Core;
-using JetBrains.Annotations;
+﻿using Core;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
     public class ActionBar : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private ActionBarSettingsContainer container;
-        [SerializeField, UsedImplicitly] private List<ButtonSlot> buttonSlots;
-        [SerializeField, UsedImplicitly] private ActionBarSettings actionBarSettings;
+        [SerializeField] private ActionBarSettingsContainer container;
+        [SerializeField] private List<ButtonSlot> buttonSlots;
+        [SerializeField] private ActionBarSettings actionBarSettings;
 
         public void Initialize()
         {

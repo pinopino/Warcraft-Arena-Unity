@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class ButtonController : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private GameObject toolTip;
-        [SerializeField, UsedImplicitly] private DraggingItem draggingItem;
+        [SerializeField] private GameObject toolTip;
+        [SerializeField] private DraggingItem draggingItem;
 
         private bool isDragging;
         private bool dragReplaced;
@@ -14,7 +13,6 @@ namespace Client
         public bool IsDragging => isDragging;
         public bool DragReplaced => dragReplaced;
 
-        [UsedImplicitly]
         private void Update()
         {
             if (isDragging)

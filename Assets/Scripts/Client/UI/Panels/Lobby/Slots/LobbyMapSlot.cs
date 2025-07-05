@@ -1,6 +1,5 @@
-﻿using System;
-using Core;
-using JetBrains.Annotations;
+﻿using Core;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +7,9 @@ namespace Client
 {
     public class LobbyMapSlot : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private Button slotButton;
-        [SerializeField, UsedImplicitly] private Image selectedFrame;
-        [SerializeField, UsedImplicitly] private Image mapFrame;
+        [SerializeField] private Button slotButton;
+        [SerializeField] private Image selectedFrame;
+        [SerializeField] private Image mapFrame;
 
         public event Action<LobbyMapSlot> EventLobbyMapSlotSelected;
 

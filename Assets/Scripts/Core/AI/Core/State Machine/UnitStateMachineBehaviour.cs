@@ -1,10 +1,8 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Animations;
 
 namespace Core
 {
-    [UsedImplicitly]
     public class UnitStateMachineBehaviour : StateMachineBehaviour, IUnitStateMachineBehaviour
     {
         protected UnitStateMachine StateMachine { get; private set; }

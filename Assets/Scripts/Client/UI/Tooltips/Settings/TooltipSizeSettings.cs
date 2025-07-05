@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -7,8 +6,8 @@ namespace Client
     [Serializable]
     public class TooltipSizeSettings
     {
-        [SerializeField, UsedImplicitly] private int flexibleWidth;
-        [SerializeField, UsedImplicitly] private int preferredWidth;
+        [SerializeField] private int flexibleWidth;
+        [SerializeField] private int preferredWidth;
 
         public void Modify(TooltipSlot slot)
         {

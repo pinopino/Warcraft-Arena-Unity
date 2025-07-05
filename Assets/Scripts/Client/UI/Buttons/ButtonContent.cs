@@ -1,26 +1,25 @@
-﻿using System;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using Core;
-using JetBrains.Annotations;
+﻿using Core;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Client
 {
     public class ButtonContent : UIBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField, UsedImplicitly] private TooltipReference tooltips;
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private InputReference input;
-        [SerializeField, UsedImplicitly] private RectTransform rectTransform;
-        [SerializeField, UsedImplicitly] private Image contentImage;
-        [SerializeField, UsedImplicitly] private Image cooldownImage;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI cooldownText;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI chargeText;
-        [SerializeField, UsedImplicitly] private Button button;
-        [SerializeField, UsedImplicitly] private TooltipAlignment tooltipAlignment = TooltipAlignment.FromTop;
+        [SerializeField] private TooltipReference tooltips;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private InputReference input;
+        [SerializeField] private RectTransform rectTransform;
+        [SerializeField] private Image contentImage;
+        [SerializeField] private Image cooldownImage;
+        [SerializeField] private TextMeshProUGUI cooldownText;
+        [SerializeField] private TextMeshProUGUI chargeText;
+        [SerializeField] private Button button;
+        [SerializeField] private TooltipAlignment tooltipAlignment = TooltipAlignment.FromTop;
 
         public ButtonSlot ButtonSlot { get; private set; }
         public ButtonContentType ContentType => data.ActionType;
@@ -235,7 +234,7 @@ namespace Client
                 else
                     cooldownText.SetCharArray(timerText, 0, 0);
 
-                cooldownImage.fillAmount = (float) cooldownTimeLeft / cooldownTime;
+                cooldownImage.fillAmount = (float)cooldownTimeLeft / cooldownTime;
                 showingTimer = showTimer;
             }
         }

@@ -1,18 +1,16 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
-using Common;
+﻿using Common;
 using TMPro;
+using UnityEngine;
 
 namespace Client.Localization
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class LocalizedTextMeshProUGUI : LocalizedBehaviour
     {
-        [SerializeField, UsedImplicitly, HideInInspector] private TextMeshProUGUI textMeshPro;
+        [SerializeField, HideInInspector] private TextMeshProUGUI textMeshPro;
 
         public TextMeshProUGUI TextMeshPro => textMeshPro;
 
-        [UsedImplicitly]
         private void OnValidate()
         {
             textMeshPro = GetComponent<TextMeshProUGUI>();

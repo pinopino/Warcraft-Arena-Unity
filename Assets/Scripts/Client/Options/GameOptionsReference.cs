@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -7,7 +6,7 @@ namespace Client
     [CreateAssetMenu(fileName = "Game Options Reference", menuName = "Game Data/Scriptable/Game Options", order = 1)]
     public class GameOptionsReference : ScriptableReferenceClient
     {
-        [SerializeField, UsedImplicitly] private List<GameOptionItem> options;
+        [SerializeField] private List<GameOptionItem> options;
 
         protected override void OnRegistered()
         {
@@ -24,7 +23,7 @@ namespace Client
         }
 
 #if UNITY_EDITOR
-        [ContextMenu("Validate"), UsedImplicitly]
+        [ContextMenu("Validate")]
         private void Validate()
         {
             var optionsNames = new HashSet<string>();
@@ -37,7 +36,7 @@ namespace Client
             }
         }
 
-        [ContextMenu("Collect"), UsedImplicitly]
+        [ContextMenu("Collect")]
         private void CollectOptions()
         {
             options.Clear();

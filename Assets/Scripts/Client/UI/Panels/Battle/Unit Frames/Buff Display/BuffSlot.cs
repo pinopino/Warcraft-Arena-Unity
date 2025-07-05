@@ -1,5 +1,4 @@
 ﻿using Client.Spells;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,13 +7,13 @@ namespace Client
 {
     public class BuffSlot : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private Image contentImage;
-        [SerializeField, UsedImplicitly] private Image cooldownImage;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI cooldownText;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI chargesText;
-        [SerializeField, UsedImplicitly] private CanvasGroup canvasGroup;
-        [SerializeField, UsedImplicitly] private bool displayTimer;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private Image contentImage;
+        [SerializeField] private Image cooldownImage;
+        [SerializeField] private TextMeshProUGUI cooldownText;
+        [SerializeField] private TextMeshProUGUI chargesText;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private bool displayTimer;
 
         private readonly char[] timerText = { ' ', ' ', ' ' };
         private readonly char[] chargesCountText = { ' ', ' ', ' ' };
@@ -47,7 +46,7 @@ namespace Client
 
         public void DoUpdate()
         {
-            if(currentAura == null)
+            if (currentAura == null)
                 return;
 
             if (currentAura.MaxDuration == -1)

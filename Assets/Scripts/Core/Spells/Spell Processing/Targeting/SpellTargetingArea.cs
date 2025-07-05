@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Area Target - Spell Targeting", menuName = "Game Data/Spells/Spell Targeting/Area", order = 1)]
+    [CreateAssetMenu(fileName = "Area Target - Spell Targeting", menuName = "Game Data/Spells/Spell Targeting/Area", order = 1)]
     public class SpellTargetingArea : SpellTargeting
     {
-        [SerializeField, UsedImplicitly] private SpellTargetReferences referenceType = SpellTargetReferences.Caster;
-        [SerializeField, UsedImplicitly] private SpellTargetChecks targetChecks = SpellTargetChecks.Enemy;
-        [SerializeField, UsedImplicitly] private float minRadius;
-        [SerializeField, UsedImplicitly] private float maxRadius = 10.0f;
+        [SerializeField] private SpellTargetReferences referenceType = SpellTargetReferences.Caster;
+        [SerializeField] private SpellTargetChecks targetChecks = SpellTargetChecks.Enemy;
+        [SerializeField] private float minRadius;
+        [SerializeField] private float maxRadius = 10.0f;
 
         public float MaxRadius => maxRadius;
 
@@ -60,7 +59,7 @@ namespace Core
             spell.Caster.Map.SearchAreaTargets(targets, radius, center, spell.Caster, targetChecks);
 
             foreach (var target in targets)
-                if(IsValidTargetForSpell(target, spell))
+                if (IsValidTargetForSpell(target, spell))
                     spell.ImplicitTargets.AddTargetIfNotExists(target, effectMask);
         }
     }

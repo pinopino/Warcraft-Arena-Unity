@@ -1,20 +1,18 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Animations;
 
 namespace Client
 {
     public class AnimatorSetFloatBehaviour : StateMachineBehaviour
     {
-        [SerializeField, UsedImplicitly] private string parameterName;
-        [SerializeField, UsedImplicitly] private float valueOnEnter;
-        [SerializeField, UsedImplicitly] private float valueOnExit;
-        [SerializeField, UsedImplicitly] private bool setOnEnter = true;
-        [SerializeField, UsedImplicitly] private bool setOnExit = true;
+        [SerializeField] private string parameterName;
+        [SerializeField] private float valueOnEnter;
+        [SerializeField] private float valueOnExit;
+        [SerializeField] private bool setOnEnter = true;
+        [SerializeField] private bool setOnExit = true;
 
         private int parameterHash;
 
-        [UsedImplicitly]
         private void OnEnable()
         {
             parameterHash = Animator.StringToHash(parameterName);

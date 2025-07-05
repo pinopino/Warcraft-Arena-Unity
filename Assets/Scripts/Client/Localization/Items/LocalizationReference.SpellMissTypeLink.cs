@@ -1,7 +1,6 @@
-﻿using System;
-using Client.Localization;
+﻿using Client.Localization;
 using Core;
-using JetBrains.Annotations;
+using System;
 
 namespace Client
 {
@@ -10,8 +9,8 @@ namespace Client
         [Serializable]
         private class SpellMissTypeLink
         {
-            [UsedImplicitly] public SpellMissType SpellMissType;
-            [UsedImplicitly] public LocalizedString LocalizedString;
+            public SpellMissType SpellMissType;
+            public LocalizedString LocalizedString;
         }
     }
 }

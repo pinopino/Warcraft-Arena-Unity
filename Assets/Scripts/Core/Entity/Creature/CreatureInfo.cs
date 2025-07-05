@@ -1,5 +1,4 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
@@ -7,10 +6,10 @@ namespace Core
     [CreateAssetMenu(fileName = "Creature Info", menuName = "Game Data/Entities/Creature Info", order = 2)]
     internal sealed class CreatureInfo : ScriptableUniqueInfo<CreatureInfo>
     {
-        [SerializeField, UsedImplicitly] private CreatureInfoContainer container;
-        [SerializeField, UsedImplicitly] private VehicleInfo vehicleInfo;
-        [UsedImplicitly, SerializeField] private string creatureName;
-        [UsedImplicitly, SerializeField] private int modelId;
+        [SerializeField] private CreatureInfoContainer container;
+        [SerializeField] private VehicleInfo vehicleInfo;
+        [SerializeField] private string creatureName;
+        [SerializeField] private int modelId;
 
         protected override ScriptableUniqueInfoContainer<CreatureInfo> Container => container;
         protected override CreatureInfo Data => this;

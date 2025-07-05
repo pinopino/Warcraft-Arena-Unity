@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Animations;
 
 namespace Client
 {
     public class AnimatorSyncNormalizedTimeBehaviour : StateMachineBehaviour
     {
-        [SerializeField, UsedImplicitly] private int otherLayerIndex;
+        [SerializeField] private int otherLayerIndex;
 
         private bool alreadySynced;
 

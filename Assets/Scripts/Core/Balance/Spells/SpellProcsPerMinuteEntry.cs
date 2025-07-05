@@ -1,15 +1,14 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [Serializable, UsedImplicitly]
+    [Serializable]
     public class SpellProcsPerMinuteModifier
     {
-        [SerializeField, UsedImplicitly] private SpellProcsPerMinuteModType modType;
-        [SerializeField, UsedImplicitly] private int parameter;
-        [SerializeField, UsedImplicitly] private float modValue;
+        [SerializeField] private SpellProcsPerMinuteModType modType;
+        [SerializeField] private int parameter;
+        [SerializeField] private float modValue;
 
         public SpellProcsPerMinuteModType Type => modType;
         public int Parameter => parameter;

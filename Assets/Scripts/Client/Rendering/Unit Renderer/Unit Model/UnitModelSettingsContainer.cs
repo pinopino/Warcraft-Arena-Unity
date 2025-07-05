@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Unit Model Settings Container", menuName = "Game Data/Containers/Unit Model Settings", order = 1)]
+    [CreateAssetMenu(fileName = "Unit Model Settings Container", menuName = "Game Data/Containers/Unit Model Settings", order = 1)]
     public class UnitModelSettingsContainer : ScriptableUniqueInfoContainer<UnitModelSettings>
     {
-        [SerializeField, UsedImplicitly] private List<UnitModelSettings> modelSettings;
+        [SerializeField] private List<UnitModelSettings> modelSettings;
 
         private readonly Dictionary<int, UnitModelSettings> modelSettingsById = new Dictionary<int, UnitModelSettings>();
 

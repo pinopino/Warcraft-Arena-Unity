@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using Client.Localization;
+﻿using Client.Localization;
 using Client.UI;
 using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 namespace Client
 {
@@ -51,33 +50,33 @@ namespace Client
             }
         }
 
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private PhotonBoltReference photonReference;
-        [SerializeField, UsedImplicitly] private Button startServerButton;
-        [SerializeField, UsedImplicitly] private Button singlePlayerButton;
-        [SerializeField, UsedImplicitly] private Button clientServerButton;
-        [SerializeField, UsedImplicitly] private Transform mapsContentHolder;
-        [SerializeField, UsedImplicitly] private Transform sessionsContentHolder;
-        [SerializeField, UsedImplicitly] private LobbyMapSlot mapSlotPrototype;
-        [SerializeField, UsedImplicitly] private LobbySessionSlot sessionSlotPrototype;
-        [SerializeField, UsedImplicitly] private TMP_InputField playerNameInput;
-        [SerializeField, UsedImplicitly] private TMP_InputField serverNameInput;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI selectedMapLabel;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI versionName;
-        [SerializeField, UsedImplicitly] private LocalizedTextMeshProUGUI statusLabel;
-        [SerializeField, UsedImplicitly] private TMP_Dropdown regionDropdown;
-        [SerializeField, UsedImplicitly] private GameObject startClientTooltip;
-        [SerializeField, UsedImplicitly] private GameObject noSessionsFoundTooltip;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private PhotonBoltReference photonReference;
+        [SerializeField] private Button startServerButton;
+        [SerializeField] private Button singlePlayerButton;
+        [SerializeField] private Button clientServerButton;
+        [SerializeField] private Transform mapsContentHolder;
+        [SerializeField] private Transform sessionsContentHolder;
+        [SerializeField] private LobbyMapSlot mapSlotPrototype;
+        [SerializeField] private LobbySessionSlot sessionSlotPrototype;
+        [SerializeField] private TMP_InputField playerNameInput;
+        [SerializeField] private TMP_InputField serverNameInput;
+        [SerializeField] private TextMeshProUGUI selectedMapLabel;
+        [SerializeField] private TextMeshProUGUI versionName;
+        [SerializeField] private LocalizedTextMeshProUGUI statusLabel;
+        [SerializeField] private TMP_Dropdown regionDropdown;
+        [SerializeField] private GameObject startClientTooltip;
+        [SerializeField] private GameObject noSessionsFoundTooltip;
 
-        [SerializeField, UsedImplicitly] private LocalizedString disconnectedReasonString;
-        [SerializeField, UsedImplicitly] private LocalizedString connectionStartString;
-        [SerializeField, UsedImplicitly] private LocalizedString connectSuccessString;
-        [SerializeField, UsedImplicitly] private LocalizedString clientStartString;
-        [SerializeField, UsedImplicitly] private LocalizedString serverStartString;
-        [SerializeField, UsedImplicitly] private LocalizedString serverStartFailedString;
-        [SerializeField, UsedImplicitly] private LocalizedString serverStartSuccessString;
-        [SerializeField, UsedImplicitly] private LocalizedString clientStartFailedString;
-        [SerializeField, UsedImplicitly] private LocalizedString clientStartSuccessString;
+        [SerializeField] private LocalizedString disconnectedReasonString;
+        [SerializeField] private LocalizedString connectionStartString;
+        [SerializeField] private LocalizedString connectSuccessString;
+        [SerializeField] private LocalizedString clientStartString;
+        [SerializeField] private LocalizedString serverStartString;
+        [SerializeField] private LocalizedString serverStartFailedString;
+        [SerializeField] private LocalizedString serverStartSuccessString;
+        [SerializeField] private LocalizedString clientStartFailedString;
+        [SerializeField] private LocalizedString clientStartSuccessString;
 
         private readonly List<LobbyMapSlot> mapSlots = new List<LobbyMapSlot>();
         private readonly List<LobbySessionSlot> sessionSlots = new List<LobbySessionSlot>();
@@ -228,7 +227,7 @@ namespace Client
 
             var clientConnectionToken = new ClientConnectionToken
             {
-                PrefferedClass = (ClassType) PlayerPrefs.GetInt(UnitUtils.PreferredClassPrefName, 0),
+                PrefferedClass = (ClassType)PlayerPrefs.GetInt(UnitUtils.PreferredClassPrefName, 0),
                 Name = playerNameInput.text
             };
 
@@ -263,7 +262,7 @@ namespace Client
 
             StartClient(true);
         }
-        
+
         private void OnServerButtonClicked()
         {
             statusLabel.SetString(serverStartString);

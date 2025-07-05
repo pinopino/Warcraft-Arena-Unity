@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 
 namespace Client
 {
@@ -8,8 +7,8 @@ namespace Client
         [Serializable]
         private class HotKeyModifierLink
         {
-            [UsedImplicitly] public HotkeyModifier Modifier;
-            [UsedImplicitly] public string String;
+            public HotkeyModifier Modifier;
+            public string String;
         }
     }
 }

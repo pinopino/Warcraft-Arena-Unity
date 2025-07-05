@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 using Object = UnityEngine.Object;
@@ -12,8 +11,8 @@ namespace Client
     [Serializable]
     public class FloatingTextController
     {
-        [SerializeField, UsedImplicitly] private FloatingText floatingTextPrototype;
-        [SerializeField, UsedImplicitly] private int preinstantiatedCount = 20;
+        [SerializeField] private FloatingText floatingTextPrototype;
+        [SerializeField] private int preinstantiatedCount = 20;
 
         private readonly List<FloatingText> activeTexts = new List<FloatingText>();
 

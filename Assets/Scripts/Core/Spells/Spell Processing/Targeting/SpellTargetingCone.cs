@@ -1,13 +1,12 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Cone Target - Spell Targeting", menuName = "Game Data/Spells/Spell Targeting/Cone", order = 1)]
+    [CreateAssetMenu(fileName = "Cone Target - Spell Targeting", menuName = "Game Data/Spells/Spell Targeting/Cone", order = 1)]
     public class SpellTargetingCone : SpellTargetingArea
     {
-        [SerializeField, UsedImplicitly] private SpellTargetDirections targetDirection = SpellTargetDirections.Front;
-        [SerializeField, UsedImplicitly] private float coneAngle;
+        [SerializeField] private SpellTargetDirections targetDirection = SpellTargetDirections.Front;
+        [SerializeField] private float coneAngle;
 
         protected override bool IsValidTargetForSpell(Unit target, Spell spell)
         {

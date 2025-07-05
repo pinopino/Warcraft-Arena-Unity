@@ -1,11 +1,10 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class ComboPointSlot : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private CanvasGroup activeCanvasGroup;
+        [SerializeField] private CanvasGroup activeCanvasGroup;
 
         public void ModifyState(bool active)
         {

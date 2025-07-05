@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.Conditions
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Spell Is Target", menuName = "Game Data/Conditions/Spell/Spell Is Target", order = 2)]
+    [CreateAssetMenu(fileName = "Spell Is Target", menuName = "Game Data/Conditions/Spell/Spell Is Target", order = 2)]
     public sealed class SpellIsTarget : Condition
     {
-        [SerializeField, UsedImplicitly] private SpellInfo targetSpell;
+        [SerializeField] private SpellInfo targetSpell;
 
         protected override bool IsApplicable => base.IsApplicable && SpellInfo != null;
 

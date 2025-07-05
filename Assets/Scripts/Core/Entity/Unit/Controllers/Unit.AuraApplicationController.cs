@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core.AuraEffects;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core

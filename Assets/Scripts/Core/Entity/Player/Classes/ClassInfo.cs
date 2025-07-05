@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Class Info", menuName = "Game Data/Classes/Class Info", order = 1)]
+    [CreateAssetMenu(fileName = "Class Info", menuName = "Game Data/Classes/Class Info", order = 1)]
     public class ClassInfo : ScriptableUniqueInfo<ClassInfo>
     {
-        [SerializeField, UsedImplicitly] private ClassInfoContainer container;
-        [SerializeField, UsedImplicitly] private bool isAvailable;
-        [SerializeField, UsedImplicitly] private ClassType classType;
-        [SerializeField, UsedImplicitly] private List<SpellPowerTypeInfo> powerTypes;
-        [SerializeField, UsedImplicitly] private List<SpellInfo> classSpells;
+        [SerializeField] private ClassInfoContainer container;
+        [SerializeField] private bool isAvailable;
+        [SerializeField] private ClassType classType;
+        [SerializeField] private List<SpellPowerTypeInfo> powerTypes;
+        [SerializeField] private List<SpellInfo> classSpells;
 
         private readonly HashSet<SpellInfo> spellInfoHashSet = new HashSet<SpellInfo>();
         private readonly HashSet<SpellPowerType> spellPowerTypeInfoHashSet = new HashSet<SpellPowerType>();

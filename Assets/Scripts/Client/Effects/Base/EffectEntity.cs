@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
 {
     internal class EffectEntity : MonoBehaviour, IEffectEntity
     {
-        [SerializeField, UsedImplicitly] private List<EffectBehaviour> behaviours;
+        [SerializeField] private List<EffectBehaviour> behaviours;
 
         private EffectSettings effectSettings;
         private Quaternion originalRotation;
@@ -96,7 +95,6 @@ namespace Client
                 behaviours.ForEach(behaviour => behaviour.Replay());
         }
 
-        [UsedImplicitly]
         private void OnDestroy()
         {
             Stop(PlayId, true);

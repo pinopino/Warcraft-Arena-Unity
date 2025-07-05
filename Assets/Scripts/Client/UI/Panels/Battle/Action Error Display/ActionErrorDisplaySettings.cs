@@ -1,17 +1,16 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Action Error Display Settings", menuName = "Game Data/Interface/Action Error Display Settings", order = 2)]
+    [CreateAssetMenu(fileName = "Action Error Display Settings", menuName = "Game Data/Interface/Action Error Display Settings", order = 2)]
     public class ActionErrorDisplaySettings : ScriptableObject
     {
-        [SerializeField, UsedImplicitly] private float lifeTime = 3.0f;
-        [SerializeField, UsedImplicitly] private float floatingSpeed = 3;
-        [SerializeField, UsedImplicitly] private int fontSize = 20;
-        [SerializeField, UsedImplicitly] private bool allowRepeating;
-        [SerializeField, UsedImplicitly] private AnimationCurve sizeOverTime;
-        [SerializeField, UsedImplicitly] private AnimationCurve alphaOverTime;
+        [SerializeField] private float lifeTime = 3.0f;
+        [SerializeField] private float floatingSpeed = 3;
+        [SerializeField] private int fontSize = 20;
+        [SerializeField] private bool allowRepeating;
+        [SerializeField] private AnimationCurve sizeOverTime;
+        [SerializeField] private AnimationCurve alphaOverTime;
 
         public float LifeTime => lifeTime;
         public float FloatingSpeed => floatingSpeed;

@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
     public abstract class SpellEffectInfo : ScriptableObject
     {
         [Header("Base Effect")]
-        [SerializeField, UsedImplicitly] private SpellTargeting targeting;
+        [SerializeField] private SpellTargeting targeting;
 
         public virtual bool IgnoresSpellImmunity => false;
         public abstract float Value { get; }

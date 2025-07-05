@@ -1,9 +1,8 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Detect All Stealth", menuName = "Game Data/Spells/Auras/Effects/Detect All Stealth", order = 3)]
+    [CreateAssetMenu(fileName = "Aura Effect Detect All Stealth", menuName = "Game Data/Spells/Auras/Effects/Detect All Stealth", order = 3)]
     public class AuraEffectInfoDetectAllStealth : AuraEffectInfo
     {
         public override float Value => 1.0f;

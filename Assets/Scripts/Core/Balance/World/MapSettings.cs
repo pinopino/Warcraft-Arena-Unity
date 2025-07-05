@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Core.Scenario;
+using System;
 using System.Collections.Generic;
-using Core.Scenario;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
@@ -11,20 +10,20 @@ namespace Core
         [Serializable]
         private class ArenaSpawnInfo
         {
-            [SerializeField, UsedImplicitly] private Team team;
-            [SerializeField, UsedImplicitly] private List<Transform> spawnPoints;
+            [SerializeField] private Team team;
+            [SerializeField] private List<Transform> spawnPoints;
 
             public Team Team => team;
             public List<Transform> SpawnPoints => spawnPoints;
         }
 
-        [SerializeField, UsedImplicitly, Range(2.0f, 50.0f)] private float gridCellSize;
-        [SerializeField, UsedImplicitly] private Transform defaultSpawnPoint;
-        [SerializeField, UsedImplicitly] private BoxCollider boundingBox;
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private MapDefinition mapDefinition;
-        [SerializeField, UsedImplicitly] private List<ArenaSpawnInfo> spawnInfos;
-        [SerializeField, UsedImplicitly] private List<ScenarioAction> scenarioActions;
+        [SerializeField, Range(2.0f, 50.0f)] private float gridCellSize;
+        [SerializeField] private Transform defaultSpawnPoint;
+        [SerializeField] private BoxCollider boundingBox;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private MapDefinition mapDefinition;
+        [SerializeField] private List<ArenaSpawnInfo> spawnInfos;
+        [SerializeField] private List<ScenarioAction> scenarioActions;
 
         internal float GridCellSize => gridCellSize;
         internal BoxCollider BoundingBox => boundingBox;
@@ -40,7 +39,7 @@ namespace Core
         }
 
 #if UNITY_EDITOR
-        [UsedImplicitly, ContextMenu("Collect scenario actions")]
+        [ContextMenu("Collect scenario actions")]
         private void CollectScenario()
         {
             scenarioActions = new List<ScenarioAction>(GetComponentsInChildren<ScenarioAction>());

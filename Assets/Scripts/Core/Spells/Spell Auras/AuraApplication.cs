@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
@@ -13,9 +12,7 @@ namespace Core
         private int damageInterruptValue;
         private readonly bool canBeRemovedByDamageInterrupt;
 
-        [NotNull]
         public Aura Aura { get; }
-        [NotNull]
         public Unit Target { get; }
 
         public int EffectsToApply { get; }

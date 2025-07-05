@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -11,8 +10,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<UnitSounds, SoundEntry>
         {
-            [SerializeField, UsedImplicitly] private UnitSounds soundType;
-            [SerializeField, UsedImplicitly] private SoundEntry soundEntry;
+            [SerializeField] private UnitSounds soundType;
+            [SerializeField] private SoundEntry soundEntry;
 
             public UnitSounds Key => soundType;
             public SoundEntry Value => soundEntry;

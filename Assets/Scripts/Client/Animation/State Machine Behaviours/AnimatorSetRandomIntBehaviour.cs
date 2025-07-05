@@ -1,18 +1,16 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Animations;
 
 namespace Client
 {
     public class AnimatorSetRandomIntBehaviour : StateMachineBehaviour
     {
-        [SerializeField, UsedImplicitly] private string parameterName;
-        [SerializeField, UsedImplicitly] private int minInclusive;
-        [SerializeField, UsedImplicitly] private int maxExclusive;
+        [SerializeField] private string parameterName;
+        [SerializeField] private int minInclusive;
+        [SerializeField] private int maxExclusive;
 
         private int parameterHash;
 
-        [UsedImplicitly]
         private void OnEnable()
         {
             parameterHash = Animator.StringToHash(parameterName);

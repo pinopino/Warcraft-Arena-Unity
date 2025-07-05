@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using JetBrains.Annotations;
 
 using Object = UnityEngine.Object;
 using UnityAssert = UnityEngine.Assertions.Assert;
@@ -14,13 +13,13 @@ namespace Common
     {
         private const string AssertionDefine = "USE_UNITY_ASSERTIONS";
 
-        [EditorBrowsable(EditorBrowsableState.Never), UsedImplicitly, Obsolete("Assert.Equals should not be used for Assertions", true)]
+        [EditorBrowsable(EditorBrowsableState.Never), Obsolete("Assert.Equals should not be used for Assertions", true)]
         public new static bool Equals(object obj1, object obj2)
         {
             throw new InvalidOperationException("Assert.Equals should not be used for Assertions");
         }
 
-        [EditorBrowsable(EditorBrowsableState.Never), UsedImplicitly, Obsolete("Assert.ReferenceEquals should not be used for Assertions", true)]
+        [EditorBrowsable(EditorBrowsableState.Never), Obsolete("Assert.ReferenceEquals should not be used for Assertions", true)]
         public new static bool ReferenceEquals(object obj1, object obj2)
         {
             throw new InvalidOperationException("Assert.ReferenceEquals should not be used for Assertions");
@@ -121,10 +120,10 @@ namespace Common
         [Conditional(AssertionDefine)]
         public static void IsNull(Object value, string message) => UnityAssert.IsNull(value, message);
 
-        [Conditional(AssertionDefine), AssertionMethod, ContractAnnotation("value:null=>halt")]
+        [Conditional(AssertionDefine)]
         public static void IsNotNull<T>(T value, string message = null) where T : class => UnityAssert.IsNotNull(value, message);
 
-        [Conditional(AssertionDefine), AssertionMethod, ContractAnnotation("value:null=>halt")]
+        [Conditional(AssertionDefine)]
         public static void IsNotNull(Object value, string message) => UnityAssert.IsNotNull(value, message);
 
         [Conditional(AssertionDefine)]

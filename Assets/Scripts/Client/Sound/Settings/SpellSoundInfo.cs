@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
@@ -9,9 +8,9 @@ namespace Client
     [CreateAssetMenu(fileName = "Spell Sound Info", menuName = "Game Data/Sound/Spell Sound Info", order = 1)]
     public class SpellSoundInfo : ScriptableUniqueInfo<SpellSoundInfo>
     {
-        [SerializeField, UsedImplicitly] private SpellSoundInfoContainer container;
-        [SerializeField, UsedImplicitly] private SpellInfo spellInfo;
-        [SerializeField, UsedImplicitly] private List<SpellSoundEntry> soundEntries = new List<SpellSoundEntry>();
+        [SerializeField] private SpellSoundInfoContainer container;
+        [SerializeField] private SpellInfo spellInfo;
+        [SerializeField] private List<SpellSoundEntry> soundEntries = new List<SpellSoundEntry>();
 
         protected override SpellSoundInfo Data => this;
         protected override ScriptableUniqueInfoContainer<SpellSoundInfo> Container => container;

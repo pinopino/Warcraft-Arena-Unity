@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using UdpKit;
+﻿using UdpKit;
 using UnityEngine;
 
 namespace Core
@@ -36,7 +35,7 @@ namespace Core
             }
         }
 
-        [SerializeField, UsedImplicitly, Header(nameof(Creature)), Space(10)]
+        [SerializeField, Header(nameof(Creature)), Space(10)]
         private CreatureAI creatureAI;
 
         private CreateToken createToken;

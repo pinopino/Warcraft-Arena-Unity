@@ -1,30 +1,27 @@
-﻿using System.Collections.Generic;
-using Client;
+﻿using Client;
 using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 using UnityEngine.UI;
 
 public class ChatFrame : MonoBehaviour
 {
-    [SerializeField, UsedImplicitly] private InputReference input;
-    [SerializeField, UsedImplicitly] private ScrollRect scrollRect;
-    [SerializeField, UsedImplicitly] private ChatFrameMessage messagePrototype;
-    [SerializeField, UsedImplicitly] private TMP_InputField inputField;
-    [SerializeField, UsedImplicitly] private Transform messageContainer;
-    [SerializeField, UsedImplicitly] private HotkeyInputItem chatFocusHotkey;
-    [SerializeField, UsedImplicitly] private int maxMessageCount = 100;
+    [SerializeField] private InputReference input;
+    [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] private ChatFrameMessage messagePrototype;
+    [SerializeField] private TMP_InputField inputField;
+    [SerializeField] private Transform messageContainer;
+    [SerializeField] private HotkeyInputItem chatFocusHotkey;
+    [SerializeField] private int maxMessageCount = 100;
 
     private readonly List<ChatFrameMessage> chatMessages = new List<ChatFrameMessage>();
     private const float BottomSnapThreshold = 0.001f;
 
-    [UsedImplicitly]
     public bool SnapToBottom { get; set; } = true;
 
-    [UsedImplicitly]
     private void Awake()
     {
         EventHandler.RegisterEvent<Unit, string>(GameEvents.UnitChat, OnUnitChat);
@@ -35,7 +32,6 @@ public class ChatFrame : MonoBehaviour
         GameObjectPool.PreInstantiate(messagePrototype, maxMessageCount);
     }
 
-    [UsedImplicitly]
     private void OnDestroy()
     {
         foreach (ChatFrameMessage message in chatMessages)
@@ -48,7 +44,6 @@ public class ChatFrame : MonoBehaviour
         EventHandler.UnregisterEvent<HotkeyState>(chatFocusHotkey, GameEvents.HotkeyStateChanged, OnHotkeyStateChanged);
     }
 
-    [UsedImplicitly]
     private void Update()
     {
         if (SnapToBottom && scrollRect.verticalNormalizedPosition > BottomSnapThreshold)

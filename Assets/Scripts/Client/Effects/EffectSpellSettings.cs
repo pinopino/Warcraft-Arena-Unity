@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client.Spells
@@ -15,10 +14,10 @@ namespace Client.Spells
             Destination
         }
 
-        [SerializeField, UsedImplicitly] private bool attachToTag;
-        [SerializeField, UsedImplicitly] private UsageType visualUsageType;
-        [SerializeField, UsedImplicitly] private EffectTagType tagType;
-        [SerializeField, UsedImplicitly] private EffectSettings effectSettings;
+        [SerializeField] private bool attachToTag;
+        [SerializeField] private UsageType visualUsageType;
+        [SerializeField] private EffectTagType tagType;
+        [SerializeField] private EffectSettings effectSettings;
 
         public UsageType VisualUsageType => visualUsageType;
         public EffectTagType EffectTagType => tagType;

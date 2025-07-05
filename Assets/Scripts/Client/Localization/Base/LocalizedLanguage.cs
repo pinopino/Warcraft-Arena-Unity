@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 namespace Client.Localization
 {
@@ -15,8 +14,8 @@ namespace Client.Localization
             [TextArea] public string Value;
         }
 
-        [SerializeField, UsedImplicitly] private LocalizedLanguageType languageType;
-        [SerializeField, UsedImplicitly] private List<LocalizationEntry> entries;
+        [SerializeField] private LocalizedLanguageType languageType;
+        [SerializeField] private List<LocalizationEntry> entries;
 
         internal LocalizedLanguageType LanguageType => languageType;
         internal List<LocalizationEntry> Entries => entries;
@@ -28,7 +27,7 @@ namespace Client.Localization
         }
 
 #if UNITY_EDITOR
-        [ContextMenu("Add missing strings"), UsedImplicitly]
+        [ContextMenu("Add missing strings")]
         private void AddMissingStrings()
         {
             HashSet<LocalizedString> addedStrings = new HashSet<LocalizedString>(entries.Select(item => item.StringReference));
@@ -37,11 +36,11 @@ namespace Client.Localization
             {
                 LocalizedString otherString = UnityEditor.AssetDatabase.LoadAssetAtPath<LocalizedString>(UnityEditor.AssetDatabase.GUIDToAssetPath(guid));
                 if (!addedStrings.Contains(otherString))
-                    entries.Add(new LocalizationEntry {StringReference = otherString });
+                    entries.Add(new LocalizationEntry { StringReference = otherString });
             }
         }
 
-        [ContextMenu("Populate empty from English"), UsedImplicitly]
+        [ContextMenu("Populate empty from English")]
         private void PopulateEmptyFromEnglish()
         {
             AddMissingStrings();

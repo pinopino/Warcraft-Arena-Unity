@@ -1,7 +1,6 @@
-﻿using System;
-using Core;
+﻿using Core;
 using Core.AuraEffects;
-using JetBrains.Annotations;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -9,8 +8,8 @@ namespace Client
     [Serializable]
     public class SpellTooltipArgumentSettings
     {
-        [SerializeField, UsedImplicitly] private ScriptableObject argumentSource;
-        [SerializeField, UsedImplicitly] private SpellTooltipArgumentType argumentType;
+        [SerializeField] private ScriptableObject argumentSource;
+        [SerializeField] private SpellTooltipArgumentType argumentType;
 
         public float? Resolve()
         {
@@ -63,7 +62,7 @@ namespace Client
             switch (argumentType)
             {
                 case SpellTooltipArgumentType.Duration:
-                    return (float) auraInfo.MaxDuration / 1000;
+                    return (float)auraInfo.MaxDuration / 1000;
                 default:
                     return null;
             }
@@ -74,7 +73,7 @@ namespace Client
             switch (argumentType)
             {
                 case SpellTooltipArgumentType.Period when auraEffectInfo is AuraEffectInfoPeriodic periodicEffect:
-                    return (float) periodicEffect.Period / 1000;
+                    return (float)periodicEffect.Period / 1000;
                 case SpellTooltipArgumentType.Value when auraEffectInfo is AuraEffectInfoSpellModifier:
                 case SpellTooltipArgumentType.Value when auraEffectInfo is AuraEffectInfoModifyDamagePercentTaken:
                     return Mathf.Abs(auraEffectInfo.Value);

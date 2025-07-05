@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
-using Bolt;
+﻿using Bolt;
 using Bolt.Matchmaking;
-using UdpKit;
 using Common;
-using JetBrains.Annotations;
+using System;
+using System.Collections;
+using UdpKit;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
@@ -21,9 +20,9 @@ namespace Core
             Connecting
         }
 
-        [SerializeField, UsedImplicitly] private PhotonBoltBaseListener boltSharedListener;
-        [SerializeField, UsedImplicitly] private PhotonBoltBaseListener boltServerListener;
-        [SerializeField, UsedImplicitly] private PhotonBoltBaseListener boltClientListener;
+        [SerializeField] private PhotonBoltBaseListener boltSharedListener;
+        [SerializeField] private PhotonBoltBaseListener boltServerListener;
+        [SerializeField] private PhotonBoltBaseListener boltClientListener;
 
         private const float MaxConnectionAttemptTime = 50.0f;
 
@@ -149,7 +148,8 @@ namespace Core
             // what exactly has changed in Bolt to cause this. I'm sure this can be fixed properly, and not with a hack
             // like this, but I'm not going to investigate that at the moment. In another project I've upgraded Bolt to
             // 1.3.2 and the problem is there as well, so I assume this is due to some change in Bolt itself.
-            if (map == "Launcher") {
+            if (map == "Launcher")
+            {
                 return;
             }
 

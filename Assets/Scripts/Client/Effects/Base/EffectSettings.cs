@@ -1,15 +1,14 @@
-﻿using JetBrains.Annotations;
+﻿using Common;
 using UnityEngine;
-using Common;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Settings", menuName = "Game Data/Visuals/Effect Settings", order = 1)]
+    [CreateAssetMenu(fileName = "Effect Settings", menuName = "Game Data/Visuals/Effect Settings", order = 1)]
     public class EffectSettings : ScriptableObject
     {
-        [SerializeField, UsedImplicitly] private EffectReference reference;
-        [SerializeField, UsedImplicitly] private EffectEntity prototype;
-        [SerializeField, UsedImplicitly] private int maxAmount;
+        [SerializeField] private EffectReference reference;
+        [SerializeField] private EffectEntity prototype;
+        [SerializeField] private int maxAmount;
 
         internal EffectReference.EffectContainer EffectContainer { get; private set; }
         internal EffectEntity Prototype => prototype;

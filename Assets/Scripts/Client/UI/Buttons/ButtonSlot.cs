@@ -1,6 +1,5 @@
-﻿using System.ComponentModel;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,11 +8,11 @@ namespace Client
 {
     public class ButtonSlot : UIBehaviour, IPointerDownHandler, IDropHandler
     {
-        [SerializeField, UsedImplicitly] private HotkeyInputItem hotkeyInput;
-        [SerializeField, UsedImplicitly] private RectTransform rectTransform;
-        [SerializeField, UsedImplicitly] private ButtonContent buttonContent;
-        [SerializeField, UsedImplicitly] private SoundEntry pressSound;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI hotkeyText;
+        [SerializeField] private HotkeyInputItem hotkeyInput;
+        [SerializeField] private RectTransform rectTransform;
+        [SerializeField] private ButtonContent buttonContent;
+        [SerializeField] private SoundEntry pressSound;
+        [SerializeField] private TextMeshProUGUI hotkeyText;
 
         public RectTransform RectTransform => rectTransform;
         public ButtonContent ButtonContent => buttonContent;
@@ -41,7 +40,7 @@ namespace Client
             buttonContent.DoUpdate();
         }
 
-        [UsedImplicitly, Description("Also called from manually pressing button.")]
+        [Description("Also called from manually pressing button.")]
         public void Click()
         {
             if (!buttonContent.IsAlreadyPressed)
@@ -61,7 +60,7 @@ namespace Client
 
         private void OnHotkeyStateChanged(HotkeyState state)
         {
-            if(state == HotkeyState.Pressed)
+            if (state == HotkeyState.Pressed)
                 Click();
 
             buttonContent.HandleHotkeyState(state);

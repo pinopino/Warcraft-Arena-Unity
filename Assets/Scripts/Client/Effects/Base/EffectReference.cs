@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
-using Common;
 
 namespace Client
 {
@@ -43,7 +42,7 @@ namespace Client
 
             internal void DoUpdate()
             {
-                for(int i = activeEffects.Count - 1; i >= 0; i--)
+                for (int i = activeEffects.Count - 1; i >= 0; i--)
                     activeEffects[i].DoUpdate();
             }
 
@@ -98,7 +97,7 @@ namespace Client
                     effectEntity.transform.parent = reference.containerTransform;
                 }
             }
-            
+
             private void AddEffect()
             {
                 EffectEntity newEffect = GameObjectPool.Take(effectSettings.Prototype, Vector3.zero, Quaternion.identity, reference.containerTransform);
@@ -115,8 +114,8 @@ namespace Client
             }
         }
 
-        [SerializeField, UsedImplicitly] private List<EffectSettings> effectSettings;
-        [SerializeField, UsedImplicitly] private string containerTag;
+        [SerializeField] private List<EffectSettings> effectSettings;
+        [SerializeField] private string containerTag;
 
         private long nextPlayId = -1;
         private Transform containerTransform;

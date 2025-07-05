@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -16,8 +15,8 @@ namespace Client
             Destination
         }
 
-        [SerializeField, UsedImplicitly] private UsageType soundUsageType;
-        [SerializeField, UsedImplicitly] private SoundEntry soundEntry;
+        [SerializeField] private UsageType soundUsageType;
+        [SerializeField] private SoundEntry soundEntry;
 
         public UsageType SoundUsageType => soundUsageType;
 

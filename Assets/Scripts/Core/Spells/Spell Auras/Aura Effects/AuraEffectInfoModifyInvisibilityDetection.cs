@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Modify Invisibility Detection", menuName = "Game Data/Spells/Auras/Effects/Modify Invisibility Detection", order = 3)]
+    [CreateAssetMenu(fileName = "Aura Effect Modify Invisibility Detection", menuName = "Game Data/Spells/Auras/Effects/Modify Invisibility Detection", order = 3)]
     public class AuraEffectInfoModifyInvisibilityDetection : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly, Range(-100.0f, 100.0f)]
+        [SerializeField, Range(-100.0f, 100.0f)]
         private float invisibilityDetectValue;
 
         public override float Value => invisibilityDetectValue;

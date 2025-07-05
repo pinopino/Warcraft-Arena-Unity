@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.Conditions
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Inverse Condition", menuName = "Game Data/Conditions/Base/Inverse Condition", order = 1)]
+    [CreateAssetMenu(fileName = "Inverse Condition", menuName = "Game Data/Conditions/Base/Inverse Condition", order = 1)]
     public sealed class InverseCondition : Condition
     {
-        [SerializeField, UsedImplicitly] private Condition condition;
+        [SerializeField] private Condition condition;
 
         protected override bool IsApplicable => base.IsApplicable && IsOtherApplicable(condition);
 

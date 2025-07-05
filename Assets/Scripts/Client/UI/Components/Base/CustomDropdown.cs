@@ -1,12 +1,11 @@
-﻿using System.Collections;
+﻿using Client.Tweener;
+using Common;
+using System.Collections;
 using System.Collections.Generic;
-using Client.Tweener;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Common;
-using JetBrains.Annotations;
+using UnityEngine.UI;
 
 namespace Client
 {
@@ -15,19 +14,19 @@ namespace Client
     public partial class CustomDropdown : Selectable, IPointerClickHandler, ISubmitHandler, ICancelHandler
     {
         [Header("Dropdown"), Space]
-        [SerializeField, UsedImplicitly] private RectTransform template;
-        [SerializeField, UsedImplicitly] private TMP_Text captionText;
-        [SerializeField, UsedImplicitly] private Image captionImage;
+        [SerializeField] private RectTransform template;
+        [SerializeField] private TMP_Text captionText;
+        [SerializeField] private Image captionImage;
         [Header("Item"), Space]
-        [SerializeField, UsedImplicitly] private TMP_Text itemText;
-        [SerializeField, UsedImplicitly] private Image itemImage;
+        [SerializeField] private TMP_Text itemText;
+        [SerializeField] private Image itemImage;
         [Header("Options"), Space]
-        [SerializeField, UsedImplicitly] private int value;
-        [SerializeField, UsedImplicitly] private bool explicitNavigation;
-        [SerializeField, UsedImplicitly] private bool notifyOnSameValue;
-        [SerializeField, UsedImplicitly] private OptionDataList options = new OptionDataList();
+        [SerializeField] private int value;
+        [SerializeField] private bool explicitNavigation;
+        [SerializeField] private bool notifyOnSameValue;
+        [SerializeField] private OptionDataList options = new OptionDataList();
         [Header("Event"), Space]
-        [SerializeField, UsedImplicitly] private DropdownEvent onValueChanged = new DropdownEvent();
+        [SerializeField] private DropdownEvent onValueChanged = new DropdownEvent();
 
         private static readonly OptionData NoOptionData = new OptionData();
 
@@ -127,7 +126,7 @@ namespace Client
 
             RefreshShownValue();
         }
-        
+
         protected override void OnDisable()
         {
             ImmediateDestroyDropdownList();
@@ -174,7 +173,7 @@ namespace Client
 
             // Add button since it's needed to block, and to close the dropdown when blocking area is clicked.
             Button blockerButton = newBlocker.AddComponent<Button>();
-            blockerButton.navigation = new Navigation {mode = Navigation.Mode.None};
+            blockerButton.navigation = new Navigation { mode = Navigation.Mode.None };
             blockerButton.onClick.AddListener(Hide);
             return newBlocker;
         }
@@ -191,7 +190,7 @@ namespace Client
         {
             return Instantiate(template);
         }
-        
+
         /// <summary>
         /// Create a dropdown item based upon the item template.
         /// </summary>
@@ -480,7 +479,7 @@ namespace Client
         {
             Hide();
         }
-       
+
         private Item AddItem(OptionData data, bool selected, Item itemTemplate, List<Item> items)
         {
             // Add a new item to the dropdown.
@@ -515,7 +514,7 @@ namespace Client
             if (end.Equals(start))
                 return;
 
-            FloatTween tween = new FloatTween {Duration = duration, StartValue = start, TargetValue = end};
+            FloatTween tween = new FloatTween { Duration = duration, StartValue = start, TargetValue = end };
             tween.AddOnChangedCallback(SetAlpha);
             tween.IgnoreTimeScale = true;
             alphaTweenRunner.StartTween(tween);

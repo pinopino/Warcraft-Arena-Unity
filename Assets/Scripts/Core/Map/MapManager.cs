@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Threading;
-using Common;
 using UnityEngine.SceneManagement;
 
 namespace Core

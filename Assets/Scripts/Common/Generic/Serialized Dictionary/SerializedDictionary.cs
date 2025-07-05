@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Common
@@ -8,8 +7,8 @@ namespace Common
     [Serializable]
     public abstract class SerializedDictionary<TItem, TKey, TValue> : IReadOnlySerializedDictionary<TKey, TValue> where TItem : ISerializedKeyValue<TKey, TValue>
     {
-        [SerializeField, UsedImplicitly] private List<TItem> items;
-        [SerializeField, UsedImplicitly] private TValue defaultValue;
+        [SerializeField] private List<TItem> items;
+        [SerializeField] private TValue defaultValue;
 
         private readonly Dictionary<TKey, TValue> valuesByKey = new Dictionary<TKey, TValue>();
 

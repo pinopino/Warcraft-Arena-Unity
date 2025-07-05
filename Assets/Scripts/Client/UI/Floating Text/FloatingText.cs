@@ -1,7 +1,6 @@
 ﻿using Client.Localization;
 using Common;
 using Core;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -9,21 +8,20 @@ namespace Client
 {
     public class FloatingText : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private TextMeshPro textMesh;
-        [SerializeField, UsedImplicitly] private CameraReference cameraReference;
-        [SerializeField, UsedImplicitly] private FloatingTextSettings damageSettings;
-        [SerializeField, UsedImplicitly] private FloatingTextSettings damageCritSettings;
-        [SerializeField, UsedImplicitly] private FloatingTextSettings fullAbsorbSettings;
-        [SerializeField, UsedImplicitly] private FloatingTextSettings missSettings;
-        [SerializeField, UsedImplicitly] private FloatingTextSettings healingSettings;
-        [SerializeField, UsedImplicitly] private FloatingTextSettings healingCritSettings;
-        [SerializeField, UsedImplicitly] private LocalizedString fullAbsrobString;
+        [SerializeField] private TextMeshPro textMesh;
+        [SerializeField] private CameraReference cameraReference;
+        [SerializeField] private FloatingTextSettings damageSettings;
+        [SerializeField] private FloatingTextSettings damageCritSettings;
+        [SerializeField] private FloatingTextSettings fullAbsorbSettings;
+        [SerializeField] private FloatingTextSettings missSettings;
+        [SerializeField] private FloatingTextSettings healingSettings;
+        [SerializeField] private FloatingTextSettings healingCritSettings;
+        [SerializeField] private LocalizedString fullAbsrobString;
 
         private float currentLifeTime;
         private float targetLifeTime;
         private FloatingTextSettings currentSettings;
 
-        [UsedImplicitly]
         private void OnDestroy()
         {
             GameObjectPool.Return(this, true);
@@ -47,7 +45,7 @@ namespace Client
         public void SetHealing(int healingAmount, bool isCrit)
         {
             SetText(isCrit ? healingCritSettings : healingSettings, healingAmount.ToString());
-        } 
+        }
 
         public bool DoUpdate(float deltaTime)
         {

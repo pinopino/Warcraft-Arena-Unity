@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core.Scenario
@@ -7,10 +6,10 @@ namespace Core.Scenario
     [Serializable]
     public class CustomSpawnSettings
     {
-        [SerializeField, UsedImplicitly] private Transform spawnPoint;
-        [SerializeField, UsedImplicitly] private UnitInfoAI unitInfoAI;
-        [SerializeField, UsedImplicitly] private string customNameId;
-        [SerializeField, UsedImplicitly] private float customScale = 1.0f;
+        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private UnitInfoAI unitInfoAI;
+        [SerializeField] private string customNameId;
+        [SerializeField] private float customScale = 1.0f;
 
         public Transform SpawnPoint => spawnPoint;
         public UnitInfoAI UnitInfoAI => unitInfoAI;

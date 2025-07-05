@@ -1,9 +1,8 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Suppress Movement Slow Effects", menuName = "Game Data/Spells/Auras/Effects/Suppress Movement Slow", order = 5)]
+    [CreateAssetMenu(fileName = "Aura Effect Suppress Movement Slow Effects", menuName = "Game Data/Spells/Auras/Effects/Suppress Movement Slow", order = 5)]
     public class AuraEffectInfoSuppressMovementSlowEffects : AuraEffectInfo
     {
         public override float Value => 0.0f;

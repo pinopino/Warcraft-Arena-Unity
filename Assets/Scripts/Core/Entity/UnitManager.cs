@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Bolt;
+﻿using Bolt;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core

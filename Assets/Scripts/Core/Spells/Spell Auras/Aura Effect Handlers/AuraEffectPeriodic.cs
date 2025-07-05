@@ -1,5 +1,4 @@
 ﻿using Common;
-using JetBrains.Annotations;
 
 namespace Core.AuraEffects
 {
@@ -43,7 +42,7 @@ namespace Core.AuraEffects
             }
         }
 
-        protected abstract void HandlePeriodic(Unit target, [CanBeNull] Unit caster);
+        protected abstract void HandlePeriodic(Unit target, Unit caster);
 
         private void HandleTickOnApplications()
         {
@@ -64,7 +63,7 @@ namespace Core.AuraEffects
 
             if (refreshed)
             {
-                if(EffectInfo.StartPeriodicOnApply)
+                if (EffectInfo.StartPeriodicOnApply)
                     periodicTimeLeft = 0;
             }
             else

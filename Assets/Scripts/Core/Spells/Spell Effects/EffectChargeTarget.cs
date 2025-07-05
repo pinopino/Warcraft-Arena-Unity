@@ -1,11 +1,10 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Charge Target", menuName = "Game Data/Spells/Effects/Charge Target", order = 1)]
+    [CreateAssetMenu(fileName = "Effect Charge Target", menuName = "Game Data/Spells/Effects/Charge Target", order = 1)]
     public class EffectChargeTarget : SpellEffectInfo
     {
         public enum Kind
@@ -15,9 +14,9 @@ namespace Core
         }
 
         [Header("Charge Target")]
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private float chargeSpeed;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private Kind kind = Kind.Charge;
 
         public float ChargeSpeed => chargeSpeed;
@@ -46,7 +45,7 @@ namespace Core
                 case SpellExplicitTargetType.Target when ExplicitTargets.Target != null:
                     chargePoint = ExplicitTargets.Target.Position;
                     break;
-                case SpellExplicitTargetType.Destination when ExplicitTargets.Destination.HasValue: 
+                case SpellExplicitTargetType.Destination when ExplicitTargets.Destination.HasValue:
                     chargePoint = ExplicitTargets.Destination.Value;
                     break;
                 default:

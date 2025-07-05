@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class InterfaceContainer : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private RectTransform root;
-        [SerializeField, UsedImplicitly] private TransformCanvasTypeDictionary transformByInterfaceCanvasType;
+        [SerializeField] private RectTransform root;
+        [SerializeField] private TransformCanvasTypeDictionary transformByInterfaceCanvasType;
 
         public RectTransform Root => root;
 

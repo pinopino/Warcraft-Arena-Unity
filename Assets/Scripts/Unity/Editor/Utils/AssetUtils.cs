@@ -1,12 +1,10 @@
-﻿using JetBrains.Annotations;
-using UnityEditor;
+﻿using UnityEditor;
 
 namespace Editor
 {
-    [UsedImplicitly]
     public static class AssetUtils
     {
-        [MenuItem("Assets/Reserialize All"), UsedImplicitly]
+        [MenuItem("Assets/Reserialize All")]
         private static void ReserializeEntireProject() => AssetDatabase.ForceReserializeAssets();
     }
 }

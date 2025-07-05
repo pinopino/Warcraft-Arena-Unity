@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
@@ -14,11 +13,11 @@ namespace Client
         [Serializable]
         private class NameplateController : IUnitRendererHandler
         {
-            [SerializeField, UsedImplicitly] private RenderingReference rendering;
-            [SerializeField, UsedImplicitly] private Nameplate nameplatePrototype;
-            [SerializeField, UsedImplicitly] private NameplateSettings settings;
-            [SerializeField, UsedImplicitly] private GameOptionBool showDeselectedHealthOption;
-            [SerializeField, UsedImplicitly] private int preinstantiatedCount = 20;
+            [SerializeField] private RenderingReference rendering;
+            [SerializeField] private Nameplate nameplatePrototype;
+            [SerializeField] private NameplateSettings settings;
+            [SerializeField] private GameOptionBool showDeselectedHealthOption;
+            [SerializeField] private int preinstantiatedCount = 20;
 
             private readonly List<Nameplate> activeNameplates = new List<Nameplate>();
             private readonly List<UnitRenderer> unplatedRenderers = new List<UnitRenderer>();

@@ -1,20 +1,19 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEngine;
-using Common;
+﻿using Common;
 using Core.Conditions;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Input Action Global", menuName = "Player Data/Input/Input Action Global", order = 1)]
+    [CreateAssetMenu(fileName = "Input Action Global", menuName = "Player Data/Input/Input Action Global", order = 1)]
     public class InputActionGlobal : ScriptableObject
     {
-        [SerializeField, UsedImplicitly] private InputReference input;
-        [SerializeField, UsedImplicitly] private InputAction action;
-        [SerializeField, UsedImplicitly] private HotkeyInputItem hotkey;
-        [SerializeField, UsedImplicitly] private List<InputActionGlobal> blockedByActions;
-        [SerializeField, UsedImplicitly] private List<Condition> blockInactiveWhen;
-        [SerializeField, UsedImplicitly] private List<Condition> hotkeyInactiveWhen;
+        [SerializeField] private InputReference input;
+        [SerializeField] private InputAction action;
+        [SerializeField] private HotkeyInputItem hotkey;
+        [SerializeField] private List<InputActionGlobal> blockedByActions;
+        [SerializeField] private List<Condition> blockInactiveWhen;
+        [SerializeField] private List<Condition> hotkeyInactiveWhen;
 
         private bool IsBlockApplicable
         {

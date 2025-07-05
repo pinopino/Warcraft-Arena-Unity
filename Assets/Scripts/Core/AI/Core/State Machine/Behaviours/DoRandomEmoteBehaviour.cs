@@ -1,16 +1,14 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly]
     public class DoRandomEmoteBehaviour : UnitStateMachineBehaviour
     {
-        [SerializeField, UsedImplicitly] private List<EmoteType> randomEmotes;
-        [SerializeField, UsedImplicitly] private int emoteIntervalMin;
-        [SerializeField, UsedImplicitly] private int emoteIntervalMax;
+        [SerializeField] private List<EmoteType> randomEmotes;
+        [SerializeField] private int emoteIntervalMin;
+        [SerializeField] private int emoteIntervalMax;
 
         private TimeTracker emoteTimeTracker = new TimeTracker();
 

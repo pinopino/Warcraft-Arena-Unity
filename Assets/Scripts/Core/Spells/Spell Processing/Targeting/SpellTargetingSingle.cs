@@ -1,13 +1,12 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Single Target - Spell Targeting", menuName = "Game Data/Spells/Spell Targeting/Single", order = 1)]
+    [CreateAssetMenu(fileName = "Single Target - Spell Targeting", menuName = "Game Data/Spells/Spell Targeting/Single", order = 1)]
     public class SpellTargetingSingle : SpellTargeting
     {
-        [SerializeField, UsedImplicitly] private SpellSingleTargetType singleTargetType = SpellSingleTargetType.Target;
+        [SerializeField] private SpellSingleTargetType singleTargetType = SpellSingleTargetType.Target;
 
         internal override void SelectTargets(Spell spell, int effectMask)
         {

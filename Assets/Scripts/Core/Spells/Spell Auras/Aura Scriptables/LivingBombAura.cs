@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Living Bomb Aura Script", menuName = "Game Data/Spells/Auras/Aura Scripts/Living Bomb", order = 1)]
+    [CreateAssetMenu(fileName = "Living Bomb Aura Script", menuName = "Game Data/Spells/Auras/Aura Scripts/Living Bomb", order = 1)]
     internal class LivingBombAura : AuraScriptable
     {
-        [SerializeField, UsedImplicitly] SpellInfo livingBombExplosion;
+        [SerializeField] SpellInfo livingBombExplosion;
 
         public override void AuraApplicationRemoved(AuraApplication application)
         {
@@ -17,7 +16,7 @@ namespace Core
 
             if (application.RemoveMode == AuraRemoveMode.Death || application.RemoveMode == AuraRemoveMode.Expired)
             {
-                var explicitTargets = new SpellExplicitTargets {Target = application.Aura.Owner};
+                var explicitTargets = new SpellExplicitTargets { Target = application.Aura.Owner };
                 var castingOptions = new SpellCastingOptions(explicitTargets, SpellCastFlags.TriggeredByAura);
                 application.Aura.Caster.Spells.CastSpell(livingBombExplosion, castingOptions);
             }

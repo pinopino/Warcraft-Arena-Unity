@@ -1,21 +1,20 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect School Damage", menuName = "Game Data/Spells/Effects/School Damage", order = 4)]
+    [CreateAssetMenu(fileName = "Effect School Damage", menuName = "Game Data/Spells/Effects/School Damage", order = 4)]
     public class EffectSchoolDamage : SpellEffectInfo
     {
         [Header("School Damage")]
-        [SerializeField, UsedImplicitly] private int baseValue;
-        [SerializeField, UsedImplicitly] private uint baseVariance;
-        [SerializeField, UsedImplicitly] private uint additionalValue;
-        [SerializeField, UsedImplicitly] private bool usesComboPoints;
-        [SerializeField, UsedImplicitly] private SpellDamageCalculationType calculationType;
-        [SerializeField, UsedImplicitly] private List<ConditionalModifier> conditionalModifiers;
+        [SerializeField] private int baseValue;
+        [SerializeField] private uint baseVariance;
+        [SerializeField] private uint additionalValue;
+        [SerializeField] private bool usesComboPoints;
+        [SerializeField] private SpellDamageCalculationType calculationType;
+        [SerializeField] private List<ConditionalModifier> conditionalModifiers;
 
         public override float Value => baseValue;
         public override SpellEffectType EffectType => SpellEffectType.SchoolDamage;

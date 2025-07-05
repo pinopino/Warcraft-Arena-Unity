@@ -1,16 +1,13 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 
 namespace Arena.Editor
 {
-    [UsedImplicitly]
     internal class ScriptableAssetPostProcessor : AssetPostprocessor
     {
         internal static bool HasDeletedPostprocessableAssets { get; set; }
 
-        [UsedImplicitly]
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
             bool hasChanged = false;
@@ -35,10 +32,8 @@ namespace Arena.Editor
         }
     }
 
-    [UsedImplicitly]
     internal class ScriptableAssetModificationProcessor : UnityEditor.AssetModificationProcessor
     {
-        [UsedImplicitly]
         private static AssetDeleteResult OnWillDeleteAsset(string path, RemoveAssetOptions removeOptions)
         {
             if (path.StartsWith("Assets/Scenes/"))

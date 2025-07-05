@@ -1,21 +1,20 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEngine;
-using Bolt;
+﻿using Bolt;
 using Common;
 using Core.AuraEffects;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Core
 {
     public abstract partial class Unit : WorldEntity
     {
-        [SerializeField, UsedImplicitly, Header(nameof(Unit)), Space(10)]
+        [SerializeField, Header(nameof(Unit)), Space(10)]
         private CapsuleCollider unitCollider;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private WarcraftCharacterController characterController;
-        [SerializeField, UsedImplicitly]
-        private UnitAttributeDefinition unitAttributeDefinition;  
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
+        private UnitAttributeDefinition unitAttributeDefinition;
+        [SerializeField]
         private List<UnitBehaviour> unitBehaviours;
 
         private SingleReference<Unit> selfReference;
@@ -88,7 +87,7 @@ namespace Core
             base.Attached();
 
             HandleAttach();
-            
+
             World.UnitManager.Attach(this);
         }
 
@@ -380,7 +379,7 @@ namespace Core
                         UpdateStunState(true);
                         break;
                     case UnitControlState.Root:
-                        if(!HasState(UnitControlState.Stunned))
+                        if (!HasState(UnitControlState.Stunned))
                             UpdateRootState(true);
                         break;
                     case UnitControlState.Confused:

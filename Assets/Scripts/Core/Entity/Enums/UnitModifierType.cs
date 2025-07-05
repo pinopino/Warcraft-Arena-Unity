@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
@@ -31,18 +30,18 @@ namespace Core
         Pain = StartPowers + SpellPowerType.Pain,
         Health = StartPowers + SpellPowerType.Health,
 
-        [UsedImplicitly, HideInInspector]
+        [HideInInspector]
         StartStats = 0,
-        [UsedImplicitly, HideInInspector]
+        [HideInInspector]
         MinStats = Strength,
-        [UsedImplicitly, HideInInspector]
+        [HideInInspector]
         MaxStats = Intellect,
 
-        [UsedImplicitly, HideInInspector]
+        [HideInInspector]
         StartPowers = MaxStats + 1,
-        [UsedImplicitly, HideInInspector]
+        [HideInInspector]
         MinPowers = Mana,
-        [UsedImplicitly, HideInInspector]
+        [HideInInspector]
         MaxPowers = Health,
     }
 }

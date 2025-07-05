@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client.Localization
 {
     public abstract class LocalizationReference : ScriptableReference
     {
-        [SerializeField, UsedImplicitly] private LocalizedLanguageType defaultLanguage = LocalizedLanguageType.English;
+        [SerializeField] private LocalizedLanguageType defaultLanguage = LocalizedLanguageType.English;
 
         private static readonly List<LocalizedBehaviour> UsedBehaviours = new List<LocalizedBehaviour>();
 
@@ -42,25 +41,25 @@ namespace Client.Localization
                 behaviour.Localize();
         }
 
-        [ContextMenu("Set to English"), UsedImplicitly]
+        [ContextMenu("Set to English")]
         private void SetEnglishLanguage()
         {
             LoadLanguage(LocalizedLanguageType.English);
         }
 
-        [ContextMenu("Set to Spanish"), UsedImplicitly]
+        [ContextMenu("Set to Spanish")]
         private void SetSpanishLanguage()
         {
             LoadLanguage(LocalizedLanguageType.Spanish);
         }
 
-        [ContextMenu("Set to German"), UsedImplicitly]
+        [ContextMenu("Set to German")]
         private void SetGermanLanguage()
         {
             LoadLanguage(LocalizedLanguageType.German);
         }
 
-        [ContextMenu("Set to Italian"), UsedImplicitly]
+        [ContextMenu("Set to Italian")]
         private void SetItalianLanguage()
         {
             LoadLanguage(LocalizedLanguageType.Italian);

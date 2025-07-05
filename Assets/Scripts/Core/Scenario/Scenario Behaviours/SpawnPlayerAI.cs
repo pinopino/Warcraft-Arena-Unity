@@ -1,12 +1,11 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core.Scenario
 {
     public class SpawnPlayerAI : ScenarioAction
     {
-        [SerializeField, UsedImplicitly] private CustomSpawnSettings customSpawnSettings;
+        [SerializeField] private CustomSpawnSettings customSpawnSettings;
 
         internal override void Initialize(Map map)
         {

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
@@ -14,8 +13,8 @@ namespace Client
         [Serializable]
         private class UnitRendererController
         {
-            [SerializeField, UsedImplicitly] private RenderingReference rendering;
-            [SerializeField, UsedImplicitly] private UnitRenderer unitRendererPrototype;
+            [SerializeField] private RenderingReference rendering;
+            [SerializeField] private UnitRenderer unitRendererPrototype;
 
             private readonly Dictionary<ulong, UnitRenderer> unitRenderersById = new Dictionary<ulong, UnitRenderer>();
             private readonly List<UnitRenderer> unitRenderers = new List<UnitRenderer>();
@@ -68,7 +67,7 @@ namespace Client
                     }
                 }
             }
-           
+
             public void RegisterHandler(IUnitRendererHandler unitRendererHandler)
             {
                 unitRendererHandlers.Add(unitRendererHandler);
@@ -102,7 +101,7 @@ namespace Client
                         DetachRenderer(unitRenderers[i].Unit);
 
                 List<Unit> newVisibleUnits = ListPoolContainer<Unit>.Take();
-                foreach(Unit detachedUnit in detachedUnits)
+                foreach (Unit detachedUnit in detachedUnits)
                     if (IsVisibleForPlayer(detachedUnit))
                         newVisibleUnits.Add(detachedUnit);
 

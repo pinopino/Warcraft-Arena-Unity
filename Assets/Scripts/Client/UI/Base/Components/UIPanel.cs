@@ -1,11 +1,10 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client.UI
 {
     public abstract class UIPanel : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private CanvasGroup panelCanvasGroup;
+        [SerializeField] private CanvasGroup panelCanvasGroup;
 
         protected UIPanelController PanelController { get; private set; }
 

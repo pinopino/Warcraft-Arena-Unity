@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -11,8 +10,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<BattleHudTagType, RectTransform>
         {
-            [SerializeField, UsedImplicitly] private BattleHudTagType tag;
-            [SerializeField, UsedImplicitly] private RectTransform rectTransform;
+            [SerializeField] private BattleHudTagType tag;
+            [SerializeField] private RectTransform rectTransform;
 
             public BattleHudTagType Key => tag;
             public RectTransform Value => rectTransform;

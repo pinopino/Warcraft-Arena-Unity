@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -7,16 +6,16 @@ namespace Client
     [Serializable]
     public class TagContainer : IEffectPositioner
     {
-        [SerializeField, UsedImplicitly] private EffectTagType defaultLaunchTag = EffectTagType.LeftHand;
-        [SerializeField, UsedImplicitly] private Transform defaultTag;
-        [SerializeField, UsedImplicitly] private Transform bottomTag;
-        [SerializeField, UsedImplicitly] private Transform footTag;
-        [SerializeField, UsedImplicitly] private Transform impactTag;
-        [SerializeField, UsedImplicitly] private Transform impactStaticTag;
-        [SerializeField, UsedImplicitly] private Transform rightHandTag;
-        [SerializeField, UsedImplicitly] private Transform leftHandTag;
-        [SerializeField, UsedImplicitly] private Transform damageTag;
-        [SerializeField, UsedImplicitly] private Transform nameplateTag;
+        [SerializeField] private EffectTagType defaultLaunchTag = EffectTagType.LeftHand;
+        [SerializeField] private Transform defaultTag;
+        [SerializeField] private Transform bottomTag;
+        [SerializeField] private Transform footTag;
+        [SerializeField] private Transform impactTag;
+        [SerializeField] private Transform impactStaticTag;
+        [SerializeField] private Transform rightHandTag;
+        [SerializeField] private Transform leftHandTag;
+        [SerializeField] private Transform damageTag;
+        [SerializeField] private Transform nameplateTag;
 
         public Vector3 FindTag(EffectTagType tagType)
         {
@@ -83,7 +82,7 @@ namespace Client
                     throw new ArgumentOutOfRangeException(nameof(settings.EffectTagType));
             }
 
-            if(settings.AttachToTag)
+            if (settings.AttachToTag)
                 effectEntity.Transform.SetParent(targetTag);
 
             effectEntity.KeepAliveWithNoParticles = settings.KeepAliveWithNoParticles;

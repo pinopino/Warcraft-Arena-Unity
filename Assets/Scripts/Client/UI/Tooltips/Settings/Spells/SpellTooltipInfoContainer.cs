@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Spell Tooltip Info Container", menuName = "Game Data/Containers/Spell Tooltip Info", order = 1)]
+    [CreateAssetMenu(fileName = "Spell Tooltip Info Container", menuName = "Game Data/Containers/Spell Tooltip Info", order = 1)]
     public class SpellTooltipInfoContainer : ScriptableUniqueInfoContainer<SpellTooltipInfo>
     {
-        [SerializeField, UsedImplicitly] private List<SpellTooltipInfo> tooltipInfos;
+        [SerializeField] private List<SpellTooltipInfo> tooltipInfos;
 
         private readonly Dictionary<SpellInfo, SpellTooltipInfo> tooltipInfoBySpell = new Dictionary<SpellInfo, SpellTooltipInfo>();
         private readonly Dictionary<int, SpellTooltipInfo> tooltipInfoBySpellId = new Dictionary<int, SpellTooltipInfo>();

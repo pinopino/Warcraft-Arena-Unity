@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core.Conditions
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Spell In Collection", menuName = "Game Data/Conditions/Spell/Spell In Collection", order = 2)]
+    [CreateAssetMenu(fileName = "Spell In Collection", menuName = "Game Data/Conditions/Spell/Spell In Collection", order = 2)]
     public sealed class SpellInCollection : Condition
     {
-        [SerializeField, UsedImplicitly] private List<SpellInfo> validSpells;
+        [SerializeField] private List<SpellInfo> validSpells;
 
         protected override bool IsApplicable => base.IsApplicable && SpellInfo != null;
 

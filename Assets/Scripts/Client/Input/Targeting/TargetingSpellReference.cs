@@ -1,6 +1,5 @@
 ﻿using Common;
 using Core;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -11,11 +10,11 @@ namespace Client
     [CreateAssetMenu(fileName = "Targeting Spell Reference", menuName = "Game Data/Scriptable/Spell Targeting", order = 11)]
     public class TargetingSpellReference : ScriptableReferenceClient
     {
-        [SerializeField, UsedImplicitly] private InputReference input;
-        [SerializeField, UsedImplicitly] private CameraReference cameraReference;
-        [SerializeField, UsedImplicitly] private Projector selectionCirclePrototype;
-        [SerializeField, UsedImplicitly] private Color validColor;
-        [SerializeField, UsedImplicitly] private Color invalidColor;
+        [SerializeField] private InputReference input;
+        [SerializeField] private CameraReference cameraReference;
+        [SerializeField] private Projector selectionCirclePrototype;
+        [SerializeField] private Color validColor;
+        [SerializeField] private Color invalidColor;
 
         private Projector selectionCircle;
         private SpellInfo targetingSpellInfo;

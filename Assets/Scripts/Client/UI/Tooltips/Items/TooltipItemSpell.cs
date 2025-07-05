@@ -1,7 +1,6 @@
-﻿using System.Globalization;
-using Client.Localization;
+﻿using Client.Localization;
 using Core;
-using JetBrains.Annotations;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,24 +9,24 @@ namespace Client
 {
     public sealed class TooltipItemSpell : TooltipItem<SpellInfo>
     {
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private LocalizationReference localization;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI spellDescription;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI spellName;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI spellRange;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI spellCastTime;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI spellCost;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI spellCooldown;
-        [SerializeField, UsedImplicitly] private LocalizedString rangeFormatString;
-        [SerializeField, UsedImplicitly] private LocalizedString cooldownFormatString;
-        [SerializeField, UsedImplicitly] private LocalizedString castTimeFormatString;
-        [SerializeField, UsedImplicitly] private LocalizedString castTimeInstantString;
-        [SerializeField, UsedImplicitly] private Image spellIcon;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private LocalizationReference localization;
+        [SerializeField] private TextMeshProUGUI spellDescription;
+        [SerializeField] private TextMeshProUGUI spellName;
+        [SerializeField] private TextMeshProUGUI spellRange;
+        [SerializeField] private TextMeshProUGUI spellCastTime;
+        [SerializeField] private TextMeshProUGUI spellCost;
+        [SerializeField] private TextMeshProUGUI spellCooldown;
+        [SerializeField] private LocalizedString rangeFormatString;
+        [SerializeField] private LocalizedString cooldownFormatString;
+        [SerializeField] private LocalizedString castTimeFormatString;
+        [SerializeField] private LocalizedString castTimeInstantString;
+        [SerializeField] private Image spellIcon;
 
         private readonly object[] descriptionArguments = new object[SpellTooltipInfo.MaxArguments];
         private readonly object[] unknownArguments = { 'X', 'Y', 'Z', 'N', 'K' };
 
-        private readonly NumberFormatInfo tooltipNumberFormat = new NumberFormatInfo {PercentPositivePattern = 1, PercentNegativePattern = 1};
+        private readonly NumberFormatInfo tooltipNumberFormat = new NumberFormatInfo { PercentPositivePattern = 1, PercentNegativePattern = 1 };
 
         public override bool ModifyContent(SpellInfo spellInfo)
         {
@@ -53,7 +52,7 @@ namespace Client
                 spellRange.text = Mathf.Approximately(range, 0.0f) ? string.Empty : string.Format(rangeFormatString.Value, range);
 
                 // update cooldown label
-                float cooldown = (float) spellInfo.CooldownTime / 1000;
+                float cooldown = (float)spellInfo.CooldownTime / 1000;
                 spellCooldown.text = cooldown <= 0 ? string.Empty : string.Format(cooldownFormatString.Value, cooldown);
 
                 // update cast time label

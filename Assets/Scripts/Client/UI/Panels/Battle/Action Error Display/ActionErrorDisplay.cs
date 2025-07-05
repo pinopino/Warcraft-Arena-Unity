@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
     public class ActionErrorDisplay : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private ActionErrorItem errorItemPrototype;
-        [SerializeField, UsedImplicitly] private ActionErrorDisplaySettings settings;
-        [SerializeField, UsedImplicitly] private SoundEntry errorAppearSound;
-        [SerializeField, UsedImplicitly] private RectTransform errorContainer;
-        [SerializeField, UsedImplicitly] private int preinstantiatedCount = 20;
+        [SerializeField] private ActionErrorItem errorItemPrototype;
+        [SerializeField] private ActionErrorDisplaySettings settings;
+        [SerializeField] private SoundEntry errorAppearSound;
+        [SerializeField] private RectTransform errorContainer;
+        [SerializeField] private int preinstantiatedCount = 20;
 
         private readonly List<ActionErrorItem> activeErrors = new List<ActionErrorItem>();
 

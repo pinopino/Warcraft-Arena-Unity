@@ -1,9 +1,8 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Dummy", menuName = "Game Data/Spells/Auras/Effects/Dummy", order = 2)]
+    [CreateAssetMenu(fileName = "Aura Effect Dummy", menuName = "Game Data/Spells/Auras/Effects/Dummy", order = 2)]
     public class AuraEffectInfoDummy : AuraEffectInfo
     {
         public override float Value => 0.0f;

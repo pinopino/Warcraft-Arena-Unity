@@ -1,14 +1,13 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Apply Aura With Duration Override", menuName = "Game Data/Spells/Effects/Apply Aura With Duration Override", order = 1)]
+    [CreateAssetMenu(fileName = "Effect Apply Aura With Duration Override", menuName = "Game Data/Spells/Effects/Apply Aura With Duration Override", order = 1)]
     public class EffectApplyAuraDurationOverride : SpellEffectInfo
     {
-        [SerializeField, UsedImplicitly, Header("Apply Aura Override")] private AuraInfo auraInfo;
-        [SerializeField, UsedImplicitly] private int baseDuration;
-        [SerializeField, UsedImplicitly] private int durationPerCombo;
+        [SerializeField, Header("Apply Aura Override")] private AuraInfo auraInfo;
+        [SerializeField] private int baseDuration;
+        [SerializeField] private int durationPerCombo;
 
         internal AuraInfo AuraInfo => auraInfo;
 

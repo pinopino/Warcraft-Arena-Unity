@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Action Bar Settings Container", menuName = "Game Data/Containers/Action Bar Settings", order = 1)]
+    [CreateAssetMenu(fileName = "Action Bar Settings Container", menuName = "Game Data/Containers/Action Bar Settings", order = 1)]
     public class ActionBarSettingsContainer : ScriptableUniqueInfoContainer<ActionBarSettings>
     {
-        [SerializeField, UsedImplicitly] private List<ActionBarSettings> actionBars;
+        [SerializeField] private List<ActionBarSettings> actionBars;
 
         private readonly Dictionary<(ClassType, int), ActionBarSettings> settingsByClassSlotId = new Dictionary<(ClassType, int), ActionBarSettings>();
 

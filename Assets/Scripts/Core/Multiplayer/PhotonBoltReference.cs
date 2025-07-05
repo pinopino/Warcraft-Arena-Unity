@@ -1,6 +1,5 @@
-﻿using System;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UdpKit;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace Core
     [CreateAssetMenu(fileName = "Photon Reference", menuName = "Game Data/Scriptable/Photon", order = 1)]
     public class PhotonBoltReference : ScriptableReference, IPhotonBoltController
     {
-        [SerializeField, UsedImplicitly] private string containerTag;
+        [SerializeField] private string containerTag;
 
         private PhotonBoltController underlyingController;
 

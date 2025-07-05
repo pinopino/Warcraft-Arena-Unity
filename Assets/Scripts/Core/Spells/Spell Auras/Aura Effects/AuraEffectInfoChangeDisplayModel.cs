@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Change Display Model", menuName = "Game Data/Spells/Auras/Effects/Change Display Model", order = 1)]
+    [CreateAssetMenu(fileName = "Aura Effect Change Display Model", menuName = "Game Data/Spells/Auras/Effects/Change Display Model", order = 1)]
     public class AuraEffectInfoChangeDisplayModel : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly, Range(1, 100)] private int modelId = 1;
+        [SerializeField, Range(1, 100)] private int modelId = 1;
 
         public int ModelId => modelId;
         public override float Value => modelId;

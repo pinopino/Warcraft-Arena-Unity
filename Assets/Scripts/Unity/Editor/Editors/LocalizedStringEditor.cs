@@ -1,18 +1,16 @@
-﻿using System.Collections.Generic;
-using Client.Localization;
-using JetBrains.Annotations;
+﻿using Client.Localization;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 namespace Arena.Editor
 {
-    [CustomEditor(typeof(LocalizedString), true), UsedImplicitly]
+    [CustomEditor(typeof(LocalizedString), true)]
     internal class LocalizedStringEditor : UnityEditor.Editor
     {
         private LocalizedString localizedString;
         private List<(LocalizedLanguage, LocalizedLanguage.LocalizationEntry)> languageEntries;
 
-        [UsedImplicitly]
         private void OnEnable()
         {
             localizedString = (LocalizedString)serializedObject.targetObject;
@@ -23,7 +21,7 @@ namespace Arena.Editor
                 LocalizedLanguage.LocalizationEntry entry = language.Entries.Find(item => item.StringReference == localizedString);
                 if (entry == null)
                 {
-                    entry = new LocalizedLanguage.LocalizationEntry {StringReference = localizedString, Value = string.Empty};
+                    entry = new LocalizedLanguage.LocalizationEntry { StringReference = localizedString, Value = string.Empty };
                     language.Entries.Add(entry);
 
                     EditorUtility.SetDirty(language);
@@ -48,7 +46,7 @@ namespace Arena.Editor
                 EditorGUILayout.LabelField($"Language: {entry.Item1.LanguageType}", new GUIStyle { fontStyle = FontStyle.Bold });
 
                 EditorGUILayout.BeginHorizontal();
-                
+
                 entry.Item2.Value = EditorGUILayout.TextArea(entry.Item2.Value, GUI.skin.GetStyle("TextArea"));
                 EditorGUILayout.EndHorizontal();
 

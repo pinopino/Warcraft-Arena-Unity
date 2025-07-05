@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Dispel Mechanic", menuName = "Game Data/Spells/Effects/Dispel Mechanic", order = 3)]
+    [CreateAssetMenu(fileName = "Dispel Mechanic", menuName = "Game Data/Spells/Effects/Dispel Mechanic", order = 3)]
     public class EffectDispelMechanic : SpellEffectInfo
     {
-        [SerializeField, UsedImplicitly, EnumFlag, Header("Dispel Mechanic")]
+        [SerializeField, EnumFlag, Header("Dispel Mechanic")]
         private SpellMechanicsFlags mechanicToDispel;
 
         public override float Value => 1.0f;

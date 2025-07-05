@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
 
 namespace Core
 {
@@ -27,13 +26,9 @@ namespace Core
         public IReadOnlyList<AuraEffectInfo> EffectsInfos => effectInfos;
         public IReadOnlyList<AuraEffect> Effects => effects;
 
-        [CanBeNull]
         public Unit Caster => casterReference.Value;
-        [NotNull]
-        public Unit Owner { get; }
-        [NotNull]
-        public AuraInfo AuraInfo { get; }
-        [NotNull]
+        public Unit Owner { get; }       
+        public AuraInfo AuraInfo { get; }       
         public SpellInfo SpellInfo { get; }
 
         public ulong CasterId { get; }
@@ -46,7 +41,7 @@ namespace Core
         public bool IsRemoved { get; private set; }
         public bool IsExpired => Duration == 0;
 
-        internal Aura(AuraInfo auraInfo, SpellInfo spellInfo, [NotNull] Unit owner, [NotNull] Unit caster)
+        internal Aura(AuraInfo auraInfo, SpellInfo spellInfo,  Unit owner,  Unit caster)
         {
             AuraInfo = auraInfo;
             SpellInfo = spellInfo;

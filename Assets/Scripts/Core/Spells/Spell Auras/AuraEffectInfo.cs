@@ -1,13 +1,12 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core
 {
     public abstract class AuraEffectInfo : ScriptableObject
     {
         [Header("Aura Effect")]
-        [SerializeField, UsedImplicitly] private int maxEffectiveCharges;
-        [SerializeField, UsedImplicitly] private SpellMechanics mechanics;
+        [SerializeField] private int maxEffectiveCharges;
+        [SerializeField] private SpellMechanics mechanics;
 
         public abstract float Value { get; }
         public abstract AuraEffectType AuraEffectType { get; }

@@ -1,16 +1,15 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using Common;
+using System;
 using UnityEngine;
-using Common;
 
 using EventHandler = Common.EventHandler;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Teleport Direct", menuName = "Game Data/Spells/Effects/Teleport Direct", order = 5)]
+    [CreateAssetMenu(fileName = "Effect Teleport Direct", menuName = "Game Data/Spells/Effects/Teleport Direct", order = 5)]
     public class EffectTeleportDirect : SpellEffectInfo
     {
-        [SerializeField, UsedImplicitly] private float horizontalDistance;
+        [SerializeField] private float horizontalDistance;
 
         public float HorizontalDistance => horizontalDistance;
 

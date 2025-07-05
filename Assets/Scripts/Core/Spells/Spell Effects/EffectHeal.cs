@@ -1,20 +1,19 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Effect Heal", menuName = "Game Data/Spells/Effects/Heal", order = 5)]
+    [CreateAssetMenu(fileName = "Effect Heal", menuName = "Game Data/Spells/Effects/Heal", order = 5)]
     public class EffectHeal : SpellEffectInfo
     {
         [Header("Heal")]
-        [SerializeField, UsedImplicitly] private int baseValue;
-        [SerializeField, UsedImplicitly] private uint baseVariance;
-        [SerializeField, UsedImplicitly] private uint additionalValue;
-        [SerializeField, UsedImplicitly] private SpellDamageCalculationType calculationType;
-        [SerializeField, UsedImplicitly] private List<ConditionalModifier> conditionalModifiers;
+        [SerializeField] private int baseValue;
+        [SerializeField] private uint baseVariance;
+        [SerializeField] private uint additionalValue;
+        [SerializeField] private SpellDamageCalculationType calculationType;
+        [SerializeField] private List<ConditionalModifier> conditionalModifiers;
 
         public override float Value => baseValue;
         public override SpellEffectType EffectType => SpellEffectType.Heal;

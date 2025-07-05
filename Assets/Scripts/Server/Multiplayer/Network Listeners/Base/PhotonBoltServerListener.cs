@@ -2,17 +2,15 @@
 using Bolt.Utils;
 using Common;
 using Core;
-using JetBrains.Annotations;
 using UdpKit;
 using UnityEngine;
 
 namespace Server
 {
-    [UsedImplicitly]
     public partial class PhotonBoltServerListener : PhotonBoltBaseListener
     {
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private PhotonBoltReference photon;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private PhotonBoltReference photon;
 
         private new WorldServer World { get; set; }
         private ServerLaunchState LaunchState { get; set; }
@@ -46,7 +44,8 @@ namespace Server
             // what exactly has changed in Bolt to cause this. I'm sure this can be fixed properly, and not with a hack
             // like this, but I'm not going to investigate that at the moment. In another project I've upgraded Bolt to
             // 1.3.2 and the problem is there as well, so I assume this is due to some change in Bolt itself.
-            if (map == "Launcher") {
+            if (map == "Launcher")
+            {
                 return;
             }
 

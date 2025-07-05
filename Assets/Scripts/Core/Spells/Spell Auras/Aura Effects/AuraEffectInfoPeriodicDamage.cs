@@ -1,19 +1,18 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
-using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Periodic Damage", menuName = "Game Data/Spells/Auras/Effects/Periodic Damage", order = 1)]
+    [CreateAssetMenu(fileName = "Aura Effect Periodic Damage", menuName = "Game Data/Spells/Auras/Effects/Periodic Damage", order = 1)]
     public class AuraEffectInfoPeriodicDamage : AuraEffectInfoPeriodic
     {
-        [SerializeField, UsedImplicitly] private int baseValue;
-        [SerializeField, UsedImplicitly] private uint additionalValue;
-        [SerializeField, UsedImplicitly] private SpellSchoolMask schoolMask;
-        [SerializeField, UsedImplicitly] private SpellDamageCalculationType calculationType;
-        [SerializeField, UsedImplicitly] private List<ConditionalModifier> conditionalModifiers;
+        [SerializeField] private int baseValue;
+        [SerializeField] private uint additionalValue;
+        [SerializeField] private SpellSchoolMask schoolMask;
+        [SerializeField] private SpellDamageCalculationType calculationType;
+        [SerializeField] private List<ConditionalModifier> conditionalModifiers;
 
         public SpellSchoolMask SpellSchoolMask => schoolMask;
         public override float Value => baseValue;

@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Client.Localization;
+using System;
 using System.Collections.Generic;
-using Client.Localization;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,14 +12,13 @@ namespace Client
         [Serializable]
         private class LocalizedInputActions
         {
-            [UsedImplicitly] public LocalizedString InputString;
-            [UsedImplicitly] public InputAction InputAction;
+            public LocalizedString InputString;
+            public InputAction InputAction;
         }
 
-        [SerializeField, UsedImplicitly] private CustomDropdown dropdown;
-        [SerializeField, UsedImplicitly] private List<LocalizedInputActions> dropdownItems;
+        [SerializeField] private CustomDropdown dropdown;
+        [SerializeField] private List<LocalizedInputActions> dropdownItems;
 
-        [UsedImplicitly]
         protected override void Awake()
         {
             base.Awake();
@@ -36,7 +34,6 @@ namespace Client
             dropdown.OnValueChanged.AddListener(OnDropdownChanged);
         }
 
-        [UsedImplicitly]
         protected override void OnDestroy()
         {
             dropdown.OnValueChanged.RemoveListener(OnDropdownChanged);

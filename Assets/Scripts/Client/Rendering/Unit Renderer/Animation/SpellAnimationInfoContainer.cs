@@ -1,17 +1,16 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Spell Animation Info Container", menuName = "Game Data/Containers/Spell Animation Info", order = 1)]
+    [CreateAssetMenu(fileName = "Spell Animation Info Container", menuName = "Game Data/Containers/Spell Animation Info", order = 1)]
     public class SpellAnimationInfoContainer : ScriptableUniqueInfoContainer<SpellAnimationInfo>
     {
-        [SerializeField, UsedImplicitly] private SpellInfoContainer spellContainer;
-        [SerializeField, UsedImplicitly] private AnimationInfo defaultAnimation;
-        [SerializeField, UsedImplicitly] private List<SpellAnimationInfo> animationInfos;
+        [SerializeField] private SpellInfoContainer spellContainer;
+        [SerializeField] private AnimationInfo defaultAnimation;
+        [SerializeField] private List<SpellAnimationInfo> animationInfos;
 
         private readonly Dictionary<int, AnimationInfo> animationInfoBySpellId = new Dictionary<int, AnimationInfo>();
 

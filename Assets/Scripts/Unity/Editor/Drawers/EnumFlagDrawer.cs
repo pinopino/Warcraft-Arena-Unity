@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using Common;
-using JetBrains.Annotations;
+﻿using Common;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(EnumFlagAttribute)), UsedImplicitly]
+[CustomPropertyDrawer(typeof(EnumFlagAttribute))]
 public class EnumFlagDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public abstract class SoundController<TSoundKit, TKey> : MonoBehaviour where TSoundKit : SoundKit<TSoundKit, TKey>
     {
-        [SerializeField, UsedImplicitly] private SoundReference sound;
-        [SerializeField, UsedImplicitly] private AudioSource source;
+        [SerializeField] private SoundReference sound;
+        [SerializeField] private AudioSource source;
 
         protected SoundReference Sound => sound;
         protected AudioSource Source => source;
@@ -25,6 +24,6 @@ namespace Client
 
             LastSoundType = soundType;
             entry.PlayAtSource(source);
-        } 
+        }
     }
 }

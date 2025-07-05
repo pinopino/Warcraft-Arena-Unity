@@ -1,7 +1,6 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
@@ -10,8 +9,8 @@ namespace Client
 {
     public class HealthFrame : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private CanvasGroup frameCanvasGroup;
-        [SerializeField, UsedImplicitly] private AttributeBar healthBar;
+        [SerializeField] private CanvasGroup frameCanvasGroup;
+        [SerializeField] private AttributeBar healthBar;
 
         private Unit unit;
 

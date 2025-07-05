@@ -1,21 +1,20 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Floating Text Settings", menuName = "Game Data/Interface/Floating Text Settings", order = 1)]
+    [CreateAssetMenu(fileName = "Floating Text Settings", menuName = "Game Data/Interface/Floating Text Settings", order = 1)]
     public class FloatingTextSettings : ScriptableObject
     {
-        [SerializeField, UsedImplicitly] private float lifeTime = 3.0f;
-        [SerializeField, UsedImplicitly] private float randomOffset = 0.2f;
-        [SerializeField, UsedImplicitly] private float floatingSpeed = 3;
-        [SerializeField, UsedImplicitly] private int fontSize = 120;
-        [SerializeField, UsedImplicitly] private Color fontColor;
-        [SerializeField, UsedImplicitly] private Material fontMaterial;
-        [SerializeField, UsedImplicitly] private AnimationCurve sizeOverTime;
-        [SerializeField, UsedImplicitly] private AnimationCurve alphaOverTime;
-        [SerializeField, UsedImplicitly] private AnimationCurve sizeOverDistanceToCamera;
-        [SerializeField, UsedImplicitly] private AnimationCurve randomOffsetOverDistance;
+        [SerializeField] private float lifeTime = 3.0f;
+        [SerializeField] private float randomOffset = 0.2f;
+        [SerializeField] private float floatingSpeed = 3;
+        [SerializeField] private int fontSize = 120;
+        [SerializeField] private Color fontColor;
+        [SerializeField] private Material fontMaterial;
+        [SerializeField] private AnimationCurve sizeOverTime;
+        [SerializeField] private AnimationCurve alphaOverTime;
+        [SerializeField] private AnimationCurve sizeOverDistanceToCamera;
+        [SerializeField] private AnimationCurve randomOffsetOverDistance;
 
         public float LifeTime => lifeTime;
         public float RandomOffset => randomOffset;

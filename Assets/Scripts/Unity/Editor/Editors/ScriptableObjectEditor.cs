@@ -1,24 +1,23 @@
-﻿using System.IO;
-using Core;
-using JetBrains.Annotations;
+﻿using Core;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
 namespace Arena.Editor
 {
-    [CustomEditor(typeof(AuraInfo), true), CanEditMultipleObjects, UsedImplicitly]
+    [CustomEditor(typeof(AuraInfo), true), CanEditMultipleObjects]
     internal class AuraInfoEditor : ScriptableObjectEditor { }
 
-    [CustomEditor(typeof(AuraEffectInfo), true), CanEditMultipleObjects, UsedImplicitly]
+    [CustomEditor(typeof(AuraEffectInfo), true), CanEditMultipleObjects]
     internal class AuraEffectInfoEditor : ScriptableObjectEditor { }
 
-    [CustomEditor(typeof(SpellEffectInfo), true), CanEditMultipleObjects, UsedImplicitly]
+    [CustomEditor(typeof(SpellEffectInfo), true), CanEditMultipleObjects]
     internal class SpellEffectInfoEditor : ScriptableObjectEditor { }
 
-    [CustomEditor(typeof(AuraScriptable), true), CanEditMultipleObjects, UsedImplicitly]
+    [CustomEditor(typeof(AuraScriptable), true), CanEditMultipleObjects]
     internal class AuraScriptableEditor : ScriptableObjectEditor { }
 
-    [CanEditMultipleObjects, UsedImplicitly]
+    [CanEditMultipleObjects]
     internal class ScriptableObjectEditor : UnityEditor.Editor
     {
         private ScriptableObject spellInfo;

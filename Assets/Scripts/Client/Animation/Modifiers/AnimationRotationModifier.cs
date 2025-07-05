@@ -1,21 +1,20 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class AnimationRotationModifier : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private Animator targetAnimator;
-        [SerializeField, UsedImplicitly] private Transform targetBone;
-        [SerializeField, UsedImplicitly] private Vector2 parameterRange;
-        [SerializeField, UsedImplicitly] private Vector3 maxRotation;
-        [SerializeField, UsedImplicitly] private string attackParam;
-        [SerializeField, UsedImplicitly] private string forwardParam;
-        [SerializeField, UsedImplicitly] private string strafeParam;
-        [SerializeField, UsedImplicitly] private bool overrideRotation;
-        [SerializeField, UsedImplicitly] private bool shouldApplyEvenBackward;
-        [SerializeField, UsedImplicitly] private bool shouldApplyOnlyWhenAttacking;
-        [SerializeField, UsedImplicitly] private bool revertWhenBackward;
+        [SerializeField] private Animator targetAnimator;
+        [SerializeField] private Transform targetBone;
+        [SerializeField] private Vector2 parameterRange;
+        [SerializeField] private Vector3 maxRotation;
+        [SerializeField] private string attackParam;
+        [SerializeField] private string forwardParam;
+        [SerializeField] private string strafeParam;
+        [SerializeField] private bool overrideRotation;
+        [SerializeField] private bool shouldApplyEvenBackward;
+        [SerializeField] private bool shouldApplyOnlyWhenAttacking;
+        [SerializeField] private bool revertWhenBackward;
 
         private int strafeHash;
         private int attackHash;
@@ -25,7 +24,6 @@ namespace Client
         private float forwardValue;
         private float rotationValue = 0.5f;
 
-        [UsedImplicitly]
         private void Awake()
         {
             strafeHash = Animator.StringToHash(strafeParam);
@@ -33,7 +31,6 @@ namespace Client
             forwardHash = Animator.StringToHash(forwardParam);
         }
 
-        [UsedImplicitly]
         private void LateUpdate()
         {
             if (!targetAnimator.enabled)

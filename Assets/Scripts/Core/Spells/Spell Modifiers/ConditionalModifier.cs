@@ -1,7 +1,6 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Core.Conditions;
-using JetBrains.Annotations;
+using System;
 using UnityEngine;
 
 namespace Core
@@ -9,10 +8,10 @@ namespace Core
     [Serializable]
     public class ConditionalModifier
     {
-        [SerializeField, UsedImplicitly] private float value;
-        [SerializeField, UsedImplicitly] private Condition condition;
-        [SerializeField, UsedImplicitly] private ConditionalModiferValue conditionalModifierValue;
-        [SerializeField, UsedImplicitly] private SpellModifierApplicationType applicationType;
+        [SerializeField] private float value;
+        [SerializeField] private Condition condition;
+        [SerializeField] private ConditionalModiferValue conditionalModifierValue;
+        [SerializeField] private SpellModifierApplicationType applicationType;
 
         public Condition Condition => condition;
 

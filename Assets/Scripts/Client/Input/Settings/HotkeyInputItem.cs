@@ -1,18 +1,17 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
 
 namespace Client
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Hotkey Input Item", menuName = "Player Data/Input/Hotkey Input Item", order = 1)]
+    [CreateAssetMenu(fileName = "Hotkey Input Item", menuName = "Player Data/Input/Hotkey Input Item", order = 1)]
     public class HotkeyInputItem : ScriptableObject
     {
-        [SerializeField, UsedImplicitly] private InputReference input;
-        [SerializeField, UsedImplicitly] private string id;
-        [SerializeField, UsedImplicitly] private KeyCode key;
-        [SerializeField, UsedImplicitly] private HotkeyModifier modifier;
+        [SerializeField] private InputReference input;
+        [SerializeField] private string id;
+        [SerializeField] private KeyCode key;
+        [SerializeField] private HotkeyModifier modifier;
 
         private KeyCode modifierKeyCode;
         private HotkeyState hotkeyState;
@@ -36,7 +35,6 @@ namespace Client
         public KeyCode KeyCode => key;
         public HotkeyModifier Modifier => modifier;
 
-        [UsedImplicitly]
         private void Awake()
         {
             modifierKeyCode = modifier.ToKeyCode();
@@ -44,7 +42,6 @@ namespace Client
             appliedModifier = modifier;
         }
 
-        [UsedImplicitly]
         private void OnValidate()
         {
             modifierKeyCode = modifier.ToKeyCode();

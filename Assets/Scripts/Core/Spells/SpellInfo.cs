@@ -1,57 +1,56 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core.AuraEffects;
 using Core.Conditions;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Spell Info", menuName = "Game Data/Spells/Spell Info", order = 1)]
+    [CreateAssetMenu(fileName = "Spell Info", menuName = "Game Data/Spells/Spell Info", order = 1)]
     public sealed class SpellInfo : ScriptableUniqueInfo<SpellInfo>
     {
-        [SerializeField, UsedImplicitly] private SpellInfoContainer container;
-        [SerializeField, UsedImplicitly] private SpellExplicitTargetType explicitTargetType;
-        [SerializeField, UsedImplicitly] private SpellDamageClass damageClass;
-        [SerializeField, UsedImplicitly] private SpellDispelType spellDispel;
-        [SerializeField, UsedImplicitly] private SpellMechanics mechanic;
+        [SerializeField] private SpellInfoContainer container;
+        [SerializeField] private SpellExplicitTargetType explicitTargetType;
+        [SerializeField] private SpellDamageClass damageClass;
+        [SerializeField] private SpellDispelType spellDispel;
+        [SerializeField] private SpellMechanics mechanic;
 
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellCastTargetFlags explicitCastTargets;
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellSchoolMask schoolMask;
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellPreventionType preventionType;
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellAttributes attributes;
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellExtraAttributes attributesExtra;
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellCustomAttributes attributesCustom;
+        [SerializeField, EnumFlag] private SpellCastTargetFlags explicitCastTargets;
+        [SerializeField, EnumFlag] private SpellSchoolMask schoolMask;
+        [SerializeField, EnumFlag] private SpellPreventionType preventionType;
+        [SerializeField, EnumFlag] private SpellAttributes attributes;
+        [SerializeField, EnumFlag] private SpellExtraAttributes attributesExtra;
+        [SerializeField, EnumFlag] private SpellCustomAttributes attributesCustom;
 
-        [SerializeField, EnumFlag, UsedImplicitly] private EnityTypeMask targetEntityTypeMask;
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellRangeFlags rangedFlags;
-        [SerializeField, EnumFlag, UsedImplicitly] private SpellInterruptFlags interruptFlags;
-        [SerializeField, UsedImplicitly, EnumFlag] private SpellMechanicsFlags castIgnoringMechanics;
+        [SerializeField, EnumFlag] private EnityTypeMask targetEntityTypeMask;
+        [SerializeField, EnumFlag] private SpellRangeFlags rangedFlags;
+        [SerializeField, EnumFlag] private SpellInterruptFlags interruptFlags;
+        [SerializeField, EnumFlag] private SpellMechanicsFlags castIgnoringMechanics;
 
-        [SerializeField, UsedImplicitly] private int cooldownTime;
-        [SerializeField, UsedImplicitly] private int categoryCooldownTime;
-        [SerializeField, UsedImplicitly] private int globalCooldownTime;
-        [SerializeField, UsedImplicitly] private int castTime;
-        [SerializeField, UsedImplicitly] private int charges;
-        [SerializeField, UsedImplicitly] private int minCastTime;
+        [SerializeField] private int cooldownTime;
+        [SerializeField] private int categoryCooldownTime;
+        [SerializeField] private int globalCooldownTime;
+        [SerializeField] private int castTime;
+        [SerializeField] private int charges;
+        [SerializeField] private int minCastTime;
 
-        [SerializeField, UsedImplicitly] private float minRangeHostile;
-        [SerializeField, UsedImplicitly] private float minRangeFriend;
-        [SerializeField, UsedImplicitly] private float maxRangeHostile;
-        [SerializeField, UsedImplicitly] private float maxRangeFriend;
-        [SerializeField, UsedImplicitly] private float speed;
+        [SerializeField] private float minRangeHostile;
+        [SerializeField] private float minRangeFriend;
+        [SerializeField] private float maxRangeHostile;
+        [SerializeField] private float maxRangeFriend;
+        [SerializeField] private float speed;
 
-        [SerializeField, UsedImplicitly] private List<SpellEffectInfo> spellEffectInfos;
-        [SerializeField, UsedImplicitly] private List<SpellPowerCostInfo> spellPowerCostInfos;
-        [SerializeField, UsedImplicitly] private List<SpellCastCondition> targetingConditions;
-        [SerializeField, UsedImplicitly] private List<ShapeShiftForm> shapeShiftAlwaysCastable;
-        [SerializeField, UsedImplicitly] private List<ShapeShiftForm> shapeShiftNeverCastable;
+        [SerializeField] private List<SpellEffectInfo> spellEffectInfos;
+        [SerializeField] private List<SpellPowerCostInfo> spellPowerCostInfos;
+        [SerializeField] private List<SpellCastCondition> targetingConditions;
+        [SerializeField] private List<ShapeShiftForm> shapeShiftAlwaysCastable;
+        [SerializeField] private List<ShapeShiftForm> shapeShiftNeverCastable;
 
-        [UsedImplicitly] private HashSet<ShapeShiftForm> shapeShiftAlwaysCastableSet = new HashSet<ShapeShiftForm>();
-        [UsedImplicitly] private HashSet<ShapeShiftForm> shapeShiftNeverCastableSet = new HashSet<ShapeShiftForm>();
-        [UsedImplicitly] private SpellMechanicsFlags combinedEffectMechanics;
-        [UsedImplicitly] private float maxTargetingRadius;
-        [UsedImplicitly] private bool someEffectsIgnoreSpellImmunity;
+        private HashSet<ShapeShiftForm> shapeShiftAlwaysCastableSet = new HashSet<ShapeShiftForm>();
+        private HashSet<ShapeShiftForm> shapeShiftNeverCastableSet = new HashSet<ShapeShiftForm>();
+        private SpellMechanicsFlags combinedEffectMechanics;
+        private float maxTargetingRadius;
+        private bool someEffectsIgnoreSpellImmunity;
 
         protected override ScriptableUniqueInfoContainer<SpellInfo> Container => container;
         protected override SpellInfo Data => this;
@@ -290,7 +289,7 @@ namespace Core
 
             if (ExplicitCastTargets.HasAnyFlag(SpellCastTargetFlags.UnitMask))
             {
-                if(target == null)
+                if (target == null)
                     return SpellCastResult.BadTargets;
 
                 if (target.IsDead && !HasAttribute(SpellAttributes.CanTargetDead))
@@ -382,7 +381,7 @@ namespace Core
         }
 
 #if UNITY_EDITOR
-        [ContextMenu("Populate Passive"), UsedImplicitly]
+        [ContextMenu("Populate Passive")]
         private void PopulatePassive()
         {
             explicitTargetType = SpellExplicitTargetType.Caster;

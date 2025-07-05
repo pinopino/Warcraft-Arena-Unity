@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using Client.UI;
+﻿using Client.UI;
 using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
@@ -25,15 +24,15 @@ namespace Client
             }
         }
 
-        [SerializeField, UsedImplicitly] private CanvasGroup canvasGroup;
-        [SerializeField, UsedImplicitly] private UnitFrame playerUnitFrame;
-        [SerializeField, UsedImplicitly] private UnitFrame playerTargetUnitFrame;
-        [SerializeField, UsedImplicitly] private UnitFrame playerTargetTargetUnitFrame;
-        [SerializeField, UsedImplicitly] private BuffDisplayFrame playerBuffDisplayFrame;
-        [SerializeField, UsedImplicitly] private BuffDisplayFrame targetBuffDisplayFrame;
-        [SerializeField, UsedImplicitly] private CastFrame playerCastFrame;
-        [SerializeField, UsedImplicitly] private ActionErrorDisplay actionErrorDisplay;
-        [SerializeField, UsedImplicitly] private List<ActionBar> actionBars;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private UnitFrame playerUnitFrame;
+        [SerializeField] private UnitFrame playerTargetUnitFrame;
+        [SerializeField] private UnitFrame playerTargetTargetUnitFrame;
+        [SerializeField] private BuffDisplayFrame playerBuffDisplayFrame;
+        [SerializeField] private BuffDisplayFrame targetBuffDisplayFrame;
+        [SerializeField] private CastFrame playerCastFrame;
+        [SerializeField] private ActionErrorDisplay actionErrorDisplay;
+        [SerializeField] private List<ActionBar> actionBars;
 
         private Player localPlayer;
 

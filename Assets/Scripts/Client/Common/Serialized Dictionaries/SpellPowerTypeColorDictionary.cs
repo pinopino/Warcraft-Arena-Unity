@@ -1,7 +1,6 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
 using UnityEngine;
 
 namespace Client
@@ -12,8 +11,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<SpellPowerType, Color>
         {
-            [SerializeField, UsedImplicitly] private SpellPowerType key;
-            [SerializeField, UsedImplicitly] private Color value;
+            [SerializeField] private SpellPowerType key;
+            [SerializeField] private Color value;
 
             public SpellPowerType Key => key;
             public Color Value => value;

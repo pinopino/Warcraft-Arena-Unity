@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Modify Stealth Detection", menuName = "Game Data/Spells/Auras/Effects/Modify Stealth Detection", order = 3)]
+    [CreateAssetMenu(fileName = "Aura Effect Modify Stealth Detection", menuName = "Game Data/Spells/Auras/Effects/Modify Stealth Detection", order = 3)]
     public class AuraEffectInfoModifyStealthDetection : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly, Range(-100.0f, 100.0f)]
+        [SerializeField, Range(-100.0f, 100.0f)]
         private float stealthDetectValue;
 
         public override float Value => stealthDetectValue;

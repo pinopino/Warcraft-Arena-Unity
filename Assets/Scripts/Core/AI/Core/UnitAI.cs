@@ -1,13 +1,12 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 namespace Core
 {
     public abstract class UnitAI : UnitBehaviour
     {
-        [SerializeField, UsedImplicitly] private NavMeshAgent navmeshAgent;
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
+        [SerializeField] private NavMeshAgent navmeshAgent;
+        [SerializeField] private BalanceReference balance;
 
         private IUnitAIModel unitAIModel;
 

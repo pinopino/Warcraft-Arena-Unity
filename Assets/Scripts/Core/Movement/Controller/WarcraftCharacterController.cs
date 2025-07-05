@@ -1,16 +1,15 @@
 ﻿using Bolt;
 using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Core
 {
     internal class WarcraftCharacterController : EntityBehaviour<IUnitState>, IUnitBehaviour
     {
-        [SerializeField, UsedImplicitly] private PhysicsReference physics;
-        [SerializeField, UsedImplicitly] private PlayerControllerDefinition controllerDefinition;
-        [SerializeField, UsedImplicitly] private Rigidbody unitRigidbody;
-        [SerializeField, UsedImplicitly] private GroundChecker groundChecker;
+        [SerializeField] private PhysicsReference physics;
+        [SerializeField] private PlayerControllerDefinition controllerDefinition;
+        [SerializeField] private Rigidbody unitRigidbody;
+        [SerializeField] private GroundChecker groundChecker;
 
         private const float IdleGroundDistance = 0.05f;
 

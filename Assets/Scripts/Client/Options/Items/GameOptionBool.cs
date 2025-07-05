@@ -1,5 +1,4 @@
 ﻿using Common;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Client
@@ -7,8 +6,8 @@ namespace Client
     [CreateAssetMenu(fileName = "Game Option", menuName = "Player Data/Game Options/Bool Option", order = 1)]
     public sealed class GameOptionBool : GameOptionItem
     {
-        [SerializeField, UsedImplicitly] private bool defaultValue;
-        [SerializeField, UsedImplicitly] private bool currentValue;
+        [SerializeField] private bool defaultValue;
+        [SerializeField] private bool currentValue;
 
         public bool Value => currentValue;
 

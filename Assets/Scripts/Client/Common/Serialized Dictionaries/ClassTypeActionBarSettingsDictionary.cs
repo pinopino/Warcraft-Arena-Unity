@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core;
-using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Client
@@ -13,8 +12,8 @@ namespace Client
         [Serializable]
         public class Entry : ISerializedKeyValue<ClassType, List<ActionBarSettings>>
         {
-            [SerializeField, UsedImplicitly] private ClassType key;
-            [SerializeField, UsedImplicitly] private List<ActionBarSettings> value;
+            [SerializeField] private ClassType key;
+            [SerializeField] private List<ActionBarSettings> value;
 
             public ClassType Key => key;
             public List<ActionBarSettings> Value => value;

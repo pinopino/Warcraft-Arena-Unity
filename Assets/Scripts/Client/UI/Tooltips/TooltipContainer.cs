@@ -1,12 +1,11 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {
     public class TooltipContainer : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private TooltipItemNormal tooltipNormal;
-        [SerializeField, UsedImplicitly] private TooltipItemSpell tooltipSpell;
+        [SerializeField] private TooltipItemNormal tooltipNormal;
+        [SerializeField] private TooltipItemSpell tooltipSpell;
 
         public static string ContainerTag => "Tooltip Container";
 

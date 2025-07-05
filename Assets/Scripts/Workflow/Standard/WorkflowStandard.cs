@@ -1,7 +1,6 @@
-﻿using Common;
+﻿using Client;
+using Common;
 using Core;
-using Client;
-using JetBrains.Annotations;
 using Server;
 using UdpKit;
 using UnityEngine;
@@ -11,7 +10,7 @@ namespace Game.Workflow.Standard
     [CreateAssetMenu(fileName = "Workflow Standard Reference", menuName = "Game Data/Scriptable/Workflow Standard", order = 1)]
     internal sealed class WorkflowStandard : ScriptableReference
     {
-        [SerializeField, UsedImplicitly] private InterfaceReference interfaceReference;
+        [SerializeField] private InterfaceReference interfaceReference;
 
         private GameManager gameManager;
 

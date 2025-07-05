@@ -1,14 +1,13 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Modify Max Power", menuName = "Game Data/Spells/Auras/Effects/Modify Max Power", order = 3)]
+    [CreateAssetMenu(fileName = "Aura Effect Modify Max Power", menuName = "Game Data/Spells/Auras/Effects/Modify Max Power", order = 3)]
     public class AuraEffectInfoModifyMaxPower : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private int power;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private SpellPowerType powerType;
 
         public override float Value => power;

@@ -1,7 +1,6 @@
-﻿using System;
-using Client.Localization;
+﻿using Client.Localization;
 using Core;
-using JetBrains.Annotations;
+using System;
 
 namespace Client
 {
@@ -10,8 +9,8 @@ namespace Client
         [Serializable]
         private class SpellCastResultLink
         {
-            [UsedImplicitly] public SpellCastResult SpellCastResult;
-            [UsedImplicitly] public LocalizedString LocalizedString;
+            public SpellCastResult SpellCastResult;
+            public LocalizedString LocalizedString;
         }
     }
 }

@@ -1,13 +1,11 @@
 ﻿using Common;
 using Core;
-using JetBrains.Annotations;
 
 using Assert = Common.Assert;
 using EventHandler = Common.EventHandler;
 
 namespace Client
 {
-    [UsedImplicitly]
     public partial class PhotonBoltClientListener : PhotonBoltBaseListener
     {
         private Player LocalPlayer { get; set; }

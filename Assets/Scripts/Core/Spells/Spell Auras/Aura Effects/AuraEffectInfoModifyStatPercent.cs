@@ -1,14 +1,13 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Modify Stat Percent", menuName = "Game Data/Spells/Auras/Effects/Modify Stat Percent", order = 3)]
+    [CreateAssetMenu(fileName = "Aura Effect Modify Stat Percent", menuName = "Game Data/Spells/Auras/Effects/Modify Stat Percent", order = 3)]
     public class AuraEffectInfoModifyStatPercent : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly, Range(-99.99f, 500f)]
+        [SerializeField, Range(-99.99f, 500f)]
         private float statPercent;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private StatType statType;
 
         public override float Value => statPercent;

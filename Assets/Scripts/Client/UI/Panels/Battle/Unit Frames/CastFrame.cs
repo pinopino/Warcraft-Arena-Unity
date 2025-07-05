@@ -1,6 +1,5 @@
 ﻿using Client.Spells;
 using Core;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,12 +8,12 @@ namespace Client
 {
     public class CastFrame : MonoBehaviour
     {
-        [SerializeField, UsedImplicitly] private RenderingReference rendering;
-        [SerializeField, UsedImplicitly] private LocalizationReference localization;
-        [SerializeField, UsedImplicitly] private CanvasGroup canvasGroup;
-        [SerializeField, UsedImplicitly] private TextMeshProUGUI spellLabel;
-        [SerializeField, UsedImplicitly] private Image spellIcon;
-        [SerializeField, UsedImplicitly] private Slider castSlider;
+        [SerializeField] private RenderingReference rendering;
+        [SerializeField] private LocalizationReference localization;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private TextMeshProUGUI spellLabel;
+        [SerializeField] private Image spellIcon;
+        [SerializeField] private Slider castSlider;
 
         private Unit caster;
         private bool isCasting;
@@ -26,8 +25,8 @@ namespace Client
             if (!isCasting)
                 return;
 
-            int expectedCastFrames = (int) (caster.SpellCast.State.CastTime / BoltNetwork.FrameDeltaTime / 1000.0f);
-            castSlider.value = (float) (BoltNetwork.ServerFrame - caster.SpellCast.State.ServerFrame) / expectedCastFrames;
+            int expectedCastFrames = (int)(caster.SpellCast.State.CastTime / BoltNetwork.FrameDeltaTime / 1000.0f);
+            castSlider.value = (float)(BoltNetwork.ServerFrame - caster.SpellCast.State.ServerFrame) / expectedCastFrames;
         }
 
         public void UpdateCaster(Unit newCaster)

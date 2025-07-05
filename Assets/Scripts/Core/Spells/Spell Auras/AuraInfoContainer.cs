@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using Core.AuraEffects;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Info Container", menuName = "Game Data/Containers/Aura Info", order = 1)]
+    [CreateAssetMenu(fileName = "Aura Info Container", menuName = "Game Data/Containers/Aura Info", order = 1)]
     internal class AuraInfoContainer : ScriptableUniqueInfoContainer<AuraInfo>
     {
-        [SerializeField, UsedImplicitly] private List<AuraInfo> auraInfos;
+        [SerializeField] private List<AuraInfo> auraInfos;
 
         private readonly HashSet<int> stealthAuras = new HashSet<int>();
 
@@ -19,7 +18,7 @@ namespace Core
         {
             base.Register();
 
-            foreach(AuraInfo auraInfo in auraInfos)
+            foreach (AuraInfo auraInfo in auraInfos)
                 for (int i = 0; i < auraInfo.AuraEffects.Count; i++)
                     if (auraInfo.AuraEffects[i] is AuraEffectInfoStealth)
                         stealthAuras.Add(auraInfo.Id);

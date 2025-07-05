@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using Client.Spells;
+﻿using Client.Spells;
 using Common;
 using Core;
-using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 using EventHandler = Common.EventHandler;
@@ -11,25 +10,25 @@ namespace Client
 {
     [CreateAssetMenu(fileName = "Rendering Reference", menuName = "Game Data/Scriptable/Rendering", order = 1)]
     public partial class RenderingReference : ScriptableReferenceClient
-    { 
-        [SerializeField, UsedImplicitly] private Sprite defaultSpellIcon;
-        [SerializeField, UsedImplicitly] private BalanceReference balance;
-        [SerializeField, UsedImplicitly] private UnitModelSettingsContainer modelSettingsContainer;
-        [SerializeField, UsedImplicitly] private UnitRendererSettings unitRendererSettings;
+    {
+        [SerializeField] private Sprite defaultSpellIcon;
+        [SerializeField] private BalanceReference balance;
+        [SerializeField] private UnitModelSettingsContainer modelSettingsContainer;
+        [SerializeField] private UnitRendererSettings unitRendererSettings;
         [Header("Controllers")]
-        [SerializeField, UsedImplicitly] private NameplateController nameplateController;
-        [SerializeField, UsedImplicitly] private FloatingTextController floatingTextController;
-        [SerializeField, UsedImplicitly] private SpellVisualController spellVisualController;
-        [SerializeField, UsedImplicitly] private SelectionCircleController selectionCircleController;
-        [SerializeField, UsedImplicitly] private UnitRendererController unitRendererController;
+        [SerializeField] private NameplateController nameplateController;
+        [SerializeField] private FloatingTextController floatingTextController;
+        [SerializeField] private SpellVisualController spellVisualController;
+        [SerializeField] private SelectionCircleController selectionCircleController;
+        [SerializeField] private UnitRendererController unitRendererController;
         [Header("Collections")]
-        [SerializeField, UsedImplicitly] private SpellVisualsInfoContainer spellVisualsInfoContainer;
-        [SerializeField, UsedImplicitly] private AuraVisualsInfoContainer auraVisualsInfoContainer;
-        [SerializeField, UsedImplicitly] private AnimationInfoContainer animationInfoContainer;
-        [SerializeField, UsedImplicitly] private SpellAnimationInfoContainer spellAnimationInfoContainer;
-        [SerializeField, UsedImplicitly] private ClassTypeSpriteDictionary classIconsByClassType;
-        [SerializeField, UsedImplicitly] private SpellPowerTypeColorDictionary colorsBySpellPowerType;
-        [SerializeField, UsedImplicitly] private List<Material> autoIncludedMaterials;
+        [SerializeField] private SpellVisualsInfoContainer spellVisualsInfoContainer;
+        [SerializeField] private AuraVisualsInfoContainer auraVisualsInfoContainer;
+        [SerializeField] private AnimationInfoContainer animationInfoContainer;
+        [SerializeField] private SpellAnimationInfoContainer spellAnimationInfoContainer;
+        [SerializeField] private ClassTypeSpriteDictionary classIconsByClassType;
+        [SerializeField] private SpellPowerTypeColorDictionary colorsBySpellPowerType;
+        [SerializeField] private List<Material> autoIncludedMaterials;
 
         private Transform container;
         private readonly Dictionary<Collider, UnitRenderer> unitRenderersByHitBoxes = new Dictionary<Collider, UnitRenderer>();
@@ -89,7 +88,7 @@ namespace Client
             floatingTextController.DoUpdate(deltaTime);
             spellVisualController.DoUpdate(deltaTime);
         }
-        
+
         protected override void OnWorldStateChanged(World world, bool created)
         {
             if (created)

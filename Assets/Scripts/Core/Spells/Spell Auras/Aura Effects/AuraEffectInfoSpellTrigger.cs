@@ -1,26 +1,25 @@
-﻿using System.Collections.Generic;
-using Core.Conditions;
-using JetBrains.Annotations;
+﻿using Core.Conditions;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.AuraEffects
 {
-    [UsedImplicitly, CreateAssetMenu(fileName = "Aura Effect Spell Trigger", menuName = "Game Data/Spells/Auras/Effects/Spell Trigger", order = 4)]
+    [CreateAssetMenu(fileName = "Aura Effect Spell Trigger", menuName = "Game Data/Spells/Auras/Effects/Spell Trigger", order = 4)]
     public class AuraEffectInfoSpellTrigger : AuraEffectInfo
     {
-        [SerializeField, UsedImplicitly, Range(0.0f, 1.0f)]
+        [SerializeField, Range(0.0f, 1.0f)]
         private float chance;
-        [SerializeField, UsedImplicitly, Range(0.0f, 1.0f)]
+        [SerializeField, Range(0.0f, 1.0f)]
         private float chancePerCombo;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private bool isCasterTriggerTarget;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private bool canCasterBeTriggerTarget;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private SpellInfo triggeredSpell;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private SpellTriggerFlags triggerFlags;
-        [SerializeField, UsedImplicitly]
+        [SerializeField]
         private List<Condition> triggerConditions;
 
         public bool IsCasterTriggerTarget => isCasterTriggerTarget;
