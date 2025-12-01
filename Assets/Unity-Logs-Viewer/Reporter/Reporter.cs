@@ -21,11 +21,15 @@ using System.Collections;
 using System.Collections.Generic;
 #if UNITY_CHANGE3
 using UnityEngine.SceneManagement;
+using static BoltAssets.PlayerMoveCommand;
+
 #endif
 #if UNITY_CHANGE4
 using UnityEngine.Networking;
 #endif
 
+
+using Input = UnityEngine.Input;
 
 [System.Serializable]
 public class Images
@@ -1649,7 +1653,13 @@ public class Reporter : MonoBehaviour
 	int gestureCount = 0;
 	bool isGestureDone()
 	{
-		if (Application.platform == RuntimePlatform.Android ||
+        if(Input.GetKeyDown(KeyCode.KeypadMinus))
+		{
+			return true;
+        }
+
+
+        if (Application.platform == RuntimePlatform.Android ||
 			Application.platform == RuntimePlatform.IPhonePlayer) {
 			if (Input.touches.Length != 1) {
 				gestureDetector.Clear();

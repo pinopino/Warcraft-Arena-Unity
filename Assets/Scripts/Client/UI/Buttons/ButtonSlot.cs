@@ -63,6 +63,7 @@ namespace Client
             if (state == HotkeyState.Pressed)
                 Click();
 
+            Debug.Log(hotkeyInput.KeyCode + ", Pressed: " + HotkeyState.Pressed);
             buttonContent.HandleHotkeyState(state);
         }
 

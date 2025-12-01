@@ -69,6 +69,7 @@ namespace Server
         {
             base.SceneLoadRemoteDone(connection);
 
+            Debug.Log("9.开始创建player，这里是为远程客户端连接创建服务器对象"); // 删除
             World.CreatePlayer(connection);
         }
 
@@ -149,7 +150,7 @@ namespace Server
 
         private void ProcessServerLaunchState(ServerLaunchState state)
         {
-            Debug.Log("7.最终步，World.ServerLaunched，剩下就是创建player和creature了"); // 删除
+            Debug.Log("7.World.ServerLaunched，剩下就是创建player和creature了"); // 删除
             LaunchState |= state;
 
             if (LaunchState == ServerLaunchState.Complete)

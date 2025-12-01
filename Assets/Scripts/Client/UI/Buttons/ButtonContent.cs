@@ -109,9 +109,15 @@ namespace Client
         {
             isHotkeyDown = state == HotkeyState.Pressed;
             if (isHotkeyDown && !isPointerDown)
+            {
                 button.OnPointerDown(manualPointerData);
+                Debug.Log(1);
+            }
             else if (!isHotkeyDown && !isPointerDown)
+            {
                 button.OnPointerUp(manualPointerData);
+                Debug.Log(2);
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)

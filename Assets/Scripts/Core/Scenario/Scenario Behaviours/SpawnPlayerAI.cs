@@ -23,6 +23,7 @@ namespace Core.Scenario
 
         private void OnServerLaunched()
         {
+            return;
             var playerCreateToken = new Player.CreateToken
             {
                 Position = customSpawnSettings.SpawnPoint.position,

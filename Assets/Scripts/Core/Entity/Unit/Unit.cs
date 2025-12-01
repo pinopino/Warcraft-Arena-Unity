@@ -121,10 +121,14 @@ namespace Core
 
         protected virtual void HandleAttach()
         {
+            Debug.Log(DebugHelper.Prefix + "4.实际的创建动作：Unit中的Attach方法被bolt运行时执行，重点在于："); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "4.a. 为该unit上面挂在的所有behavior调用HandleUnitAttach方法"); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "4.b. 调用SetMap方法使得该unit加入地图管理"); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "4.c. 调用World.UnitManager.Attach(this)使得该unit加入unit管理"); // 删除
             selfReference = new SingleReference<Unit>(this);
             UnitCreateToken = (CreateToken)entity.AttachToken;
             entityState = entity.GetState<IUnitState>();
-
+            Debug.Log("     " + DebugHelper.Prefix + "4.d. 调用所有相关IUnitBehaviour的HandleUnitAttach方法，以便让这些behaviour知晓unit的存在，目前比较重要的一个："); // 删除
             behaviourController.HandleUnitAttach(this);
 
             SetMap(World.FindMap(1));

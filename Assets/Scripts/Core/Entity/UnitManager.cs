@@ -20,6 +20,7 @@ namespace Core
             TEntity entity = BoltNetwork.Instantiate(prefabId, createToken).GetComponent<TEntity>();
             entity.ModifyDeathState(DeathState.Alive);
             entity.Attributes.SetHealth(entity.MaxHealth);
+            Debug.Log(DebugHelper.Prefix + "6.实际的创建动作完毕之后首先调用UpdateMovementControl(true)方法"); // 删除
             entity.Motion.UpdateMovementControl(true);
             return entity;
         }

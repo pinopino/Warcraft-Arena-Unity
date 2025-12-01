@@ -50,10 +50,13 @@ namespace Core
         {
             base.Attached();
 
+            Debug.Log(DebugHelper.Prefix + "3.实际的创建动作：WorldEntity中的重载Attach方法被bolt运行时执行，重点在于："); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "3.a. 拿到了该entity的worldEntityState这个网络同步状态"); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "3.b. 调用了该entity的SetTransforms方法，从而绑定了普通unity中gameobject对象的transform属性值跟网络状态的同步关系"); // 删除
             worldEntityState = entity.GetState<IWorldEntityState>();
             worldEntityState.SetTransforms(worldEntityState.Transform, transform);
 
-            createToken = (CreateToken) entity.AttachToken;
+            createToken = (CreateToken)entity.AttachToken;
             Position = createToken.Position;
             Rotation = createToken.Rotation;
         }

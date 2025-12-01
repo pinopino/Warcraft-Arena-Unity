@@ -61,8 +61,7 @@ namespace Server
 
             if (HasClientLogic)
             {
-                Debug.Log("确实含有ClientLogic");
-                
+                Debug.Log("8.开始创建player，这里是创建服务器机主玩家"); // 删除
                 CreatePlayer();
             }
 
@@ -124,6 +123,13 @@ namespace Server
                 playerInfosByConnection[connection].DisconnectTimeLeft = DisconnectedPlayerDestroyTime;
         }
 
+        /*
+         * 说明：
+         * 从CreatePlayer的两个调用方来看，一个是服务器房主这边加载好了world之后会创建房主对应的这个player；
+         * 另一个则是如果服务器这边监听到远端的conn也加载好了场景，那么就会为这个远端的conn创建一个player对象；
+         * （通过SceneLoadRemoteDone(BoltConnection connection)这个回调）
+         * 
+         */
         internal void CreatePlayer(BoltConnection boltConnection = null)
         {
             Map mainMap = MapManager.FindMap(1);
@@ -151,6 +157,8 @@ namespace Server
             if (!mainMap.Settings.Balance.ClassesByType.TryGetValue(classType, out ClassInfo classInfo) || !classInfo.IsAvailable)
                 classType = ClassType.Mage;
 
+            DebugHelper.PlayerName = playerName;
+
             var playerCreateToken = new Player.CreateToken
             {
                 Position = spawnPoint.position,
@@ -163,7 +171,7 @@ namespace Server
                 FactionId = mainMap.Settings.Balance.DefaultFaction.FactionId,
                 PlayerName = playerName
             };
-
+            Debug.Log(DebugHelper.Prefix + "1.实际的创建动作：调用UnitManager的Create方法（注意到因为player依次继承自Unit->WorldEntity->Entity，因此每个基类型都会有相关的初始化逻辑需要走）"); // 删除
             Player newPlayer = UnitManager.Create<Player>(BoltPrefabs.Player, playerCreateToken);
             /*
              * 说明：
@@ -173,6 +181,7 @@ namespace Server
              * conn为空的时候也是在赋值控制权
              * 
              */
+            Debug.Log(DebugHelper.Prefix + "7.接着是调用AssignControl方法，bolt中没有显式赋值的时候控制权为false，newPlayer.IsOwner=" + newPlayer.IsOwner + "，newPlayer.IsController=" + newPlayer.IsController); // 删除
             newPlayer.AssignControl(boltConnection);
             newPlayer.UpdateVisibility(true);
 

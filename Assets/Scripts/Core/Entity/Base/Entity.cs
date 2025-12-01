@@ -34,9 +34,11 @@ namespace Core
         public override void Attached()
         {
             base.Attached();
-
             Id = entity.NetworkId.PackedValue;
             IsValid = true;
+            Debug.Log(DebugHelper.Prefix + "2.实际的创建动作：Entity中的Attach方法被bolt运行时执行，重点在于："); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "2.a. 为该entity分配了id号：" + Id); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "2.b. 赋值了World字段"); // 删除
         }
 
         public override void Detached()

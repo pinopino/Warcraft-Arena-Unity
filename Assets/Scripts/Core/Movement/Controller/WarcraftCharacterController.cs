@@ -118,6 +118,13 @@ namespace Core
             unit = null;
         }
 
+        /*
+         * 说明：（doc103）
+         * We're going to add some very simple movement code to our CubeBehaviour, 
+         * we could use just the normal Unity void Update(){...} way of doing things, 
+         * but Bolt provides another method we can use called SimulateOwner.
+         *  
+         */
         public override void SimulateOwner()
         {
             if (!unit.IsController && !unit.Motion.HasMovementControl || unit.IsController)
@@ -142,7 +149,10 @@ namespace Core
             UpdateRigidbody();
 
             if (unit.IsOwner && unit is Player player)
+            {
+                Debug.Log("     " + DebugHelper.Prefix + "7.c. 触发GameEvents.ServerPlayerMovementControlChanged事件"); // 删除
                 EventHandler.ExecuteEvent(GameEvents.ServerPlayerMovementControlChanged, player, hasMovementControl);
+            }
         }
 
         internal void StopMoving()

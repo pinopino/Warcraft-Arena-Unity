@@ -47,7 +47,26 @@ namespace Core
                 StartMovement(idleMovement, MovementSlot.Idle);
 
                 if (!unit.IsOwner)
+                {
+                    Debug.Log("         " + DebugHelper.Prefix + "4.d.1. unit.Motion.HandleUnitAttach，unit.IsOwner=" + unit.IsOwner + "，因此注册回调OnUnitStateFlagsChanged，以便监听IUnitState.MovementFlags值的变化"); // 删除
+                    /*
+                     * 说明：
+                     * 这里做如下猜测：测试下来我们知道了作为客户端的玩家会有两个实体同时存在，服务器端有一个，
+                     * 自己本地还有一个；
+                     * 
+                     * 作为自己本地的那个，其实功能很弱的，它的内在状态改变一定都发生在服务端。因此，此种情况
+                     * 下就需要要注册回调，以便服务端运算出来状态变了就需要通过回调通知给客户端。
+                     * 
+                     * 类似的情况没猜错的话应该会有不少存在；比如目前发现的都记录在下面：
+                     * player.cs上HandleStateCallbacks
+                     * 
+                     */
                     unit.AddCallback(nameof(IUnitState.MovementFlags), OnUnitStateFlagsChanged);
+                }
+                else
+                {
+                    Debug.Log("         " + DebugHelper.Prefix + "4.d.1. unit.Motion.HandleUnitAttach，unit.IsOwner=" + unit.IsOwner + "，因此没有注册回调了"); // 删除
+                }
             }
 
             void IUnitBehaviour.HandleUnitDetach()
@@ -106,10 +125,14 @@ namespace Core
 
             internal void UpdateMovementControl(bool hasControl)
             {
+                Debug.Log("     " + DebugHelper.Prefix + "6.a. 此时执行修改前unit.IsOwner=" + unit.IsOwner + "，unit.Motion.HasMovementControl=" + HasMovementControl); // 删除
+
                 if (unit.IsOwner && hasControl && !HasMovementControl)
                     remoteControlGainFrame = BoltNetwork.ServerFrame;
 
                 HasMovementControl = hasControl;
+
+                Debug.Log("     " + DebugHelper.Prefix + "6.b. 紧接着修改后unit.IsOwner=" + unit.IsOwner + "，unit.Motion.HasMovementControl=" + HasMovementControl); // 删除
             }
 
             internal void AttachMoveState(BoltEntity moveEntity)
@@ -148,13 +171,6 @@ namespace Core
                 moveState = null;
             }
 
-            /*
-             * 说明：（doc103）
-             * We're going to add some very simple movement code to our CubeBehaviour, 
-             * we could use just the normal Unity void Update(){...} way of doing things, 
-             * but Bolt provides another method we can use called SimulateOwner.
-             * 
-             */
             internal void SimulateOwner()
             {
                 if (unit.Motion.HasMovementControl && moveEntity != null)

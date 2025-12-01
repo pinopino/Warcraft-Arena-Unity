@@ -234,11 +234,17 @@ namespace Core
                 this.world = world;
 
                 boltSharedListener.Initialize(world);
-                Debug.Log("4.boltServerListener.Init && boltClientListener.Init"); // 删除
+
                 if (world.HasServerLogic)
+                {
+                    Debug.Log("4.boltServerListener.Init && boltClientListener.Init"); // 删除
                     boltServerListener.Initialize(world);
+                }
                 if (world.HasClientLogic)
+                {
+                    Debug.Log("4.不同于服务端，客户端并不需要Init两个bolt相关listener"); // 删除
                     boltClientListener.Initialize(world);
+                }
             }
             else
             {

@@ -39,6 +39,10 @@ namespace Game.Workflow.Standard
             bool hasClientLogic = mode == NetworkingMode.Client || mode == NetworkingMode.Both;
 
             Debug.Log("3.gameManager.CreateWorld"); // 删除
+            if (hasServerLogic)
+                Debug.Log("3.1.gameManager.CreateWorld，且hasServerLogic=" + hasServerLogic + "，因此创建的是主机房间世界"); // 删除
+            else
+                Debug.Log("3.1.gameManager.CreateWorld，且hasServerLogic=" + hasServerLogic + "，因此创建的是纯客户端世界"); // 删除
             gameManager.CreateWorld(hasServerLogic ? (World)new WorldServer(hasClientLogic) : new WorldClient(false));
 
             interfaceReference.HideScreen<LobbyScreen>();

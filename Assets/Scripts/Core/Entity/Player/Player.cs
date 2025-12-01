@@ -88,7 +88,8 @@ namespace Core
         protected override void HandleAttach()
         {
             base.HandleAttach();
-
+            Debug.Log(DebugHelper.Prefix + "5.实际的创建动作：player中的HandleAttach方法被bolt运行时执行，重点在于："); // 删除
+            Debug.Log("     " + DebugHelper.Prefix + "5.a. 拿到了该entity的playerState这个网络同步状态"); // 删除
             playerState = entity.GetState<IPlayerState>();
             createToken = (CreateToken)entity.AttachToken;
             createToken.Attached(this);
@@ -143,7 +144,10 @@ namespace Core
             }
 
             if (BoltEntity.ControlGainedToken is ControlGainToken controlGainToken)
+            {
+                Debug.Log("     " + DebugHelper.Prefix + "7.b. player对象（name=" + this.playerName + "）会来响应bolt运行时触发的ControlGained事件，接收到的controlGainToken.HasMovementControl=" + controlGainToken.HasMovementControl); // 删除
                 controlGainToken.ControlGained(this);
+            }
         }
 
         protected override void HandleControlLost()
@@ -216,9 +220,15 @@ namespace Core
         {
             var controlToken = new ControlGainToken { HasMovementControl = Motion.HasMovementControl };
             if (boltConnection == null)
+            {
+                Debug.Log("     " + DebugHelper.Prefix + "7.a. boltConnection为空，所以调用的是BoltEntity.TakeControl，这会让bolt运行时触发ControlGained事件"); // 删除
                 BoltEntity.TakeControl(controlToken);
+            }
             else
+            {
+                Debug.Log("     " + DebugHelper.Prefix + "7.a. boltConnection不为空，所以调用的是BoltEntity.AssignControl（为当前远程conn赋予控制权），这会让bolt运行时触发ControlGained事件"); // 删除
                 BoltEntity.AssignControl(boltConnection, controlToken);
+            }
         }
 
         internal void SwitchClass(ClassType classType)
@@ -243,6 +253,7 @@ namespace Core
             Attributes.UpdateAvailablePowers();
         }
 
+        // 说明：参考unit.motioncontroller中HandleUnitAttach方法的相关注解
         private void HandleStateCallbacks(bool add)
         {
             if (IsOwner)

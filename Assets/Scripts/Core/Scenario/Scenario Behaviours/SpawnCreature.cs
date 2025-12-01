@@ -22,8 +22,11 @@ namespace Core.Scenario
             base.DeInitialize();
         }
 
+        static int a = 0;
         private void OnServerLaunched()
         {
+            if (a++ > 1)
+                return;
             Creature creature = World.UnitManager.Create<Creature>(BoltPrefabs.Creature, new Creature.CreateToken
             {
                 Position = customSpawnSettings.SpawnPoint.position,
